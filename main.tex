@@ -1,0 +1,141 @@
+\documentclass[essd]{copernicus}
+
+\begin{document}
+
+\title{A 48-member physics ensemble-based reconstruction of gridded land surface water budget over the conterminous United States, 1980--2015}
+
+\Author[1]{Hui}{Zheng}
+\Author[2]{Zong-Liang}{Yang}
+\Author[1,3]{Wenli}{Fei}
+\Author[4,2]{Peirong}{Lin}
+\Author[2]{Wen-Ying}{Wu}
+\Author[5,2]{Jiangfeng}{Wei}
+\Author[6,2]{Lingcheng}{Li}
+\Author[7,2]{Long}{Zhao}
+\Author[1]{Kai}{Li}
+
+\affil[1]{Key Laboratory of Regional Climate-Environment Research for Temperate East Asia, Institute of Atmospheric Physics, Chinese Academy of Sciences, Beijing, 100029, China}
+\affil[2]{Department of Geological Sciences, John A. and Katherine G. Jackson School of Geosciences, The University of Texas at Austin, Austin, Texas, 78705, USA}
+\affil[3]{University of Chinese Academy of Sciences, Beijing, 100049, China}
+\affil[4]{Institute of Remote Sensing and Geographic Information System, School of Earth and Space Sciences, Peking University, Beijing, 100871, China}
+\affil[5]{Collaborative Innovation Center on Forecast and Evaluation of Meteorological Disasters/Key Laboratory of Meteorological Disaster, Ministry of Education/International Joint Research Laboratory on Climate and Environment Change, Nanjing University of Information Science and Technology, Nanjing, 210044, China}
+\affil[6]{Pacific Northwest National Laboratory, Richland, Washington, 99354, USA}
+\affil[7]{School of Geographical Sciences, Southwest University, Chongqing, 400715, China}
+
+\correspondence{Zong-Liang Yang (\href{mailto:liang@jsg.utexas.edu}{liang@jsg.utexas.edu})}
+
+\runningtitle{NLDAS-NoahMP hydrological reconstruction}
+
+\runningauthor{Zheng, Yang, Fei, et al.}
+
+\firstpage{1}
+
+\maketitle
+
+
+\begin{abstract}
+    Spatiotemporally continuous and physically consistent data of surface water budget (SWB) over large domains are of high interest. Multi-model ensemble-based reconstructions have shown to be an effective approach to achieving the continuity and consistency. Added to the 4-model ensemble of the North American Land Data Assimilation System phase 2 (NLDAS-2), this study applied an ensemble of 48 physics configurations of the Noah land surface model with multi-physics options (Noah-MP) to reconstruct the SWB over the conterminous United States (CONUS). The 48 Noah-MP configurations are generated as the combinations of four runoff, two surface-layer turbulence conductance, three soil moisture limitation factor on stomata, and two stomatal conductance options. These configurations would represent a considerable variation of commonly-used land surface models in model physics representations and facilitate the process-level attribution of reconstruction uncertainty.
+
+    The resulting reconstruction consists of a set of 1980–2015 monthly SWB data at a 1/8° spatial resolution over the CONUS. The total and constitutes of evapotranspiration (i.e., canopy evaporation, soil evaporation, and transpiration) and runoff (i.e., the surface and subsurface components) are freely downloadable at \url{https://doi.org/place-holder-nmpens-evaprunoff}. Terrestrial water storage and its constitutes (i.e., snow water equivalent, four-layer soil water content from the ground down to 2-m depth, and groundwater storage anomaly) are retrievable from \url{https://doi.org/place-holder-nmpens-tws}.
+
+    Inter-comparisons and evaluations of the ensemble construction show that.
+\end{abstract}
+
+
+\introduction
+
+Importance of spatiotemporally continuous and physically consistent hydrological data over a large domain.
+
+Model simulations provide such an approach in comparison with in-situ observations and remote sensing \citet{saxe2021HESS}.
+
+Drawbacks of model-generated analysis data.
+Significance of model parameterization uncertainty.
+
+Traditional multi-model ensemble and their broad applications.
+
+Advantages of the multi-parameterization ensemble.
+
+\section{Methods}
+
+\subsection{NLDAS-2 and Noah-MP 3.6}
+
+Static parameters
+
+Atmospheric forcings
+
+The Noah-MP LSM version 3.6 is used.
+
+Details of the NLDAS multi-model ensemble can be found in \citet{xia2012JGRA,xia2012JGRAa,fei2021WRR}.
+
+Details of the Noah-MP multi-parameterization ensemble can be found in \citet{zheng2019WRR,zheng2020JAMES,fei2021WRR}.
+
+\subsection{Simulation settings}
+
+\subsection{Surface water budget}
+
+\begin{align}
+    P & = E + R + \Delta S \label{eq:watbal},                          \\
+    E & = E_{can} + E_{soil} + E_{tran} \label{eq:evap},               \\
+    R & = R_{srf} + R_{sub} \label{eq:runoff},                         \\
+    S & = S_{snow} + \sum_{i=1}^{4}S_{soil,i} + S_{gw} \label{eq:tws}
+\end{align}
+where $P$ is precipitation (\unit{kg~m^{-2}~s^{-1}}), $E$ is total evapotranspiration (\unit{kg~m^{-2}~s^{-1}}), $R$ is total runoff (\unit{kg~m^{-2}~s^{-1}}), and $S$ is terrestrial water storage (\unit{kg~m^{-2}}). As shown in equation \eqref{eq:evap}, total evapotranspiration ($E$) consists of evaporation of canopy interception ($E_{can}$, \unit{kg~m^{-2}~s^{-1}}), direct evaporation from the soil ($E_{soil}$, \unit{kg~m^{-2}~s^{-1}}), and transpiration ($E_{tran}$, \unit{kg~m^{-2}~s^{-1}}). Equation \eqref{eq:runoff} shows that total runoff ($R$) consists of a surface ($R_{srf}$, \unit{kg~m^{-2}~s^{-1}}) and a subsurface ($R_{sub}$, \unit{kg~m^{-2}~s^{-1}}) components. Equation \eqref{eq:tws} reveals that terrestrial water storage ($S$) is a sum of snow water equivalent ($S_{snow}$, \unit{kg~m^{-2}}), soil water content in four layers ($S_{soil,i}, i=1,\cdots,4$; \unit{kg~m^{-2}}), and groundwater storage ($S_{gw}$, \unit{kg~m^{-2}}).
+
+Soil water content $S_{soil,i}$ is calculated from volumetric water content ($W_{soil,i}$, \unit{m^3 m^{-3}}) as follows.
+\begin{equation}
+    S_{soil,i} = \rho W_{soil,i} \Delta z_i \quad \mathrm{for} \; i = 1 \cdots 4 ,
+\end{equation}
+where $\rho=1000~\unit{kg~m^{-3}}$ is the density of water; $\Delta z_1=0.1~\unit{m}$, $\Delta z_2=0.3~\unit{m}$, $\Delta z_3=0.6~\unit{m}$, and $\Delta z_2=1.0~\unit{m}$ are the thickness of the four Noah-MP soil layers.
+
+
+\subsection{Metrics}
+
+
+\section{Results}
+
+
+Biases have been evaluated by \citet{zheng2020JAMES}.
+
+
+\subsection{Terrestrial Water Storage}
+
+\subsubsection{Ensemble spread}
+
+\subsubsection{Performance and inter-member independence}
+
+\subsection{Evapotranspiration}
+
+
+\subsection{Runoff}
+
+
+\section{Discussion}
+
+
+\dataavailability{The dataset is freely available for download from the Zenodo online repository at \url{https://doi.org/place-holder-nmpens-evaporunoff} and \url{https://doi.org/place-holder-nmpens-tws}. The dataset (along with datasets on which it is based) is subject to a Creative Commons BY (attribution) license agreement (\url{https://creativecommons.org/licenses}, last access: 2021-08-16).}
+
+
+\codeavailability{TEXT}
+
+
+\conclusions
+TEXT
+
+
+\authorcontribution{ZLY initiated and funded the study. HZ conducted the simulation and generated the data. WF contributed to the generation of the figures. WYW, PL, and JW contributed to the validation of the data. All authors contributed to the drafting of the manuscript.}
+
+
+\competinginterests{The authors declare that they have no conflict of interest}
+
+\disclaimer{The data are provided as is with no warranties.}
+
+\begin{acknowledgements}
+    This work is financially supported by National Science Foundation of China (grants No. 42075165).
+\end{acknowledgements}
+
+
+%% REFERENCES
+\bibliographystyle{copernicus}
+\bibliography{references.bib}
+
+\end{document}
