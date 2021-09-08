@@ -67,22 +67,44 @@ The paper is organized as follows. Section~\ref{sec:data} introduces the informa
 
 \subsection{Surface water budget variables}
 
+Table~\ref{tbl:variables} lists the available variables of the dataset.
+
 \begin{table}[t]
     \caption{The dataset variables.}
     \label{tbl:variables}
     \centering
-    \begin{tabular}{cll}
+    \begin{tabular}{lll}
         \tophline
-        Symbol & Units                   & Description               \\
+        Symbol       & Units                   & Description                         \\
         \middlehline
-        $P$    & \unit{kg~m^{-2}~s^{-1}} & Precipitation             \\
-        $E$    & \unit{kg~m^{-2}~s^{-1}} & Total evapotranspiration  \\
-        $R$    & \unit{kg~m^{-2}~s^{-1}} & Total runoff              \\
-        $S$    & \unit{kg~m^{-2}}        & Terrestrial water storage \\
+        \multicolumn{3}{c}{surface water budget}                                     \\
+        $P$          & \unit{kg~m^{-2}~s^{-1}} & precipitation                       \\
+        $E$          & \unit{kg~m^{-2}~s^{-1}} & total evapotranspiration            \\
+        $E_{can}$    & \unit{kg~m^{-2}~s^{-1}} & evaporation of canopy interception  \\
+        $E_{soil}$   & \unit{kg~m^{-2}~s^{-1}} & direct evapotranspiration from soil \\
+        $E_{tran}$   & \unit{kg~m^{-2}~s^{-1}} & transpiration                       \\
+        $R$          & \unit{kg~m^{-2}~s^{-1}} & total runoff                        \\
+        $R_{srf}$    & \unit{kg~m^{-2}~s^{-1}} & surface runoff                      \\
+        $R_{sub}$    & \unit{kg~m^{-2}~s^{-1}} & subsurface runoff                   \\
+        $S$          & \unit{kg~m^{-2}}        & terrestrial water storage           \\
+        $S_{snow}$   & \unit{kg~m^{-2}}        & snow water equivalent               \\
+        $S_{gw}$     & \unit{kg~m^{-2}}        & unconfined groundwater storage      \\
+        $W_{soil,i}$ & \unit{m^3~m^{-3}}       & volumetric soil water content       \\
+        [1mm]
+        \multicolumn{3}{c}{surface energy budget}                                    \\
+        $R_{s,d}$    & \unit{W~m^{-2}}         & downward solar radiation            \\
+        $R_{l,d}$    & \unit{W~m^{-2}}         & downward longwave radiation         \\
+        $R_{s,u}$    & \unit{W~m^{-2}}         & upward solar radiation              \\
+        $R_{l,u}$    & \unit{W~m^{-2}}         & upward longwave radiation           \\
+        $H$          & \unit{W~m^{-2}}         & sensible heat flux                  \\
+        $T$          & \unit{K}                & air temperature                     \\
+        $T_{snow}$   & \unit{K}                & snow temperature                    \\
+        $T_{soil,i}$ & \unit{K}                & soil temperature                    \\
         \bottomhline
     \end{tabular}
 \end{table}
 
+The relationship between the water budget variables are as follows.
 \begin{align}
     P & = E + R + \Delta S \label{eq:watbal},                          \\
     E & = E_{can} + E_{soil} + E_{tran} \label{eq:evap},               \\
