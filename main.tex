@@ -149,8 +149,7 @@ Assuming that there is no horizontal energy exchange, the surface energy budget 
 \begin{equation}
     R_n = S + I = H + L + \Delta U \text{,} \label{eq:energy-balance}
 \end{equation}
-where $R_n$ is net radiation, $S$ is absorbed solar radiation, $I$ is net longwave radiation, $H$ is sensible heat flux, $L$ is latent heat flux, and $\Delta U$ (\unit{J~m^{-2}~s^{-1}}) is internal energy change of the land column.
-The reflected solar ($S_u$, \unit{W~m^{-2}}) and emitted longwave ($I_u$, \unit{W~m^{-2}}) is not included in the dataset but can be calculated using the NLDAS\nobreakdash-2 downward solar ($S_u$, \unit{W~m^{-2}}) and longwave ($I_u$, \unit{W~m^{-2}}) radiation data:
+where $R_n$ is net radiation, $S$ is absorbed solar radiation, $I$ is net longwave radiation, $H$ is sensible heat flux, $L$ is latent heat flux, and $\Delta U$ (\unit{J~m^{-2}~s^{-1}}) is internal energy change of the land column. The reflected solar ($S_u$, \unit{W~m^{-2}}) and emitted longwave ($I_u$, \unit{W~m^{-2}}) is not included in the dataset but can be calculated using the NLDAS\nobreakdash-2 downward solar ($S_u$, \unit{W~m^{-2}}) and longwave ($I_u$, \unit{W~m^{-2}}) radiation data:
 \begin{align}
     S_u = & S_d - S \text{,} \\
     I_u = & I_d - I \text{.}
@@ -177,14 +176,11 @@ The change in internal energy ($\Delta U$) is associated with the temperature ch
         + \Delta U_{melt} \text{,}
     \end{split}
 \end{equation}
-where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,i}$ (\unit{K}) is the temperature of the $i$-th snow layer, $T_{soil,i}$ \unit{K} is the temperature of the $i$-th soil layer, $\Delta U_{melt}$ is the latent heat associated with water freezing/melting.
-$c_{snow,i}$ (\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of the $i$-th snow layer and derived from the specific heat capacity of snow ice ($C_{ice} = 2.108 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water ($C_{wat} = 4.188 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}):
+where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,i}$ (\unit{K}) is the temperature of the $i$-th snow layer, $T_{soil,i}$ \unit{K} is the temperature of the $i$-th soil layer, $\Delta U_{melt}$ is the latent heat associated with water freezing/melting. $c_{snow,i}$ (\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of the $i$-th snow layer and derived from the specific heat capacity of snow ice ($C_{ice} = 2.108 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water ($C_{wat} = 4.188 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}):
 \begin{equation}
     c_{snow,i} = C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i}
 \end{equation}
-where $\Delta z_{snow,i}$ (\unit{m}) is the thickness of $i$th snow layer, $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the ice density.
-$w_{ice,i}$ (\unit{m^3~m^{-3}}) is the volumetric snow ice content, $w_{liq,i}$ (\unit{m^3~m^{-3}}) is the volumetric liquid water content, and their sum is the volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e., $w_{i} = w_{ice,i} + w_{liq,i}$).
-$c_{soil,i}$ (\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of the $i$th soil layer, which is a mixture of dry matter, water, ice, and air.
+where $\Delta z_{snow,i}$ (\unit{m}) is the thickness of $i$th snow layer, $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the ice density. $w_{ice,i}$ (\unit{m^3~m^{-3}}) is the volumetric snow ice content, $w_{liq,i}$ (\unit{m^3~m^{-3}}) is the volumetric liquid water content, and their sum is the volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e., $w_{i} = w_{ice,i} + w_{liq,i}$). $c_{soil,i}$ (\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of the $i$th soil layer, which is a mixture of dry matter, water, ice, and air.
 \begin{equation}
     \begin{split}
         c_{soil,i} = & c_{mine} (1 - w_{max,i}) \\
