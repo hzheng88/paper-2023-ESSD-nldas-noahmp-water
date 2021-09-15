@@ -35,42 +35,177 @@
 
 \begin{abstract}
 
-    Terrestrial water budget (TWB) data over large domains are of high interest for various hydrological applications. Land surface model (LSM) ensembles are well-suited for a spatiotemporally continuous and physically consistent estimation. As an augmentation of the operational North American Land Data Assimilation System phase 2 (NLDAS\nobreakdash-2) four-LSM ensemble, this study presents a 48-member perturbed-physics ensemble configured from the Noah LSM with multi-physics options (Noah-MP). The 48 Noah-MP physics configurations are selected to give a representative cross-section of commonly used LSMs for parameterizing runoff, atmospheric surface layer turbulence, soil moisture limitation on leaf stomata, and stomatal conductance.
+    Terrestrial water budget (TWB) data over large domains are of high interest
+    for various hydrological applications. Land surface model (LSM) ensembles
+    are well-suited for a spatiotemporally continuous and physically consistent
+    estimation. As an augmentation of the operational North American Land Data
+    Assimilation System phase 2 (NLDAS\nobreakdash-2) four-LSM ensemble, this
+    study presents a 48-member perturbed-physics ensemble configured from the
+    Noah LSM with multi-physics options (Noah-MP). The 48 Noah-MP physics
+    configurations are selected to give a representative cross-section of
+    commonly used LSMs for parameterizing runoff, atmospheric surface layer
+    turbulence, soil moisture limitation on leaf stomata, and stomatal
+    conductance.
 
-    Simulation of the ensemble reproduced 1980–2015 monthly TWB over the conterminous United States at a 1/8° spatial resolution. Total and the constitutes of evapotranspiration (i.e., canopy evaporation, soil evaporation, and transpiration) and runoff (i.e., the surface and subsurface components) are freely downloadable at \url{https://doi.org/place-holder-nmpens-pretrn}. Terrestrial water storage and its components (i.e., snow water equivalent, four-layer soil water content from the ground down to 2-m depth, and groundwater storage anomaly) are retrievable from \url{https://doi.org/place-holder-nmpens-tws}.
+    Simulation of the ensemble reproduced 1980–2015 monthly TWB over the
+    conterminous United States at a 1/8° spatial resolution. Total and the
+    constitutes of evapotranspiration (i.e., canopy evaporation, soil
+    evaporation, and transpiration) and runoff (i.e., the surface and subsurface
+    components) are freely downloadable at
+    \url{https://doi.org/place-holder-nmpens-pretrn}. Terrestrial water storage
+    and its components (i.e., snow water equivalent, four-layer soil water
+    content from the ground down to 2-m depth, and groundwater storage anomaly)
+    are retrievable from \url{https://doi.org/place-holder-nmpens-tws}.
 
-    Inter-comparisons and evaluations of the ensemble reconstructions show a larger ensemble size and would facilitate a better quantification and process-level attribution of the reconstruction uncertainty. The others include: (1) improved performance, (2) updated quantification of reconstruction uncertainty, (3) process-level attribution of the estimation uncertainty.
+    Inter-comparisons and evaluations of the ensemble reconstructions show a
+    larger ensemble size and would facilitate a better quantification and
+    process-level attribution of the reconstruction uncertainty. The others
+    include: (1) improved performance, (2) updated quantification of
+    reconstruction uncertainty, (3) process-level attribution of the estimation
+    uncertainty.
 
 \end{abstract}
 
 
 \introduction \label{sec:intro}
 
-Estimates of terrestrial water budget (TWB) over continental domains are of high interest for a broad range of hydrological applications. Publicly available data have been applied to investigate the state of the terrestrial water cycle \citep{trenberth2013GRL, rodell2015JC, scanlon2018P, yin2020HESS, pascolini-campbell2021N}, to understand the interactions among hydrological processes, vegetation, climate, and human activities \citep{trenberth2013JC, lafontaine2015JAWRA, ward2014PNAS, levia2020NG}, to examine the availability and variability of water resources and use \citep{wu2021JH, hejazi2014HESS, scanlon2012P, voss2013WRR, lv2019JGRA, le2011P, rodell2009N}, and to assess the risk of extreme events such as droughts \citep{peters-lidard2021BAMS, prudhomme2014P, dai2013NCC, su2021JH} and floods \citep{emerton2017NC, lin2018JH}. With the expanding applications, the availability of TWB datasets has been rapidly increasing \citep{peters-lidard2018MM, saxe2021HESS, zhang2018HESS}.
+Estimates of terrestrial water budget (TWB) over continental domains are of high
+interest for a broad range of hydrological applications. Publicly available data
+have been applied to investigate the state of the terrestrial water cycle
+\citep{trenberth2013GRL, rodell2015JC, scanlon2018P, yin2020HESS,
+pascolini-campbell2021N}, to understand the interactions among hydrological
+processes, vegetation, climate, and human activities \citep{trenberth2013JC,
+lafontaine2015JAWRA, ward2014PNAS, levia2020NG}, to examine the availability and
+variability of water resources and use \citep{wu2021JH, hejazi2014HESS,
+scanlon2012P, voss2013WRR, lv2019JGRA, le2011P, rodell2009N}, and to assess the
+risk of extreme events such as droughts \citep{peters-lidard2021BAMS,
+prudhomme2014P, dai2013NCC, su2021JH} and floods \citep{emerton2017NC,
+lin2018JH}. With the expanding applications, the availability of TWB datasets
+has been rapidly increasing \citep{peters-lidard2018MM, saxe2021HESS,
+zhang2018HESS}.
 
-Commonly used methods of estimating TWB include remote sensing, in-situ observations, and model simulations \citep{saxe2021HESS, mccabe2017HESS, pan2012JC, gao2010IJRS, trenberth2007JH}. Among these methods, land surface models (LSMs) are apt for continuously producing physically consistent TWB over a large domain and long period. These characteristics are particularly favorable for some circumstances. LSMs could estimate various TWB components simultaneously, whereas, for some components, such as runoff \citep{lin2019WRR, beck2017HESS}, root-zone soil moisture \citep{xia2015JHa, xia2015JH}, and transpiration \citep{lian2018NCC}, direct remote sensing is either unavailable or highly uncertain. In remote or topographically complex regions, LSMs are valuable as in-situ observations are sparse \citep{kim2021TC}. Estimation based on remote sensing and in-situ observations is often impeded by scale mismatch and observation gaps, whereas the issues impair LSM simulations less. Besides, LSM simulations are well complementary to remote sensing and in-situ observations. Combinations of the estimates from different techniques can improve the estimation accuracy \citep{zhang2018HESS, pan2012JC}, whereas comparisons between the model-simulated estimates and observations could reveal the impacts of human activities \citep{zaussinger2019HESS} and underground processes \citep{zheng2020JAMES}.
+Commonly used methods of estimating TWB include remote sensing, in-situ
+observations, and model simulations \citep{saxe2021HESS, mccabe2017HESS,
+pan2012JC, gao2010IJRS, trenberth2007JH}. Among these methods, land surface
+models (LSMs) are apt for continuously producing physically consistent TWB over
+a large domain and long period. These characteristics are particularly favorable
+for some circumstances. LSMs could estimate various TWB components
+simultaneously, whereas, for some components, such as runoff \citep{lin2019WRR,
+beck2017HESS}, root-zone soil moisture \citep{xia2015JHa, xia2015JH}, and
+transpiration \citep{lian2018NCC}, direct remote sensing is either unavailable
+or highly uncertain. In remote or topographically complex regions, LSMs are
+valuable as in-situ observations are sparse \citep{kim2021TC}. Estimation based
+on remote sensing and in-situ observations is often impeded by scale mismatch
+and observation gaps, whereas the issues impair LSM simulations less. Besides,
+LSM simulations are well complementary to remote sensing and in-situ
+observations. Combinations of the estimates from different techniques can
+improve the estimation accuracy \citep{zhang2018HESS, pan2012JC}, whereas
+comparisons between the model-simulated estimates and observations could reveal
+the impacts of human activities \citep{zaussinger2019HESS} and underground
+processes \citep{zheng2020JAMES}.
 
-For delivering consistent and continuous TWB estimates over a large domain, several operational multi-LSM ensemble simulation systems have been set up \citep{xia2019JMR, shi2011SCES, carrera2015JH, rodell2004BAMS}.
-The North American Land Data Assimilation System (NLDAS) \citep{xia2012JGRA, xia2012JGRAa, mitchell2004JGRA} stands as one of the pioneering and most successful systems. The NLDAS phase 2 (NLDAS\nobreakdash-2) operates over the conterminous United States (CONUS) from 1979 to near real-time at a spatial resolution of 1/8°.
-The system generates a set of multi-source synthesized data of surface meteorology, vegetation, and soils and uses them to drive an ensemble of four different LSMs. The four LSMs, namely Noah version 2.8 \citep{ek2003JGRA, chen2001MWR, chen2001MWRa, chen1997BM}, Variable Infiltration Capacity (VIC) version 4.0.3 \citep{liang1994JGRA}, Mosaic \citep{koster1992JGRA}, and Sacramento Soil Moisture Accounting (SAC) \citep{burnash1973}, are selected to give a good cross-section of diverse LSMs with different physical parameterizations \citep{mitchell2004JGRA}.
-The models have varying strengths and weaknesses in process parameterizations and modeling skills \citep{kumar2017WRR}. An ensemble of multiple models could produce an aggregated estimate that outperforms most of the ensemble constitutes \citep{fei2021WRR, beck2017HESS, guo2007QJRMS, ajami2007WRR} as well as quantify the estimation uncertainty resulted from different model formulations \citep{troin2021WRR, cloke2009JoH}.
-Evaluations of the NLDAS\nobreakdash-2 four-LSM ensemble estimates have shown satisfactory performance in matching the observed evapotranspiration \citep{zhang2020AFM, xia2012JGRA, kumar2018RS}, runoff \citep{xia2012JGRAa}, soil moisture \citep{xia2015JH, xia2015JHa}.
+For delivering consistent and continuous TWB estimates over a large domain,
+several operational multi-LSM ensemble simulation systems have been set up
+\citep{xia2019JMR, shi2011SCES, carrera2015JH, rodell2004BAMS}. The North
+American Land Data Assimilation System (NLDAS) \citep{xia2012JGRA, xia2012JGRAa,
+mitchell2004JGRA} stands as one of the pioneering and most successful systems.
+The NLDAS phase 2 (NLDAS\nobreakdash-2) operates over the conterminous United
+States (CONUS) from 1979 to near real-time at a spatial resolution of 1/8°. The
+system generates a set of multi-source synthesized data of surface meteorology,
+vegetation, and soils and uses them to drive an ensemble of four different LSMs.
+The four LSMs, namely Noah version 2.8 \citep{ek2003JGRA, chen2001MWR,
+chen2001MWRa, chen1997BM}, Variable Infiltration Capacity (VIC) version 4.0.3
+\citep{liang1994JGRA}, Mosaic \citep{koster1992JGRA}, and Sacramento Soil
+Moisture Accounting (SAC) \citep{burnash1973}, are selected to give a good
+cross-section of diverse LSMs with different physical parameterizations
+\citep{mitchell2004JGRA}. The models have varying strengths and weaknesses in
+process parameterizations and modeling skills \citep{kumar2017WRR}. An ensemble
+of multiple models could produce an aggregated estimate that outperforms most of
+the ensemble constitutes \citep{fei2021WRR, beck2017HESS, guo2007QJRMS,
+ajami2007WRR} as well as quantify the estimation uncertainty resulted from
+different model formulations \citep{troin2021WRR, cloke2009JoH}. Evaluations of
+the NLDAS\nobreakdash-2 four-LSM ensemble estimates have shown satisfactory
+performance in matching the observed evapotranspiration \citep{zhang2020AFM,
+xia2012JGRA, kumar2018RS}, runoff \citep{xia2012JGRAa}, soil moisture
+\citep{xia2015JH, xia2015JHa}.
 
-This study enriches the NLDAS\nobreakdash-2 four-model ensemble with 48 perturbed-physics configurations of the Noah LSM with multi-physics options (Noah-MP) citep{niu2011JGRA, yang2011JGRA}. Noah-MP has more physically realistic representations of the vertical stratification than the NLDAS\nobreakdash-2 models have. A column of the land in Noah-MP consists of a vegetation canopy layer, three snowpack layers, four soil layers, and a groundwater component \citep{niu2011JGRA}. Conceptual (e.g., the five water tanks of SAC) and lumped (e.g., the vegetation-soil combined surface layer of Noah) representations of the stratification of vegetation and soil, as used in the NLDAS\nobreakdash-2 models, are minimized. Noah-MP has a more comprehensive representation of various land surface processes that are evident at different depths. The modeled processes include snow accumulation and ablation, infiltration, percolation, retention, freezing/thawing of snow/soil water, groundwater recharge/discharge, and energy constraints \citep{niu2011JGRA}. The improvements in vertical stratification and process parameterizations are expected to produce better TWB estimates. Previous comparisons between Noah-MP and the four NLDAS\nobreakdash-2 LSMs have shown that Noah-MP is comparable or better in estimating soil moisture \citep{cai2014JGRAa}, runoff \citep{fei2021WRR, cai2014JGRAa}, and evapotranspiration \citep{zhang2020AFM}. The results encouraged computationally expensive runs of Noah-MP as done in this study.
+This study enriches the NLDAS\nobreakdash-2 four-model ensemble with 48
+perturbed-physics configurations of the Noah LSM with multi-physics options
+(Noah-MP) citep{niu2011JGRA, yang2011JGRA}. Noah-MP has more physically
+realistic representations of the vertical stratification than the
+NLDAS\nobreakdash-2 models have. A column of the land in Noah-MP consists of a
+vegetation canopy layer, three snowpack layers, four soil layers, and a
+groundwater component \citep{niu2011JGRA}. Conceptual (e.g., the five water
+tanks of SAC) and lumped (e.g., the vegetation-soil combined surface layer of
+Noah) representations of the stratification of vegetation and soil, as used in
+the NLDAS\nobreakdash-2 models, are minimized. Noah-MP has a more comprehensive
+representation of various land surface processes that are evident at different
+depths. The modeled processes include snow accumulation and ablation,
+infiltration, percolation, retention, freezing/thawing of snow/soil water,
+groundwater recharge/discharge, and energy constraints \citep{niu2011JGRA}. The
+improvements in vertical stratification and process parameterizations are
+expected to produce better TWB estimates. Previous comparisons between Noah-MP
+and the four NLDAS\nobreakdash-2 LSMs have shown that Noah-MP is comparable or
+better in estimating soil moisture \citep{cai2014JGRAa}, runoff
+\citep{fei2021WRR, cai2014JGRAa}, and evapotranspiration \citep{zhang2020AFM}.
+The results encouraged computationally expensive runs of Noah-MP as done in this
+study.
 
-The enrichment also features a single-model perturbed-physics ensemble, which is different from the widely-used multi-model ensembles. The Noah-MP ensemble is constructed by shuffling the available parameterization options of several selected processes. The ensemble size grows exponentially as a multiplication of the available parameterization options of different processes \citep{yang2011JGRA, zhang2016JGRA, gan2019WRR}. A large ensemble should give a broad cross-section of feasible model formulations to account for the model uncertainty in TWB estimation \citep{telteu2021GMD, mitchell2004JGRA}) and is critical for a statistically reliable estimation of the probability of hydrological events such as floods and droughts \citep{troin2021WRR}. The single-model perturbed-physics ensemble also facilitates uncertainty attribution and reduction. The ensemble consists of pairs that are different in the parameterization of one process and the same in the other processes. The impacts of the process’s parameterizations can be pinpointed from the model predictive variations. Variance analysis can be applied to quantify the contribution of the parameterization of the process and compare the relative importance of two processes \citep{clark2011WRR, zheng2019WRR}. The quantification could inform further model development to reduce the model uncertainty. However, there are pitfalls unique to the single-model perturbed-physics ensemble. The ensemble members share a significant portion of the same model formulations \citep{fei2021WRR}). The physics similarity among the ensemble members may create redundant information and lower the efficiency characterized by the ratio of ensemble utility over computational costs. Future development of ensemble aggregation and optimization methods should be developed for the single-model perturbed-physics ensemble. A publically available dataset would promote the studies.
+The enrichment also features a single-model perturbed-physics ensemble, which is
+different from the widely-used multi-model ensembles. The Noah-MP ensemble is
+constructed by shuffling the available parameterization options of several
+selected processes. The ensemble size grows exponentially as a multiplication of
+the available parameterization options of different processes
+\citep{yang2011JGRA, zhang2016JGRA, gan2019WRR}. A large ensemble should give a
+broad cross-section of feasible model formulations to account for the model
+uncertainty in TWB estimation \citep{telteu2021GMD, mitchell2004JGRA}) and is
+critical for a statistically reliable estimation of the probability of
+hydrological events such as floods and droughts \citep{troin2021WRR}. The
+single-model perturbed-physics ensemble also facilitates uncertainty attribution
+and reduction. The ensemble consists of pairs that are different in the
+parameterization of one process and the same in the other processes. The impacts
+of the process’s parameterizations can be pinpointed from the model predictive
+variations. Variance analysis can be applied to quantify the contribution of the
+parameterization of the process and compare the relative importance of two
+processes \citep{clark2011WRR, zheng2019WRR}. The quantification could inform
+further model development to reduce the model uncertainty. However, there are
+pitfalls unique to the single-model perturbed-physics ensemble. The ensemble
+members share a significant portion of the same model formulations
+\citep{fei2021WRR}). The physics similarity among the ensemble members may
+create redundant information and lower the efficiency characterized by the ratio
+of ensemble utility over computational costs. Future development of ensemble
+aggregation and optimization methods should be developed for the single-model
+perturbed-physics ensemble. A publically available dataset would promote the
+studies.
 
-We will show the information necessary for using the dataset in Section~\ref{sec:data}, including the dataset variables, file organizations, and the source data and models used for data generation. In this study, we will focus on the assessment of data performance and uncertainty. The assessment methods are described in Section~\ref{sec:evaluation}, and Section~\ref{sec:result} presents the assessment results. The results could directly inform applications of the data. After Section~\ref{sec:availability} shows the data availability, Section~\ref{sec:conclusion} provides conclusions and discussions.
+We will show the information necessary for using the dataset in
+Section~\ref{sec:data}, including the dataset variables, file organizations, and
+the source data and models used for data generation. In this study, we will
+focus on the assessment of data performance and uncertainty. The assessment
+methods are described in Section~\ref{sec:evaluation}, and
+Section~\ref{sec:result} presents the assessment results. The results could
+directly inform applications of the data. After Section~\ref{sec:availability}
+shows the data availability, Section~\ref{sec:conclusion} provides conclusions
+and discussions.
 
 
 \section{Dataset description} \label{sec:data}
 
-The dataset contains gridded surface energy and water budget variables over the CONUS. Section~\ref{sec:data:variables} describes the dataset variables and their physical relationships. The 48 Noah-MP physics configurations used to create the dataset are detailed in Section~\ref{sec:data:noahmp}. Sections~\ref{sec:data:nldas} and \ref{sec:data:simulation} brief the atmospheric forcing, static parameters of vegetation and soil, and simulation settings.
+The dataset contains gridded surface energy and water budget variables over the
+CONUS. Section~\ref{sec:data:variables} describes the dataset variables and
+their physical relationships. The 48 Noah-MP physics configurations used to
+create the dataset are detailed in Section~\ref{sec:data:noahmp}.
+Sections~\ref{sec:data:nldas} and \ref{sec:data:simulation} brief the
+atmospheric forcing, static parameters of vegetation and soil, and simulation
+settings.
 
 
 \subsection{Dataset variables} \label{sec:data:variables}
 
-Table~\ref{tbl:variables} lists the dataset variables. The variables are available at each 1/8° NLDAS\nobreakdash-2 grid indicated by a land-water mask ($X$). The variables fall into two groups: the surface water and energy budget variables.
+Table~\ref{tbl:variables} lists the dataset variables. The variables are
+available at each 1/8° NLDAS\nobreakdash-2 grid indicated by a land-water mask
+($X$). The variables fall into two groups: the surface water and energy budget
+variables.
 
 \begin{table}[t]
     \caption{The dataset variables.}
@@ -116,13 +251,19 @@ Table~\ref{tbl:variables} lists the dataset variables. The variables are availab
 
 \subsubsection{surface water budget}
 
-Neglecting horizontal water exchange between adjacent grid, the water budget closure could be obtained among the precipitation ($P$, \unit{kg~m^{-2}~s^{-1}}), evapotranspiration ($E$), runoff ($R$), and terrestrial water storage ($W$) change \citep{zheng2020JAMES}:
+Neglecting horizontal water exchange between adjacent grid, the water budget
+closure could be obtained among the precipitation ($P$,
+\unit{kg~m^{-2}~s^{-1}}), evapotranspiration ($E$), runoff ($R$), and
+terrestrial water storage ($W$) change \citep{zheng2020JAMES}:
 \begin{equation}
     P = E + R + \Delta W \text{,}
 \end{equation}
-where, precipitation ($P$) is from NLDAS\nobreakdash-2 (described in Sections~\ref{sec:data:nldas}) and used as model input in this study.
+where, precipitation ($P$) is from NLDAS\nobreakdash-2 (described in
+Sections~\ref{sec:data:nldas}) and used as model input in this study.
 
-Noah-MP resolves the constitutes of the water budget terms. Evapotranspiration ($E$) consists of canopy evaporation ($E_{can}$), ground evaoration ($E_{gnd}$), and transpiration ($E_{tran}$):
+Noah-MP resolves the constitutes of the water budget terms. Evapotranspiration
+($E$) consists of canopy evaporation ($E_{can}$), ground evaoration ($E_{gnd}$),
+and transpiration ($E_{tran}$):
 \begin{equation}
     E = E_{can} + E_{gnd} + E_{tran} \text{.}
 \end{equation}
@@ -130,26 +271,39 @@ Runoff {$R$} is the sum of a surface and subsurface component:
 \begin{equation}
     R = R_{srf} + R_{und} \text{.}
 \end{equation}
-Terrestrial water storage ($W$) constitutes canopy interception ($W_{can}$), snow water equivalent ($W_{snow}$), groundwater storage in unconfined aquifers ($W_{gw}$), and soil water content in the four model layers ($W_{soil,i}$, \unit{kg~m^{-2}}):
+Terrestrial water storage ($W$) constitutes canopy interception ($W_{can}$),
+snow water equivalent ($W_{snow}$), groundwater storage in unconfined aquifers
+($W_{gw}$), and soil water content in the four model layers ($W_{soil,i}$,
+\unit{kg~m^{-2}}):
 \begin{equation}
     W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^4 W_{soil,i} \text{.}
 \end{equation}
-Soil water storage ($W_{soil,i}$) is not included in the dataset but can be calculated from volumetric soil water content ($w_{i}$) as follows:
+Soil water storage ($W_{soil,i}$) is not included in the dataset but can be
+calculated from volumetric soil water content ($w_{i}$) as follows:
 \begin{equation}
     W_{soil,i} = \rho_{wat} w_i \Delta z_i
     \quad \text{for} \; i = 1, \cdots, 4
     \text{,} \label{eq:soil-vmc}
 \end{equation}
-where $\rho_{wat}=1000$~\unit{kg~m^{-3}} is the water density; $\Delta z_1=0.1$~\unit{m}, $\Delta z_2=0.3$~\unit{m}, $\Delta z_3=0.6$~\unit{m}, and $\Delta z_2=1.0$~\unit{m} are the thickness of the four soil layers.
+where $\rho_{wat}=1000$~\unit{kg~m^{-3}} is the water density; $\Delta
+z_1=0.1$~\unit{m}, $\Delta z_2=0.3$~\unit{m}, $\Delta z_3=0.6$~\unit{m}, and
+$\Delta z_2=1.0$~\unit{m} are the thickness of the four soil layers.
 
 
 \subsubsection{surface energy budget}
 
-Assuming that there is no horizontal energy exchange, the surface energy budget of a grid cell is closed as follows:
+Assuming that there is no horizontal energy exchange, the surface energy budget
+of a grid cell is closed as follows:
 \begin{equation}
     R_n = S + I = H + L + \Delta U \text{,} \label{eq:energy-balance}
 \end{equation}
-where $R_n$ is net radiation, $S$ is absorbed solar radiation, $I$ is net longwave radiation, $H$ is sensible heat flux, $L$ is latent heat flux, and $\Delta U$ (\unit{J~m^{-2}~s^{-1}}) is internal energy change of the land column. The reflected solar ($S_u$, \unit{W~m^{-2}}) and emitted longwave ($I_u$, \unit{W~m^{-2}}) is not included in the dataset but can be calculated using the NLDAS\nobreakdash-2 downward solar ($S_u$, \unit{W~m^{-2}}) and longwave ($I_u$, \unit{W~m^{-2}}) radiation data:
+where $R_n$ is net radiation, $S$ is absorbed solar radiation, $I$ is net
+longwave radiation, $H$ is sensible heat flux, $L$ is latent heat flux, and
+$\Delta U$ (\unit{J~m^{-2}~s^{-1}}) is internal energy change of the land
+column. The reflected solar ($S_u$, \unit{W~m^{-2}}) and emitted longwave
+($I_u$, \unit{W~m^{-2}}) is not included in the dataset but can be calculated
+using the NLDAS\nobreakdash-2 downward solar ($S_u$, \unit{W~m^{-2}}) and
+longwave ($I_u$, \unit{W~m^{-2}}) radiation data:
 \begin{align}
     S_u = & S_d - S \text{,} \\
     I_u = & I_d - I \text{.}
@@ -162,13 +316,21 @@ The energy budget terms aggregate two components.
     H = & H_{can} + H_{gnd} \text{,} \\
     L = & L_{can} + L_{gnd} \text{,}
 \end{align}
-where $S_{can}$ ($S_{gnd}$) is the solar radiation absorbed by the canopy (ground), $I_{can}$ ($I_{gnd}$) is the net longwave radiation at the canopy (ground), $H_{can}$ ($H_{gnd}$) is the sensible heat flux from the canopy (ground). $L_{can}$ is the latent heat flux from the canopy and linked to the processes of canopy evaporation ($E_{can}$) and transpiration ($E_{tran}$)). $L_{gnd}$ is the latent heat flux from the ground and linked to ground evaporation ($E_{gnd}$). The canopy and ground components of the energy budget terms are closed as follows:
+where $S_{can}$ ($S_{gnd}$) is the solar radiation absorbed by the canopy
+(ground), $I_{can}$ ($I_{gnd}$) is the net longwave radiation at the canopy
+(ground), $H_{can}$ ($H_{gnd}$) is the sensible heat flux from the canopy
+(ground). $L_{can}$ is the latent heat flux from the canopy and linked to the
+processes of canopy evaporation ($E_{can}$) and transpiration ($E_{tran}$)).
+$L_{gnd}$ is the latent heat flux from the ground and linked to ground
+evaporation ($E_{gnd}$). The canopy and ground components of the energy budget
+terms are closed as follows:
 \begin{align}
     S_{can} + I_{can} = & H_{can} + L_{can} \text{,}            \\
     S_{gnd} + I_{gnd} = & H_{gnd} + L_{gnd} + \Delta U \text{.}
 \end{align}
 
-The change in internal energy ($\Delta U$) is associated with the temperature change of and water freezing/melting in the land column:
+The change in internal energy ($\Delta U$) is associated with the temperature
+change of and water freezing/melting in the land column:
 \begin{equation}
     \begin{split}
         \Delta U = & \sum_{i=1}^{N_{snow}} c_{snow,i} \Delta z_{snow,i} \Delta T_{snow,i} \\
@@ -176,11 +338,25 @@ The change in internal energy ($\Delta U$) is associated with the temperature ch
         + \Delta U_{melt} \text{,}
     \end{split}
 \end{equation}
-where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,i}$ (\unit{K}) is the temperature of the $i$-th snow layer, $T_{soil,i}$ \unit{K} is the temperature of the $i$-th soil layer, $\Delta U_{melt}$ is the latent heat associated with water freezing/melting. $c_{snow,i}$ (\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of the $i$-th snow layer and derived from the specific heat capacity of snow ice ($C_{ice} = 2.108 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water ($C_{wat} = 4.188 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}):
+where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,i}$ (\unit{K}) is
+the temperature of the $i$-th snow layer, $T_{soil,i}$ \unit{K} is the
+temperature of the $i$-th soil layer, $\Delta U_{melt}$ is the latent heat
+associated with water freezing/melting. $c_{snow,i}$ (\unit{J~m^{-3}~K^{-1}}) is
+the volumetric heat capacity of the $i$-th snow layer and derived from the
+specific heat capacity of snow ice ($C_{ice} = 2.108 \times 10^3$
+\unit{J~kg^{-1}~K^{-1}}) and supercoolded water ($C_{wat} = 4.188 \times 10^3$
+\unit{J~kg^{-1}~K^{-1}}):
 \begin{equation}
     c_{snow,i} = C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i}
 \end{equation}
-where $\Delta z_{snow,i}$ (\unit{m}) is the thickness of $i$th snow layer, $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the ice density. $w_{ice,i}$ (\unit{m^3~m^{-3}}) is the volumetric snow ice content, $w_{liq,i}$ (\unit{m^3~m^{-3}}) is the volumetric liquid water content, and their sum is the volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e., $w_{i} = w_{ice,i} + w_{liq,i}$). $c_{soil,i}$ (\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of the $i$th soil layer, which is a mixture of dry matter, water, ice, and air.
+where $\Delta z_{snow,i}$ (\unit{m}) is the thickness of $i$th snow layer,
+$\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the ice density. $w_{ice,i}$
+(\unit{m^3~m^{-3}}) is the volumetric snow ice content, $w_{liq,i}$
+(\unit{m^3~m^{-3}}) is the volumetric liquid water content, and their sum is the
+volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e.,
+$w_{i} = w_{ice,i} + w_{liq,i}$). $c_{soil,i}$ (\unit{J~m^{-3}~K^{-1}}) is the
+volumetric heat capacity of the $i$th soil layer, which is a mixture of dry
+matter, water, ice, and air.
 \begin{equation}
     \begin{split}
         c_{soil,i} = & c_{mine} (1 - w_{max,i}) \\
@@ -188,7 +364,11 @@ where $\Delta z_{snow,i}$ (\unit{m}) is the thickness of $i$th snow layer, $\rho
         & + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
     \end{split}
 \end{equation}
-where $w_{max,i}$ (\unit{m^3~m^{-3}}) is soil porosity, $C_{p,air} = 1004.64~\unit{J~kg^{-1}~K^{-1}}$ is the isobaric heat capacity of dry air, $\rho_{air}$ (\unit{m}) is air density. $c_{mine}$ (\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of dry soil matter, the value of which is $2\times10^6$ in Noah-MP.
+where $w_{max,i}$ (\unit{m^3~m^{-3}}) is soil porosity, $C_{p,air} =
+1004.64~\unit{J~kg^{-1}~K^{-1}}$ is the isobaric heat capacity of dry air,
+$\rho_{air}$ (\unit{m}) is air density. $c_{mine}$ (\unit{J~m^{-3}~K^{-1}}) is
+the volumetric heat capacity of dry soil matter, the value of which is
+$2\times10^6$ in Noah-MP.
 
 
 \subsection{48 Noah-MP physics configurations} \label{sec:data:noahmp}
@@ -244,9 +424,11 @@ Atmospheric forcings
 
 The Noah-MP LSM version 3.6 is used.
 
-Details of the NLDAS multi-model ensemble can be found in \citet{xia2012JGRA,xia2012JGRAa,fei2021WRR}.
+Details of the NLDAS multi-model ensemble can be found in
+\citet{xia2012JGRA,xia2012JGRAa,fei2021WRR}.
 
-Details of the Noah-MP multi-parameterization ensemble can be found in \citet{zheng2019WRR,zheng2020JAMES,fei2021WRR}.
+Details of the Noah-MP multi-parameterization ensemble can be found in
+\citet{zheng2019WRR,zheng2020JAMES,fei2021WRR}.
 
 
 \subsection{Simulation settings} \label{sec:data:simulation}
@@ -272,7 +454,12 @@ Biases have been evaluated by \citet{zheng2020JAMES}.
 \subsubsection{Runoff}
 
 
-\codedataavailability{ The data are freely available for download from the Zenodo online repository at \url{https://doi.org/place-holder-nmpens-pretrn} and \url{https://doi.org/place-holder-nmpens-tws}. The dataset (along with datasets on which it is based) is subject to a Creative Commons BY (attribution) license agreement (\url{https://creativecommons.org/licenses}, last access: 2021-08-16). } \label{sec:availability}
+\codedataavailability{ The data are freely available for download from the
+Zenodo online repository at \url{https://doi.org/place-holder-nmpens-pretrn} and
+\url{https://doi.org/place-holder-nmpens-tws}. The dataset (along with datasets
+on which it is based) is subject to a Creative Commons BY (attribution) license
+agreement (\url{https://creativecommons.org/licenses}, last access: 2021-08-16).
+} \label{sec:availability}
 
 
 \conclusions[Conclusions and Discussion] \label{sec:conclusion}
@@ -288,7 +475,8 @@ conclusion text
 
 \begin{acknowledgements}
 
-    This work is supported by the National Science Foundation of China (grants 42075165, 41375088, and 41605062).
+    This work is supported by the National Science Foundation of China (grants
+    42075165, 41375088, and 41605062).
 
 \end{acknowledgements}
 
