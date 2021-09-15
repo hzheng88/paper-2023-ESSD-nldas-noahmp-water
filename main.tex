@@ -271,21 +271,21 @@ Runoff {$R$} is the sum of a surface and subsurface component:
 \begin{equation}
     R = R_{srf} + R_{und} \text{.}
 \end{equation}
-Terrestrial water storage ($W$) constitutes canopy interception ($W_{can}$),
+Terrestrial water storage ($W$) consists of canopy interception ($W_{can}$),
 snow water equivalent ($W_{snow}$), groundwater storage in unconfined aquifers
-($W_{gw}$), and soil water content in the four model layers ($W_{soil,i}$,
+($W_{gw}$), and soil water content in four layers ($W_{soil,i}$,
 \unit{kg~m^{-2}}):
 \begin{equation}
     W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^4 W_{soil,i} \text{.}
 \end{equation}
-Soil water storage ($W_{soil,i}$) is not included in the dataset but can be
-calculated from volumetric soil water content ($w_{i}$) as follows:
+Soil water storage ($W_{soil,i}$) is not provided in the dataset but can be
+calculated from volumetric soil water content ($w_{i}$):
 \begin{equation}
     W_{soil,i} = \rho_{wat} w_i \Delta z_i
     \quad \text{for} \; i = 1, \cdots, 4
     \text{,} \label{eq:soil-vmc}
 \end{equation}
-where $\rho_{wat}=1000$~\unit{kg~m^{-3}} is the water density; $\Delta
+where $\rho_{wat}=1000$~\unit{kg~m^{-3}} is the density of water; $\Delta
 z_1=0.1$~\unit{m}, $\Delta z_2=0.3$~\unit{m}, $\Delta z_3=0.6$~\unit{m}, and
 $\Delta z_2=1.0$~\unit{m} are the thickness of the four soil layers.
 
@@ -293,7 +293,7 @@ $\Delta z_2=1.0$~\unit{m} are the thickness of the four soil layers.
 \subsubsection{surface energy budget}
 
 Assuming that there is no horizontal energy exchange, the surface energy budget
-of a grid cell is closed as follows:
+of a grid cell is closed as follow:
 \begin{equation}
     R_n = S + I = H + L + \Delta U \text{,} \label{eq:energy-balance}
 \end{equation}
@@ -309,7 +309,7 @@ longwave ($I_u$, \unit{W~m^{-2}}) radiation data:
     I_u = & I_d - I \text{.}
 \end{align}
 
-The energy budget terms aggregate two components.
+The energy budget terms consist of two components.
 \begin{align}
     S = & S_{can} + S_{gnd} \text{,} \\
     I = & I_{can} + I_{gnd} \text{,} \\
@@ -320,17 +320,17 @@ where $S_{can}$ ($S_{gnd}$) is the solar radiation absorbed by the canopy
 (ground), $I_{can}$ ($I_{gnd}$) is the net longwave radiation at the canopy
 (ground), $H_{can}$ ($H_{gnd}$) is the sensible heat flux from the canopy
 (ground). $L_{can}$ is the latent heat flux from the canopy and linked to the
-processes of canopy evaporation ($E_{can}$) and transpiration ($E_{tran}$)).
-$L_{gnd}$ is the latent heat flux from the ground and linked to ground
-evaporation ($E_{gnd}$). The canopy and ground components of the energy budget
-terms are closed as follows:
+processes of interception evaporation ($E_{can}$) and transpiration
+($E_{tran}$)). $L_{gnd}$ is the latent heat flux from the ground and linked to
+ground evaporation ($E_{gnd}$). The energy budget terms of the canopy and ground
+are both balanced.
 \begin{align}
     S_{can} + I_{can} = & H_{can} + L_{can} \text{,}            \\
     S_{gnd} + I_{gnd} = & H_{gnd} + L_{gnd} + \Delta U \text{.}
 \end{align}
 
 The change in internal energy ($\Delta U$) is associated with the temperature
-change of and water freezing/melting in the land column:
+change and water freezing/melting of the land column:
 \begin{equation}
     \begin{split}
         \Delta U = & \sum_{i=1}^{N_{snow}} c_{snow,i} \Delta z_{snow,i} \Delta T_{snow,i} \\
@@ -350,7 +350,7 @@ specific heat capacity of snow ice ($C_{ice} = 2.108 \times 10^3$
     c_{snow,i} = C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i}
 \end{equation}
 where $\Delta z_{snow,i}$ (\unit{m}) is the thickness of $i$th snow layer,
-$\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the ice density. $w_{ice,i}$
+$\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,i}$
 (\unit{m^3~m^{-3}}) is the volumetric snow ice content, $w_{liq,i}$
 (\unit{m^3~m^{-3}}) is the volumetric liquid water content, and their sum is the
 volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e.,
@@ -366,9 +366,9 @@ matter, water, ice, and air.
 \end{equation}
 where $w_{max,i}$ (\unit{m^3~m^{-3}}) is soil porosity, $C_{p,air} =
 1004.64~\unit{J~kg^{-1}~K^{-1}}$ is the isobaric heat capacity of dry air,
-$\rho_{air}$ (\unit{m}) is air density. $c_{mine}$ (\unit{J~m^{-3}~K^{-1}}) is
-the volumetric heat capacity of dry soil matter, the value of which is
-$2\times10^6$ in Noah-MP.
+$\rho_{air}$ (\unit{m}) is the density of air. $c_{mine}$
+(\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of dry soil matter, the
+value of which is $2\times10^6$ in Noah-MP.
 
 
 \subsection{48 Noah-MP physics configurations} \label{sec:data:noahmp}
