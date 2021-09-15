@@ -158,7 +158,7 @@ selected processes. The ensemble size grows exponentially as a multiplication of
 the available parameterization options of different processes
 \citep{yang2011JGRA, zhang2016JGRA, gan2019WRR}. A large ensemble should give a
 broad cross-section of feasible model formulations to account for the model
-uncertainty in TWB estimation \citep{telteu2021GMD, mitchell2004JGRA}) and is
+uncertainty in TWB estimation \citep{telteu2021GMD, mitchell2004JGRA} and is
 critical for a statistically reliable estimation of the probability of
 hydrological events such as floods and droughts \citep{troin2021WRR}. The
 single-model perturbed-physics ensemble also facilitates uncertainty attribution
@@ -171,7 +171,7 @@ processes \citep{clark2011WRR, zheng2019WRR}. The quantification could inform
 further model development to reduce the model uncertainty. However, there are
 pitfalls unique to the single-model perturbed-physics ensemble. The ensemble
 members share a significant portion of the same model formulations
-\citep{fei2021WRR}). The physics similarity among the ensemble members may
+\citep{fei2021WRR}. The physics similarity among the ensemble members may
 create redundant information and lower the efficiency characterized by the ratio
 of ensemble utility over computational costs. Future development of ensemble
 aggregation and optimization methods should be developed for the single-model
@@ -309,7 +309,8 @@ longwave ($I_u$, \unit{W~m^{-2}}) radiation data:
     I_u = & I_d - I \text{.}
 \end{align}
 
-The energy budget terms consist of two components.
+The energy budget terms consist of two components for vegetation canopy and the
+ground.
 \begin{align}
     S = & S_{can} + S_{gnd} \text{,} \\
     I = & I_{can} + I_{gnd} \text{,} \\
@@ -321,7 +322,7 @@ where $S_{can}$ ($S_{gnd}$) is the solar radiation absorbed by the canopy
 (ground), $H_{can}$ ($H_{gnd}$) is the sensible heat flux from the canopy
 (ground). $L_{can}$ is the latent heat flux from the canopy and linked to the
 processes of interception evaporation ($E_{can}$) and transpiration
-($E_{tran}$)). $L_{gnd}$ is the latent heat flux from the ground and linked to
+($E_{tran}$). $L_{gnd}$ is the latent heat flux from the ground and linked to
 ground evaporation ($E_{gnd}$). The energy budget terms of the canopy and ground
 are both balanced.
 \begin{align}
@@ -338,24 +339,24 @@ change and water freezing/melting of the land column:
         + \Delta U_{melt} \text{,}
     \end{split}
 \end{equation}
-where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,i}$ (\unit{K}) is
-the temperature of the $i$-th snow layer, $T_{soil,i}$ \unit{K} is the
-temperature of the $i$-th soil layer, $\Delta U_{melt}$ is the latent heat
-associated with water freezing/melting. $c_{snow,i}$ (\unit{J~m^{-3}~K^{-1}}) is
-the volumetric heat capacity of the $i$-th snow layer and derived from the
-specific heat capacity of snow ice ($C_{ice} = 2.108 \times 10^3$
-\unit{J~kg^{-1}~K^{-1}}) and supercoolded water ($C_{wat} = 4.188 \times 10^3$
-\unit{J~kg^{-1}~K^{-1}}):
+where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,i}$ is the
+temperature of the $i$-th snow layer (\unit{K}), $T_{soil,i}$ is the temperature
+of the $i$-th soil layer (\unit{K}), $\Delta U_{melt}$ is the latent heat
+associated with water freezing/melting (\unit{J~m^{-2}~s^{-1}}). $c_{snow,i}$ is
+the volumetric heat capacity of the $i$-th snow layer (\unit{J~m^{-3}~K^{-1}})
+and derived from the specific heat capacity of snow ice ($C_{ice} = 2.108 \times
+10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water ($C_{wat} = 4.188 \times
+10^3$ \unit{J~kg^{-1}~K^{-1}}):
 \begin{equation}
     c_{snow,i} = C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i}
 \end{equation}
-where $\Delta z_{snow,i}$ (\unit{m}) is the thickness of $i$th snow layer,
-$\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,i}$
-(\unit{m^3~m^{-3}}) is the volumetric snow ice content, $w_{liq,i}$
-(\unit{m^3~m^{-3}}) is the volumetric liquid water content, and their sum is the
-volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e.,
-$w_{i} = w_{ice,i} + w_{liq,i}$). $c_{soil,i}$ (\unit{J~m^{-3}~K^{-1}}) is the
-volumetric heat capacity of the $i$th soil layer, which is a mixture of dry
+where $\Delta z_{snow,i}$ is the thickness of $i$th snow layer (\unit{m}),
+$\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,i}$ is the
+volumetric snow ice content (\unit{m^3~m^{-3}}), $w_{liq,i}$ is the volumetric
+liquid water content (\unit{m^3~m^{-3}}), and their sum is the volumetric water
+content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e., $w_{i} =
+w_{ice,i} + w_{liq,i}$). $c_{soil,i}$ is the volumetric heat capacity of the
+$i$th soil layer (\unit{J~m^{-3}~K^{-1}}), which is a mixture of dry soil
 matter, water, ice, and air.
 \begin{equation}
     \begin{split}
@@ -364,11 +365,11 @@ matter, water, ice, and air.
         & + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
     \end{split}
 \end{equation}
-where $w_{max,i}$ (\unit{m^3~m^{-3}}) is soil porosity, $C_{p,air} =
+where $w_{max,i}$ is soil porosity (\unit{m^3~m^{-3}}), $C_{p,air} =
 1004.64~\unit{J~kg^{-1}~K^{-1}}$ is the isobaric heat capacity of dry air,
-$\rho_{air}$ (\unit{m}) is the density of air. $c_{mine}$
-(\unit{J~m^{-3}~K^{-1}}) is the volumetric heat capacity of dry soil matter, the
-value of which is $2\times10^6$ in Noah-MP.
+$\rho_{air}$ (\unit{m}) is the density of air. $c_{mine}$ is the volumetric heat
+capacity of dry soil matter (\unit{J~m^{-3}~K^{-1}}), whose value is
+$2\times10^6$ in Noah-MP.
 
 
 \subsection{48 Noah-MP physics configurations} \label{sec:data:noahmp}
@@ -378,7 +379,7 @@ value of which is $2\times10^6$ in Noah-MP.
 \begin{align}
     R_{srf} = & Q_{in} [(1 - f_{frz}) f_{sat} + f_{frz} ] \text{,}                                  \\
     f_{sat} = & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot})) \text{,}                                \\
-    f_{frz} = & \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) - \exp(-\alpha)) \text{,} \\
+    f_{frz} = & \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) - e^{-\alpha} \text{,} \\
     R_{sub} = & R_{sub,max} \exp\left( -\Lambda - f(z_{wt} - z_{bot}) \right) \text{,}
 \end{align}
 
@@ -387,31 +388,44 @@ value of which is $2\times10^6$ in Noah-MP.
 \subsubsection{Soil moisture limitation on photosynthesis}
 
 \begin{equation}
-    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}} \min\left(1, \frac{w_{liq,i} - w_{wilt}}{w_{ref} - w_{wilt}}\right) \text{,}
+    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
+    \min\left(1, \frac{w_{liq,i} - w_{wilt}}{w_{ref} - w_{wilt}}\right)
+    \text{,}
 \end{equation}
 
 \begin{equation}
-    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}} \min\left(1, \frac{\psi_{wilt} - \psi_{i}}{\psi_{wilt} - \psi_{sat}}\right) \text{,}
+    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
+    \min\left(1, \frac{\psi_{wilt} - \psi_{i}}{\psi_{wilt} - \psi_{sat}}\right)
+    \text{,}
 \end{equation}
 
 \begin{equation}
-    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}} \min\left(1, 1 - e^{-c^2 \ln\left(\frac{\psi_{wilt}}{\psi_{i}} \right)} \right) \text{,}
+    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
+    \min\left(1, 1 - e^{-c^2 \ln\left(\frac{\psi_{wilt}}{\psi_{i}} \right)} \right)
+    \text{,}
 \end{equation}
 
 \subsubsection{Near-surface turbulence}
 
 \begin{align}
     \begin{split}
-        C_h = & \kappa^2 \left[ \ln\left(\frac{z}{z_{0m}}\right) - \Psi_{m}\left(\frac{z}{L}\right) + \Psi_{m}\left(\frac{z_{0m}}{L}\right) \right]^{-1} \\
-        & \left[ \ln\left(\frac{z}{z_{0h}}\right) - \Psi_{h}\left(\frac{z}{L}\right) + \Psi_{h}\left(\frac{z_{0h}}{L}\right) \right]^{-1} \text{,}
+        C_h = & \kappa^2 \left[ \ln\left(\frac{z}{z_{0m}}\right)
+        - \Psi_{m}\left(\frac{z}{L}\right)
+         + \Psi_{m}\left(\frac{z_{0m}}{L}\right) \right]^{-1} \\
+        & \left[ \ln\left(\frac{z}{z_{0h}}\right)
+        - \Psi_{h}\left(\frac{z}{L}\right)
+        + \Psi_{h}\left(\frac{z_{0h}}{L}\right) \right]^{-1} \text{,}
     \end{split}                                      \\
     z_{0h} = & z_{0m} \exp\left(-\kappa C \sqrt{\text{Re}^*}\right)
 \end{align}
 
 \begin{align}
     \begin{split}
-        C_h = & \kappa^2 \left[ \ln\left(\frac{z-d_0}{z_{0m}}\right) - \Psi_{m}\left(\frac{z-d_0}{L}\right) \right]^{-1} \\
-        & \left[ \ln\left(\frac{z-d_0}{z_{0h}}\right) - \Psi_{h}\left(\frac{z-d_)}{L}\right) \right]^{-1} \text{,}
+        C_h = & \kappa^2 \left[ \ln\left(\frac{z-d_0}{z_{0m}}\right)
+        - \Psi_{m}\left(\frac{z-d_0}{L}\right) \right]^{-1} \\
+        & \left[ \ln\left(\frac{z-d_0}{z_{0h}}\right)
+        - \Psi_{h}\left(\frac{z-d_0}{L}\right) \right]^{-1}
+        \text{,}
     \end{split}      \\
     z_{0h} = & z_{0m} = 0.65 z_{ct}
 \end{align}
@@ -458,15 +472,18 @@ Biases have been evaluated by \citet{zheng2020JAMES}.
 Zenodo online repository at \url{https://doi.org/place-holder-nmpens-pretrn} and
 \url{https://doi.org/place-holder-nmpens-tws}. The dataset (along with datasets
 on which it is based) is subject to a Creative Commons BY (attribution) license
-agreement (\url{https://creativecommons.org/licenses}, last access: 2021-08-16).
-} \label{sec:availability}
+agreement (\url{https://creativecommons.org/licenses}, last access:
+2021-08-16).} \label{sec:availability}
 
 
 \conclusions[Conclusions and Discussion] \label{sec:conclusion}
 conclusion text
 
 
-\authorcontribution{ZLY initiated and funded the study. HZ conducted the simulation and generated the data. WF contributed to the generation of the figures. WYW, PL, and JW contributed to the validation of the data. All authors contributed to the drafting of the manuscript.}
+\authorcontribution{ ZLY initiated and funded the study. HZ conducted the
+simulation and generated the data. WF contributed to the generation of the
+figures. WYW, PL, and JW contributed to the validation of the data. All authors
+contributed to the drafting of the manuscript.} \label{sec:contribution}
 
 
 \competinginterests{The authors declare that they have no conflict of interest}
