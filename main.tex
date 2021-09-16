@@ -276,18 +276,20 @@ snow water equivalent ($W_{snow}$), groundwater storage in unconfined aquifers
 ($W_{gw}$), and soil water content in four layers ($W_{soil,i}$,
 \unit{kg~m^{-2}}):
 \begin{equation}
-    W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^4 W_{soil,i} \text{.}
+    W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^{N_{soil}} W_{soil,i} \text{,}
 \end{equation}
+where $N_{soil} = 4$ is the number of soil layers.
 Soil water storage ($W_{soil,i}$) is not provided in the dataset but can be
 calculated from volumetric soil water content ($w_{i}$):
 \begin{equation}
-    W_{soil,i} = \rho_{wat} w_i \Delta z_i
-    \quad \text{for} \; i = 1, \cdots, 4
+    W_{soil,i} = \rho_{wat} w_i \Delta z_{soil,i}
+    \quad \text{for} \; i = 1, \cdots, N_{soil}
     \text{,} \label{eq:soil-vmc}
 \end{equation}
 where $\rho_{wat}=1000$~\unit{kg~m^{-3}} is the density of water; $\Delta
-z_1=0.1$~\unit{m}, $\Delta z_2=0.3$~\unit{m}, $\Delta z_3=0.6$~\unit{m}, and
-$\Delta z_2=1.0$~\unit{m} are the thickness of the four soil layers.
+z_{soil,1}=0.1$~\unit{m}, $\Delta z_{soil,2}=0.3$~\unit{m}, $\Delta
+z_{soil,3}=0.6$~\unit{m}, and $\Delta z_{soil,4}=1.0$~\unit{m} are the thickness
+of the four soil layers.
 
 
 \subsubsection{surface energy budget}
@@ -309,7 +311,7 @@ longwave ($I_u$, \unit{W~m^{-2}}) radiation data:
     I_u = & I_d - I \text{.}
 \end{align}
 
-The energy budget terms consist of two components for vegetation canopy and the
+The energy budget terms consist of two components for the vegetation canopy and
 ground.
 \begin{align}
     S = & S_{can} + S_{gnd} \text{,} \\
@@ -317,47 +319,45 @@ ground.
     H = & H_{can} + H_{gnd} \text{,} \\
     L = & L_{can} + L_{gnd} \text{,}
 \end{align}
-where $S_{can}$ ($S_{gnd}$) is the solar radiation absorbed by the canopy
+where $S_{can}$ ($S_{gnd}$) is the absorbed solar radiation at the canopy
 (ground), $I_{can}$ ($I_{gnd}$) is the net longwave radiation at the canopy
 (ground), $H_{can}$ ($H_{gnd}$) is the sensible heat flux from the canopy
 (ground). $L_{can}$ is the latent heat flux from the canopy and linked to the
 processes of interception evaporation ($E_{can}$) and transpiration
-($E_{tran}$). $L_{gnd}$ is the latent heat flux from the ground and linked to
-ground evaporation ($E_{gnd}$). The energy budget terms of the canopy and ground
-are both balanced.
+($E_{tran}$). $L_{gnd}$ is the latent heat flux from the ground and associated
+with ground evaporation ($E_{gnd}$). The energy budget terms of the canopy and
+ground are both balanced:
 \begin{align}
     S_{can} + I_{can} = & H_{can} + L_{can} \text{,}            \\
     S_{gnd} + I_{gnd} = & H_{gnd} + L_{gnd} + \Delta U \text{.}
 \end{align}
 
-The change in internal energy ($\Delta U$) is associated with the temperature
+The change in internal energy ($\Delta U$) is attributed to the temperature
 change and water freezing/melting of the land column:
 \begin{equation}
     \begin{split}
-        \Delta U = & \sum_{i=1}^{N_{snow}} c_{snow,i} \Delta z_{snow,i} \Delta T_{snow,i} \\
-        & + \sum_{i=1}^{4} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
+        \Delta U = & \sum_{j=1}^{N_{snow}} c_{snow,j} \Delta z_{snow,j} \Delta T_{snow,j} \\
+        & + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
         + \Delta U_{melt} \text{,}
     \end{split}
 \end{equation}
-where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,i}$ is the
-temperature of the $i$-th snow layer (\unit{K}), $T_{soil,i}$ is the temperature
-of the $i$-th soil layer (\unit{K}), $\Delta U_{melt}$ is the latent heat
-associated with water freezing/melting (\unit{J~m^{-2}~s^{-1}}). $c_{snow,i}$ is
-the volumetric heat capacity of the $i$-th snow layer (\unit{J~m^{-3}~K^{-1}})
-and derived from the specific heat capacity of snow ice ($C_{ice} = 2.108 \times
-10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water ($C_{wat} = 4.188 \times
-10^3$ \unit{J~kg^{-1}~K^{-1}}):
+where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,j}$ is the
+temperature of the $j$-th snow layer (\unit{K}), $\Delta z_{snow,j}$ is the
+thickness of $j$th snow layer (\unit{m}), $T_{soil,i}$ is the temperature of the
+$i$-th soil layer (\unit{K}), and $\Delta U_{melt}$ is the latent heat of water
+freezing/melting within the whole land column (\unit{J~m^{-2}~s^{-1}}).
+$c_{snow,j}$ is the volumetric heat capacity of the $j$-th snow layer
+(\unit{J~m^{-3}~K^{-1}}) and derived from the specific heat capacity of snow ice
+($C_{ice} = 2.108 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water
+($C_{wat} = 4.188 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) as follows:
 \begin{equation}
-    c_{snow,i} = C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i}
+    c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j} + C_{wat} \rho_{wat} w_{liq,j}
 \end{equation}
-where $\Delta z_{snow,i}$ is the thickness of $i$th snow layer (\unit{m}),
-$\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,i}$ is the
-volumetric snow ice content (\unit{m^3~m^{-3}}), $w_{liq,i}$ is the volumetric
-liquid water content (\unit{m^3~m^{-3}}), and their sum is the volumetric water
-content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc}) (i.e., $w_{i} =
-w_{ice,i} + w_{liq,i}$). $c_{soil,i}$ is the volumetric heat capacity of the
-$i$th soil layer (\unit{J~m^{-3}~K^{-1}}), which is a mixture of dry soil
-matter, water, ice, and air.
+where $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,j}$
+is the volumetric snow ice content (\unit{m^3~m^{-3}}), $w_{liq,j}$ is the
+volumetric liquid water content (\unit{m^3~m^{-3}}). $c_{soil,i}$ is the
+volumetric heat capacity of the $i$th soil layer (\unit{J~m^{-3}~K^{-1}}), which
+is a mixture of dry soil matter, water, ice, and air.
 \begin{equation}
     \begin{split}
         c_{soil,i} = & c_{mine} (1 - w_{max,i}) \\
@@ -369,19 +369,27 @@ where $w_{max,i}$ is soil porosity (\unit{m^3~m^{-3}}), $C_{p,air} =
 1004.64~\unit{J~kg^{-1}~K^{-1}}$ is the isobaric heat capacity of dry air,
 $\rho_{air}$ (\unit{m}) is the density of air. $c_{mine}$ is the volumetric heat
 capacity of dry soil matter (\unit{J~m^{-3}~K^{-1}}), whose value is
-$2\times10^6$ in Noah-MP.
+$2\times10^6$ in Noah-MP. $w_{ice,i}$ and $w_{liq,i}$ are the volumetric content
+of frozen and liquid water (\unit{m^3~m^{-3}}), respectively, and their sum is
+the volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc})
+(i.e., $w_{i} = w_{ice,i} + w_{liq,i}$)
 
 
 \subsection{48 Noah-MP physics configurations} \label{sec:data:noahmp}
 
 \subsubsection{Runoff}
 
+SIMGM
+
 \begin{align}
-    R_{srf} = & Q_{in} [(1 - f_{frz}) f_{sat} + f_{frz} ] \text{,}                                  \\
+    R_{srf} = & Q_{gnd} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ] \text{,}                                  \\
     f_{sat} = & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot})) \text{,}                                \\
-    f_{frz} = & \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) - e^{-\alpha} \text{,} \\
-    R_{sub} = & R_{sub,max} \exp\left( -\Lambda - f(z_{wt} - z_{bot}) \right) \text{,}
+    f_{frz,i} = & \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) - e^{-\alpha} \text{,} \\
+    R_{sub} = & (1 - f_{frz,max}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})} \text{,} \\
+    f_{frz,max} = & \max_{i=1,\cdots,N_{soil}} f_{frz,i} \text{,}
 \end{align}
+
+
 
 \subsubsection{Stomatal conductance}
 
