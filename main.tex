@@ -356,7 +356,7 @@ $c_{snow,j}$ is the volumetric heat capacity of the $j$-th snow layer
 where $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,j}$
 is the volumetric snow ice content (\unit{m^3~m^{-3}}), $w_{liq,j}$ is the
 volumetric liquid water content (\unit{m^3~m^{-3}}). $c_{soil,i}$ is the
-volumetric heat capacity of the $i$th soil layer (\unit{J~m^{-3}~K^{-1}}), which
+volumetric heat capacity of the $i$-th soil layer (\unit{J~m^{-3}~K^{-1}}), which
 is a mixture of dry soil matter, water, ice, and air.
 \begin{equation}
     \begin{split}
@@ -372,7 +372,7 @@ capacity of dry soil matter (\unit{J~m^{-3}~K^{-1}}), whose value is
 $2\times10^6$ in Noah-MP. $w_{ice,i}$ and $w_{liq,i}$ are the volumetric content
 of frozen and liquid water (\unit{m^3~m^{-3}}), respectively, and their sum is
 the volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc})
-(i.e., $w_{i} = w_{ice,i} + w_{liq,i}$)
+(i.e., $w_{i} = w_{ice,i} + w_{liq,i}$).
 
 
 \subsection{48 Noah-MP physics configurations} \label{sec:data:noahmp}
@@ -387,6 +387,32 @@ SIMGM
     f_{frz,i} = & \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) - e^{-\alpha} \text{,} \\
     R_{sub} = & (1 - f_{frz,max}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})} \text{,} \\
     f_{frz,max} = & \max_{i=1,\cdots,N_{soil}} f_{frz,i} \text{,}
+\end{align}
+
+$R_{sub,max} = 5$ \unit{kg~m^{-2}~s^{-1}}, $\Lambda = 10.5$ is the
+grid-cell-mean topographic index.
+
+
+SIMGM
+\begin{equation}
+    f_{sat} = f_{sat,max} \exp(-0.5 f z_{wt}) \text{,}
+\end{equation}
+
+$f=2$
+
+NOAHR
+
+\begin{align}
+    R_{srf} = & Q_{gnd} - Q_{in} \text{,} \\
+    Q_{in} = & Q_{gnd} \frac{w_d [1-\exp(-k\Delta t)]}{Q_{gnd} + w_d [1 - \exp(-k\Delta t)]} \text{,} \\
+    w_d = & \sum_{i=1}^{N_{soil}} (w_{sat,i} - w_i) \Delta z_{soil,i} \text{,}
+\end{align}
+
+BATS
+\begin{align}
+    R_{srf} = & Q_{gnd} \left[ (1 - f_{frz,1}) f_{sat} + f_{frz,1} \right] \text{,} \\
+    f_{sat} = & \theta^4 \text{,} \\
+    \theta = & \frac{\sum_{i=1}^{N_{soil}}\frac{w_i}{w_{sat,i}}\Delta z_{soil,i}}{\sum_{i=1}^{N_{soil}}\Delta z_{soil,i}} \text{,}
 \end{align}
 
 
