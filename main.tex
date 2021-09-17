@@ -211,37 +211,37 @@ variables.
     \centering
     \begin{tabular}{lll}
         \tophline
-        Symbol       & Units                   & Description                            \\
+        Symbol       & Units                   & Description                                \\
         \middlehline
-        \multicolumn{3}{c}{surface water budget}                                        \\
-        $E$          & \unit{kg~m^{-2}~s^{-1}} & total evapotranspiration               \\
-        $E_{can}$    & \unit{kg~m^{-2}~s^{-1}} & evaporation of canopy interception     \\
-        $E_{gnd}$    & \unit{kg~m^{-2}~s^{-1}} & direct evaporation from the ground     \\
-        $E_{tran}$   & \unit{kg~m^{-2}~s^{-1}} & transpiration                          \\
-        $R$          & \unit{kg~m^{-2}~s^{-1}} & total runoff                           \\
-        $R_{srf}$    & \unit{kg~m^{-2}~s^{-1}} & surface runoff                         \\
-        $R_{und}$    & \unit{kg~m^{-2}~s^{-1}} & subsurface runoff                      \\
-        $W$          & \unit{kg~m^{-2}}        & terrestrial water storage              \\
-        $W_{can}$    & \unit{kg~m^{-2}}        & canopy interception                    \\
-        $W_{snow}$   & \unit{kg~m^{-2}}        & snow water equivalent                  \\
-        $W_{gw}$     & \unit{kg~m^{-2}}        & unconfined groundwater storage         \\
-        $w_{soil,i}$ & \unit{m^3~m^{-3}}       & volumetric soil water content          \\
+        \multicolumn{3}{c}{surface water budget}                                            \\
+        $E$          & \unit{kg~m^{-2}~s^{-1}} & total evapotranspiration                   \\
+        $E_{can}$    & \unit{kg~m^{-2}~s^{-1}} & evaporation of canopy interception         \\
+        $E_{gnd}$    & \unit{kg~m^{-2}~s^{-1}} & direct evaporation from the ground         \\
+        $E_{tran}$   & \unit{kg~m^{-2}~s^{-1}} & transpiration                              \\
+        $R$          & \unit{kg~m^{-2}~s^{-1}} & total runoff                               \\
+        $R_{srf}$    & \unit{kg~m^{-2}~s^{-1}} & surface runoff                             \\
+        $R_{und}$    & \unit{kg~m^{-2}~s^{-1}} & subsurface runoff                          \\
+        $W$          & \unit{kg~m^{-2}}        & terrestrial water storage                  \\
+        $W_{can}$    & \unit{kg~m^{-2}}        & canopy interception                        \\
+        $W_{snow}$   & \unit{kg~m^{-2}}        & snow water equivalent                      \\
+        $W_{gw}$     & \unit{kg~m^{-2}}        & unconfined groundwater storage             \\
+        $w_{soil,i}$ & \unit{m^3~m^{-3}}       & volumetric soil water content              \\
         [1mm]
-        \multicolumn{3}{c}{surface energy budget}                                       \\
-        $S$          & \unit{W~m^{-2}}         & absorbed solar radiation               \\
-        $S_{can}$    & \unit{W~m^{-2}}         & canopy absorbed solar radiation        \\
-        $S_{gnd}$    & \unit{W~m^{-2}}         & ground absorbed solar radiation        \\
-        $I$          & \unit{W~m^{-2}}         & net longwave radiation                 \\
-        $I_{can}$    & \unit{W~m^{-2}}         & net longwave radiation at the canopy   \\
-        $I_{gnd}$    & \unit{W~m^{-2}}         & net longwave radiation at the ground   \\
-        $H$          & \unit{W~m^{-2}}         & sensible heat flux                     \\
-        $H_{can}$    & \unit{W~m^{-2}}         & sensible heat flux from the canopy     \\
-        $H_{gnd}$    & \unit{W~m^{-2}}         & sensible heat flux from the ground     \\
-        $T_{snow,j}$ & \unit{K}                & snow layer temperature ($0 \leq j \leq 3$)     \\
-        $T_{soil,i}$ & \unit{K}                & soil layer temperature ($i=1,\dots,4$) \\
+        \multicolumn{3}{c}{surface energy budget}                                           \\
+        $S$          & \unit{W~m^{-2}}         & absorbed solar radiation                   \\
+        $S_{can}$    & \unit{W~m^{-2}}         & canopy absorbed solar radiation            \\
+        $S_{gnd}$    & \unit{W~m^{-2}}         & ground absorbed solar radiation            \\
+        $I$          & \unit{W~m^{-2}}         & net longwave radiation                     \\
+        $I_{can}$    & \unit{W~m^{-2}}         & net longwave radiation at the canopy       \\
+        $I_{gnd}$    & \unit{W~m^{-2}}         & net longwave radiation at the ground       \\
+        $H$          & \unit{W~m^{-2}}         & sensible heat flux                         \\
+        $H_{can}$    & \unit{W~m^{-2}}         & sensible heat flux from the canopy         \\
+        $H_{gnd}$    & \unit{W~m^{-2}}         & sensible heat flux from the ground         \\
+        $T_{snow,j}$ & \unit{K}                & snow layer temperature ($0 \leq j \leq 3$) \\
+        $T_{soil,i}$ & \unit{K}                & soil layer temperature ($i=1,\dots,4$)     \\
         [1pt]
-        \multicolumn{3}{c}{auxiliary variables}                                         \\
-        $X$          & \unit{-}                & land-water mask                        \\
+        \multicolumn{3}{c}{auxiliary variables}                                             \\
+        $X$          & \unit{-}                & land-water mask                            \\
         \bottomhline
     \end{tabular}
 \end{table}
@@ -334,7 +334,7 @@ The change in internal energy ($\Delta U$) is attributed to the temperature
 change and water freezing/melting of the land column:
 \begin{multline}
     \Delta U =  \sum_{j=1}^{N_{snow}} c_{snow,j} \Delta z_{snow,j} \Delta T_{snow,j} \\
-     + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
+    + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
     + \Delta U_{melt} \text{,}
 \end{multline}
 where $0<=N_{snow}<=3$ is the number of snow layers, $T_{snow,j}$ is the
@@ -352,8 +352,8 @@ $c_{snow,j}$ is the volumetric heat capacity of the $j$-th snow layer
 where $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,j}$
 is the volumetric snow ice content (\unit{m^3~m^{-3}}), $w_{liq,j}$ is the
 volumetric liquid water content (\unit{m^3~m^{-3}}). $c_{soil,i}$ is the
-volumetric heat capacity of the $i$-th soil layer (\unit{J~m^{-3}~K^{-1}}), which
-is a mixture of dry soil matter, water, ice, and air.
+volumetric heat capacity of the $i$-th soil layer (\unit{J~m^{-3}~K^{-1}}),
+which is a mixture of dry soil matter, water, ice, and air.
 \begin{multline}
     c_{soil,i} =  c_{mine} (1 - w_{max,i})
     + C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i} \\
@@ -544,8 +544,8 @@ contributed to the drafting of the manuscript.} \label{sec:contribution}
 
 \begin{acknowledgements}
 
-    This work is supported by the National Science Foundation of China (grants
-    42075165, 41375088, and 41605062).
+This work is supported by the National Science Foundation of China (grants
+42075165, 41375088, and 41605062).
 
 \end{acknowledgements}
 
