@@ -9,4 +9,6 @@ noAdditionalIndent:
   competinginterests: 1
   citep: 1
   citet: 1
+  citeauthor: 1
+  citeyear: 1
   inlineMath: 1

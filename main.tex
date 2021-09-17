@@ -284,11 +284,10 @@ calculated from volumetric soil water content ($w_{i}$):
     \quad \text{for} \; i = 1,\dots,N_{soil}
     \text{,} \label{eq:soil-vmc}
 \end{equation}
-where $\rho_{wat}=1000$ \unit{kg~m^{-3}} is the density of water; $\Delta
-z_{soil,1}=0.1$ \unit{m}, $\Delta z_{soil,2}=0.3$ \unit{m}, $\Delta
-z_{soil,3}=0.6$ \unit{m}, and $\Delta z_{soil,4}=1.0$ \unit{m} are the thickness
+where $\rho_{wat}=1000$\,\unit{kg~m^{-3}} is the density of water; $\Delta
+z_{soil,1}=0.1$\,\unit{m}, $\Delta z_{soil,2}=0.3$\,\unit{m}, $\Delta
+z_{soil,3}=0.6$\,\unit{m}, and $\Delta z_{soil,4}=1.0$\,\unit{m} are the thickness
 of the four soil layers.
-
 
 \subsubsection{surface energy budget}
 
@@ -333,7 +332,7 @@ ground are both balanced:
 The change in internal energy ($\Delta U$) is attributed to the temperature
 change and water freezing/melting of the land column:
 \begin{multline}
-    \Delta U =  \sum_{j=1}^{N_{snow}} c_{snow,j} \Delta z_{snow,j} \Delta T_{snow,j} \\
+    \Delta U = \sum_{j=1}^{N_{snow}} c_{snow,j} \Delta z_{snow,j} \Delta T_{snow,j} \\
     + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
     + \Delta U_{melt} \text{,}
 \end{multline}
@@ -344,12 +343,12 @@ $i$-th soil layer (\unit{K}), and $\Delta U_{melt}$ is the latent heat of water
 freezing/melting within the whole land column (\unit{J~m^{-2}~s^{-1}}).
 $c_{snow,j}$ is the volumetric heat capacity of the $j$-th snow layer
 (\unit{J~m^{-3}~K^{-1}}) and derived from the specific heat capacity of snow ice
-($C_{ice} = 2.108 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water
-($C_{wat} = 4.188 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) as follows:
+($C_{ice} = 2.108 \times 10^3$\,\unit{J~kg^{-1}~K^{-1}}) and supercoolded water
+($C_{wat} = 4.188 \times 10^3$\,\unit{J~kg^{-1}~K^{-1}}) as follows:
 \begin{equation}
     c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j} + C_{wat} \rho_{wat} w_{liq,j} \text{,}
 \end{equation}
-where $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,j}$
+where $\rho_{ice} = 916.2$\,\unit{kg~m^{-3}} is the density of ice. $w_{ice,j}$
 is the volumetric snow ice content (\unit{m^3~m^{-3}}), $w_{liq,j}$ is the
 volumetric liquid water content (\unit{m^3~m^{-3}}). $c_{soil,i}$ is the
 volumetric heat capacity of the $i$-th soil layer (\unit{J~m^{-3}~K^{-1}}),
@@ -360,7 +359,7 @@ which is a mixture of dry soil matter, water, ice, and air.
     + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
 \end{multline}
 where $w_{max,i}$ is soil porosity (\unit{m^3~m^{-3}}), $C_{p,air} =
-1004.64$ \unit{J~kg^{-1}~K^{-1}} is the isobaric heat capacity of dry air,
+1004.64$\,\unit{J~kg^{-1}~K^{-1}} is the isobaric heat capacity of dry air,
 $\rho_{air}$ (\unit{m}) is the density of air. $c_{mine}$ is the volumetric heat
 capacity of dry soil matter (\unit{J~m^{-3}~K^{-1}}), whose value is
 $2\times10^6$ in Noah-MP. $w_{ice,i}$ and $w_{liq,i}$ are the volumetric content
@@ -394,7 +393,7 @@ The SIMGM scheme parameterize the surface runoff based on TOPMODEL.
     f_{frz,max} = & \max_{i=1,\dots,N_{soil}} f_{frz,i} \text{,}
 \end{align}
 
-$R_{sub,max} = 5$ \unit{kg~m^{-2}~s^{-1}}, $\Lambda = 10.5$ is the
+$R_{sub,max} = 5$\,\unit{kg~m^{-2}~s^{-1}}, $\Lambda = 10.5$ is the
 grid-cell-mean topographic index.
 
 
