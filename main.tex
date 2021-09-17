@@ -284,9 +284,9 @@ calculated from volumetric soil water content ($w_{i}$):
     \quad \text{for} \; i = 1,\dots,N_{soil}
     \text{,} \label{eq:soil-vmc}
 \end{equation}
-where $\rho_{wat}=1000$~\unit{kg~m^{-3}} is the density of water; $\Delta
-z_{soil,1}=0.1$~\unit{m}, $\Delta z_{soil,2}=0.3$~\unit{m}, $\Delta
-z_{soil,3}=0.6$~\unit{m}, and $\Delta z_{soil,4}=1.0$~\unit{m} are the thickness
+where $\rho_{wat}=1000$ \unit{kg~m^{-3}} is the density of water; $\Delta
+z_{soil,1}=0.1$ \unit{m}, $\Delta z_{soil,2}=0.3$ \unit{m}, $\Delta
+z_{soil,3}=0.6$ \unit{m}, and $\Delta z_{soil,4}=1.0$ \unit{m} are the thickness
 of the four soil layers.
 
 
@@ -347,7 +347,7 @@ $c_{snow,j}$ is the volumetric heat capacity of the $j$-th snow layer
 ($C_{ice} = 2.108 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) and supercoolded water
 ($C_{wat} = 4.188 \times 10^3$ \unit{J~kg^{-1}~K^{-1}}) as follows:
 \begin{equation}
-    c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j} + C_{wat} \rho_{wat} w_{liq,j}
+    c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j} + C_{wat} \rho_{wat} w_{liq,j} \text{,}
 \end{equation}
 where $\rho_{ice} = 916.2$ \unit{kg~m^{-3}} is the density of ice. $w_{ice,j}$
 is the volumetric snow ice content (\unit{m^3~m^{-3}}), $w_{liq,j}$ is the
@@ -355,12 +355,12 @@ volumetric liquid water content (\unit{m^3~m^{-3}}). $c_{soil,i}$ is the
 volumetric heat capacity of the $i$-th soil layer (\unit{J~m^{-3}~K^{-1}}),
 which is a mixture of dry soil matter, water, ice, and air.
 \begin{multline}
-    c_{soil,i} =  c_{mine} (1 - w_{max,i})
+    c_{soil,i} = c_{mine} (1 - w_{max,i}) \\
     + C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i} \\
     + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
 \end{multline}
 where $w_{max,i}$ is soil porosity (\unit{m^3~m^{-3}}), $C_{p,air} =
-1004.64~\unit{J~kg^{-1}~K^{-1}}$ is the isobaric heat capacity of dry air,
+1004.64$ \unit{J~kg^{-1}~K^{-1}} is the isobaric heat capacity of dry air,
 $\rho_{air}$ (\unit{m}) is the density of air. $c_{mine}$ is the volumetric heat
 capacity of dry soil matter (\unit{J~m^{-3}~K^{-1}}), whose value is
 $2\times10^6$ in Noah-MP. $w_{ice,i}$ and $w_{liq,i}$ are the volumetric content
