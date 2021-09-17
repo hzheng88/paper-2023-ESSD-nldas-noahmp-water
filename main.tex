@@ -35,34 +35,32 @@
 
 \begin{abstract}
 
-    Terrestrial water budget (TWB) data over large domains are of high interest
-    for various hydrological applications. Land surface model (LSM) ensembles
-    are well-suited for a spatiotemporally continuous and physically consistent
-    estimation. As an augmentation of the operational North American Land Data
-    Assimilation System phase 2 (NLDAS\nobreakdash-2) four-LSM ensemble, this
-    study presents a 48-member perturbed-physics ensemble configured from the
-    Noah LSM with multi-physics options (Noah-MP). The forty-eight Noah-MP
-    physics configurations are selected to give a representative cross-section
-    of commonly used LSMs for parameterizing runoff, near-surface atmospheric
-    turbulence, soil moisture limitation on leaf stomata, and stomatal
-    conductance.
+Terrestrial water budget (TWB) data over large domains are of high interest for
+various hydrological applications. Land surface model (LSM) ensembles are
+well-suited for a spatiotemporally continuous and physically consistent
+estimation. As an augmentation of the operational North American Land Data
+Assimilation System phase 2 (NLDAS\nobreakdash-2) four-LSM ensemble, this study
+presents a 48-member perturbed-physics ensemble configured from the Noah LSM
+with multi-physics options (Noah-MP). The forty-eight Noah-MP physics
+configurations are selected to give a representative cross-section of commonly
+used LSMs for parameterizing runoff, near-surface atmospheric turbulence, soil
+moisture limitation on leaf stomata, and stomatal conductance.
 
-    Simulation of the ensemble reproduced 1980–2015 monthly TWB over the
-    conterminous United States at a 1/8° spatial resolution. Total and the
-    constitutes of evapotranspiration (i.e., canopy evaporation, soil
-    evaporation, and transpiration) and runoff (i.e., the surface and subsurface
-    components) are freely downloadable at
-    \url{https://doi.org/place-holder-nmpens-pretrn}. Terrestrial water storage
-    and its components (i.e., snow water equivalent, four-layer soil water
-    content from the ground down to 2-m depth, and groundwater storage anomaly)
-    are retrievable from \url{https://doi.org/place-holder-nmpens-tws}.
+Simulation of the ensemble reproduced 1980–2015 monthly TWB over the
+conterminous United States at a 1/8° spatial resolution. Total and the
+constitutes of evapotranspiration (i.e., canopy evaporation, soil evaporation,
+and transpiration) and runoff (i.e., the surface and subsurface components) are
+freely downloadable at \url{https://doi.org/place-holder-nmpens-pretrn}.
+Terrestrial water storage and its components (i.e., snow water equivalent,
+four-layer soil water content from the ground down to 2-m depth, and groundwater
+storage anomaly) are retrievable from
+\url{https://doi.org/place-holder-nmpens-tws}.
 
-    Inter-comparisons and evaluations of the ensemble reconstructions show a
-    larger ensemble size and would facilitate a better quantification and
-    process-level attribution of the reconstruction uncertainty. The others
-    include: (1) improved performance, (2) updated quantification of
-    reconstruction uncertainty, (3) process-level attribution of the estimation
-    uncertainty.
+Inter-comparisons and evaluations of the ensemble reconstructions show a larger
+ensemble size and would facilitate a better quantification and process-level
+attribution of the reconstruction uncertainty. The others include: (1) improved
+performance, (2) updated quantification of reconstruction uncertainty, (3)
+process-level attribution of the estimation uncertainty.
 
 \end{abstract}
 
@@ -213,37 +211,37 @@ variables.
     \centering
     \begin{tabular}{lll}
         \tophline
-        Symbol       & Units                   & Description                               \\
+        Symbol       & Units                   & Description                            \\
         \middlehline
-        \multicolumn{3}{c}{surface water budget}                                           \\
-        $E$          & \unit{kg~m^{-2}~s^{-1}} & total evapotranspiration                  \\
-        $E_{can}$    & \unit{kg~m^{-2}~s^{-1}} & evaporation of canopy interception        \\
-        $E_{gnd}$    & \unit{kg~m^{-2}~s^{-1}} & direct evapotranspiration from soil       \\
-        $E_{tran}$   & \unit{kg~m^{-2}~s^{-1}} & transpiration                             \\
-        $R$          & \unit{kg~m^{-2}~s^{-1}} & total runoff                              \\
-        $R_{srf}$    & \unit{kg~m^{-2}~s^{-1}} & surface runoff                            \\
-        $R_{und}$    & \unit{kg~m^{-2}~s^{-1}} & subsurface runoff                         \\
-        $W$          & \unit{kg~m^{-2}}        & terrestrial water storage                 \\
-        $W_{can}$    & \unit{kg~m^{-2}}        & canopy interception                       \\
-        $W_{snow}$   & \unit{kg~m^{-2}}        & snow water equivalent                     \\
-        $W_{gw}$     & \unit{kg~m^{-2}}        & unconfined groundwater storage            \\
-        $w_{soil,i}$ & \unit{m^3~m^{-3}}       & volumetric soil water content             \\
+        \multicolumn{3}{c}{surface water budget}                                        \\
+        $E$          & \unit{kg~m^{-2}~s^{-1}} & total evapotranspiration               \\
+        $E_{can}$    & \unit{kg~m^{-2}~s^{-1}} & evaporation of canopy interception     \\
+        $E_{gnd}$    & \unit{kg~m^{-2}~s^{-1}} & direct evaporation from the ground     \\
+        $E_{tran}$   & \unit{kg~m^{-2}~s^{-1}} & transpiration                          \\
+        $R$          & \unit{kg~m^{-2}~s^{-1}} & total runoff                           \\
+        $R_{srf}$    & \unit{kg~m^{-2}~s^{-1}} & surface runoff                         \\
+        $R_{und}$    & \unit{kg~m^{-2}~s^{-1}} & subsurface runoff                      \\
+        $W$          & \unit{kg~m^{-2}}        & terrestrial water storage              \\
+        $W_{can}$    & \unit{kg~m^{-2}}        & canopy interception                    \\
+        $W_{snow}$   & \unit{kg~m^{-2}}        & snow water equivalent                  \\
+        $W_{gw}$     & \unit{kg~m^{-2}}        & unconfined groundwater storage         \\
+        $w_{soil,i}$ & \unit{m^3~m^{-3}}       & volumetric soil water content          \\
         [1mm]
-        \multicolumn{3}{c}{surface energy budget}                                          \\
-        $S$          & \unit{W~m^{-2}}         & absorbed solar radiation                  \\
-        $S_{can}$    & \unit{W~m^{-2}}         & canopy absorbed solar radiation           \\
-        $S_{gnd}$    & \unit{W~m^{-2}}         & ground absorbed solar radiation           \\
-        $I$          & \unit{W~m^{-2}}         & net longwave radiation                    \\
-        $I_{can}$    & \unit{W~m^{-2}}         & net longwave radiation at the canopy      \\
-        $I_{gnd}$    & \unit{W~m^{-2}}         & net longwave radiation at the ground      \\
-        $H$          & \unit{W~m^{-2}}         & sensible heat flux                        \\
-        $H_{can}$    & \unit{W~m^{-2}}         & sensible heat flux from vegetation canopy \\
-        $H_{gnd}$    & \unit{W~m^{-2}}         & sensible heat flux from the ground        \\
-        $T_{snow,i}$ & \unit{K}                & snow layer temperature ($0<=i<=3$)        \\
-        $T_{soil,i}$ & \unit{K}                & soil layer temperature ($i=1,\dots,4$)   \\
+        \multicolumn{3}{c}{surface energy budget}                                       \\
+        $S$          & \unit{W~m^{-2}}         & absorbed solar radiation               \\
+        $S_{can}$    & \unit{W~m^{-2}}         & canopy absorbed solar radiation        \\
+        $S_{gnd}$    & \unit{W~m^{-2}}         & ground absorbed solar radiation        \\
+        $I$          & \unit{W~m^{-2}}         & net longwave radiation                 \\
+        $I_{can}$    & \unit{W~m^{-2}}         & net longwave radiation at the canopy   \\
+        $I_{gnd}$    & \unit{W~m^{-2}}         & net longwave radiation at the ground   \\
+        $H$          & \unit{W~m^{-2}}         & sensible heat flux                     \\
+        $H_{can}$    & \unit{W~m^{-2}}         & sensible heat flux from the canopy     \\
+        $H_{gnd}$    & \unit{W~m^{-2}}         & sensible heat flux from the ground     \\
+        $T_{snow,j}$ & \unit{K}                & snow layer temperature ($0 \leq j \leq 3$)     \\
+        $T_{soil,i}$ & \unit{K}                & soil layer temperature ($i=1,\dots,4$) \\
         [1pt]
-        \multicolumn{3}{c}{auxiliary variables}                                            \\
-        $X$          & \unit{-}                & land-water mask                           \\
+        \multicolumn{3}{c}{auxiliary variables}                                         \\
+        $X$          & \unit{-}                & land-water mask                        \\
         \bottomhline
     \end{tabular}
 \end{table}
@@ -424,6 +422,8 @@ $f=2$
     f_{sat} = & \theta^4 \text{,}                                                                                                   \\
     \theta =  & \frac{\sum_{i=1}^{N_{soil}}\frac{w_i}{w_{sat,i}}\Delta z_{soil,i}}{\sum_{i=1}^{N_{soil}}\Delta z_{soil,i}} \text{,}
 \end{align}
+
+
 
 
 \subsubsection{The Ball-Berry scheme of stomatal conductance}
