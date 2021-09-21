@@ -382,28 +382,32 @@ following sections will detail the formulations.
 
 SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRA}. The scheme
 parameterizes runoff ($R_{srf}$ and $R_{sub}$) as an exponential function of
-groundwater table depth ($z_{wt}$, \unit{m}, positive down).
+groundwater table depth ($z_{wt}$, \unit{m}, positive down) as follows.
 \begin{align}
-    R_{srf} =   & Q_{soil,t} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ] \text{,}                          \\
-    f_{sat} =   & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot})) \text{,} \\
+    R_{srf} =     & Q_{soil,t} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ] \text{,}                \\
+    f_{sat} =     & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot})) \text{,}                      \\
     R_{sub} =     & (1 - f_{frz,max}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})} \text{,} \\
     f_{frz,max} = & \max_{i=1,\dots,N_{soil}} f_{frz,i} \text{,}
 \end{align}
 where $Q_{soil,t}$ is the precipitation and snowmelt reaching the top of the
 soil column (\unit{kg~m^{-2}~s^{-1}}), $f_{sat}$ is the saturation fraction of
 the grid cell (\unit{m2~m^{-2}}), and $z_{bot}$ is the depth of the soil column
-bottom (\unit{m}). $f_{frz,i}$ is the fractional frozen area of the $i$-th soil
-layer. The parameterization follows \citet{niu2006JH}:
+bottom (\unit{m}, positive down). $f_{frz,i}$ is the fractional frozen area of
+the $i$-th soil layer (\unit{m^2~m^{-2}}). Its parameterization is introduced by
+\citet{niu2006JH}:
 \begin{equation}
     f_{frz,i} = \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) - e^{-\alpha} \text{.}
 \end{equation}
 
-The SIMGM runoff scheme depends on two state variables: $w_{ice,i}$ and
-$z_{wt}$. The groundwater table depth is simulated accounting for groundwater
-storage change driven by recharge and discharge. The scheme has four calibrable
-parameters: $f_{sat,max}$, $f$, $R_{sub,max}$, and $\Lambda$.
+The SIMGM runoff scheme directly depends on two state variables: soil ice
+content and groundwater storage. The groundwater storage is dynamically modeled
+by representing the processes of recharge and discharge. The groundwater table
+depth ($z_{wt}$) is converted from the groundwater storage by the specific
+yield.
 
-$R_{sub,max} = 5$\,\unit{kg~m^{-2}~s^{-1}}, $\Lambda = 10.5$ is the
+The scheme has four calibrable parameters: (1) $f_{sat,max}$ maximum saturation
+area fraction (\unit{m^2~m^{-2}}), (2) $f$, (3) $R_{sub,max}$, and (4) $\Lambda$ .
+$R_{sub,max} = 5$\,\unit{kg~m^{-2}~s^{-1}}. $\Lambda = 10.5$ is the
 grid-cell-mean topographic index.
 
 \subsubsection{The SIMTOP runoff parameterization}
