@@ -12,3 +12,8 @@ noAdditionalIndent:
   citeauthor: 1
   citeyear: 1
   inlineMath: 1
+lookForAlignDelims:
+  align:
+    alignDoubleBackSlash: 0
+  tabular:
+    alignDoubleBackSlash: 0
