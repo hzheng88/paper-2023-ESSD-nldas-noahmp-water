@@ -185,9 +185,16 @@ The NOAHR scheme parameterizes the surface runoff based on the infiltration-exce
 
 \begin{align}
     R_{srf} = & Q_{gnd} - Q_{in} \text{,} \\
-    Q_{in} =  & Q_{gnd} \frac{w_d [1-\exp(-k\Delta t)]}{Q_{gnd} + w_d [1 - \exp(-k\Delta t)]} \text{,} \\
+    Q_{in} =  & Q_{gnd} \frac{I_c}{Q_{gnd} \Delta t + I_c} \text{,} \\
+    I_{c} =   & w_d [1-\exp(-\mathrm{kdt}\Delta t)] \text{,} \\
     w_d =     & \sum_{i=1}^{N_{soil}} (w_{sat,i} - w_i) \Delta z_{soil,i} \text{,}
 \end{align}
+
+NOAHR has only one calibrable parameter, $\mathrm{kdt}$. Following the Noah LSM \citep{chen2001MWR}, Noah-MP calculates the parameter from the saturated hydraulic conductivity of the first soil layer ($K_{sat,1}$):
+\begin{equation}
+    \mathrm{kdt} = \mathrm{kdt}_{ref} \frac{k_{sat,1}}{k_{ref}} \text{,}
+\end{equation}
+where $\mathrm{kdt}$ and $k_{ref}$ are two parameters, which are set as $\mathrm{kdt}_{ref} = 3$ and $k_{ref}=2 \times 10^{-6}$~m~s$^{-1}$, respectively.
 
 
 \subsubsection{The BATS runoff parameterization}
