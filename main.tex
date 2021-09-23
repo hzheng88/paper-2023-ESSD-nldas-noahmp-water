@@ -341,7 +341,7 @@ $\rho_{air}$ (m) is the density of air. $c_{mine}$ is the volumetric heat
 capacity of dry soil matter (J\,m$^{-3}$\,K$^{-1}$), whose value is
 $2\times10^6$ in Noah-MP. $w_{ice,i}$ and $w_{liq,i}$ are the volumetric content
 of frozen and liquid water (m$^{3}$\,m$^{-3}$), respectively, and their sum is
-the volumetric water content ($w_{i}$) shown in equation~(\ref{eq:soil-vmc})
+the volumetric water content ($w_{i}$) shown in equation~\eqref{eq:soil-vmc}
 (i.e., $w_{i} = w_{ice,i} + w_{liq,i}$).
 
 \subsection{Forty-eight Noah-MP physics configurations} \label{sec:data:noahmp}
@@ -396,14 +396,14 @@ $\Lambda = 10.5$.
 
 \subsubsection{The SIMTOP runoff parameterization}
 
-The SIMTOP is basically the same as the SIMGM shown as equations
-(\ref{eq:SIMGM:rsrf})~--~(\ref{eq:SIMGM:ffrzmax}). The most notable difference
+SIMTOP is basically the same as the SIMGM shown by equations
+\eqref{eq:SIMGM:rsrf}~--~\eqref{eq:SIMGM:ffrzmax}. The most notable difference
 is that SIMTOP does not have a dynamic groundwater component. Instead, SIMTOP
 parameterizes the groundwater table depth ($z_{wt}$) using soil liquid water
 content ($w_{liq,i}$) by assuming the water head is at equilibrium throughout
 the soil column down to the groundwater table. There are other implementation
 differences between SIMTOP and SIMGM in the code. First, in comparison with
-equations (\ref{eq:SIMGM:fsat}) and (\ref{eq:SIMGM:rsub}), SIMTOP does not use
+equations \eqref{eq:SIMGM:fsat} and \eqref{eq:SIMGM:rsub}, SIMTOP does not use
 soil column bottom depth ($z_{bot}$) in calculating the saturation area fraction
 ($f_{sat}$) and subsurface runoff ($R_{sub}$):
 \begin{align}
@@ -425,7 +425,7 @@ where $Q_{sli}$ is the infiltration into the soil column
 solution to the Richards equation of soil moisture by \citet{philip1969AiH} with
 consideration of the spatial variability of precipitation and soil infiltration
 capacity. Assuming the precipitation and infiltration capacity within a model
-grid cell follow the exponential distribution, \citet{schaake1996JGRA} derived
+grid cell follow the exponential distribution, \citet{schaake1996JGRA} derives
 the formulas of the soil infiltration as follows:
 \begin{align}
     Q_{soil,in} =  & Q_{sls} \frac{I_c}{Q_{sls} \Delta t + I_c} \text{,} \\
@@ -451,20 +451,28 @@ $K_{\Delta t,ref} = \frac{3}{86400}$\,s$^{-1}$, and $k_{ref}=2 \times
 NOAHR parameterize the subsurface runoff ($R_{sub}$) as free drainage from the
 bottom of the soil column:
 \begin{equation}
-    R_{sub} = k_{soil,h,N_{soil}} \text{,}
+    R_{sub} = k_{soil,h,N_{soil}} \label{eq:NOAHR:rsub} \text{,}
 \end{equation}
-where $K_{soil,h,N_{soil}}$ is the hydraulic conductivity of the bottom-layer
-soil (kg\,m$^{-2}$\,s$^{-1}$).
+where $K_{soil,h,N_{soil}}$ is the hydraulic conductivity of the bottom layer
+(i.e., $i=N_{soil}$) of the soil (kg\,m$^{-2}$\,s$^{-1}$).
 
 
 \subsubsection{The BATS runoff parameterization}
+
+The BATS runoff scheme parameterizes surface runoff ($R_{srf}$) as a funciton of
+soil wetness \citep{yang1996GPC}:
 \begin{align}
-    R_{srf} = & Q_{gnd} \left[ (1 - f_{frz,1}) f_{sat} + f_{frz,1} \right]
+    R_{srf} = & Q_{soil,srf} \left[ (1 - f_{frz,1}) f_{sat} + f_{frz,1} \right]
     \text{,} \\
     f_{sat} = & \theta^4 \text{,} \\
     \theta =  & \frac{\sum_{i=1}^{N_{soil}}\frac{w_i}{w_{sat,i}}\Delta
     z_{soil,i}}{\sum_{i=1}^{N_{soil}}\Delta z_{soil,i}} \text{,}
 \end{align}
+where $\theta$ is the averaged wetness of the soil column.
+
+Same as NOAHR, the BATS scheme also does not include a groundwater component.
+Subsurface runoff ($R_{sub}$) is the free drainage from the bottom of the soil
+as described by equation \eqref{eq:NOAHR:rsub}.
 
 
 \subsubsection{The Ball-Berry scheme of stomatal conductance}
