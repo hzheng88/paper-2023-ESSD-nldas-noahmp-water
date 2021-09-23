@@ -215,10 +215,10 @@ settings.
 
 \subsection{Dataset variables}\label{sec:data:variables}
 
-Table~\ref{tbl:variables} lists the dataset variables. The variables are
-available at each 1/8° NLDAS\nobreakdash-2 grid indicated by a land-water mask
-(\(X\)). The variables fall into two groups: the surface water and energy budget
-variables.
+Table~\ref{tbl:variables} lists the variables available in the dataset. The
+variables are provided for each 1/8° NLDAS\nobreakdash-2 grid indicated by the
+land-water mask (\(X\)). The variables fall into two groups: the surface water
+and energy budget variables.
 
 \input{tbl_variables.tex}
 
@@ -226,8 +226,8 @@ variables.
 
 Neglecting horizontal water exchange between adjacent grid, the water budget
 closure could be obtained among the precipitation (\(P\),
-\(\mathrm{kg\,m^{-2}\,s^{-1}}\)), evapotranspiration (\(E\)), runoff (\(R\)),
-and terrestrial water storage (\(W\)) change \citep{zheng2020JAMES}:
+\unit{kg~m^{-2}~s^{-1}}, evapotranspiration (\(E\)), runoff (\(R\)), and
+terrestrial water storage (\(W\)) change \citep{zheng2020JAMES}:
 \begin{equation}
     P = E + R + \Delta W \text{,}
 \end{equation}
@@ -247,7 +247,7 @@ Runoff (\(R\)) is the sum of a surface and subsurface component:
 Terrestrial water storage (\(W\)) consists of canopy interception (\(W_{can}\)),
 snow water equivalent (\(W_{snow}\)), groundwater storage in unconfined aquifers
 (\(W_{gw}\)), and soil water content in four layers (\(W_{soil,i}\),
-kg\,m$^{-2}$):
+\unit{kg~m^{-2}}):
 \begin{equation}
     W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^{N_{soil}} W_{soil,i} \text{,}
 \end{equation}
@@ -257,11 +257,12 @@ volumetric soil water content (\(w_{i}\)):
 \begin{equation}
     W_{soil,i} = \rho_{wat} w_i \Delta z_{soil,i}
     \quad \text{for} \; i = 1,\dots,N_{soil}
-    \text{,} \label{eq:soil-vmc}
+    \label{eq:soil-vmc} \text{,}
 \end{equation}
-where \(\rho_{wat}=1000\)\,kg\,m$^{-3}$ is the density of water; \(\Delta
-z_{soil,1}=0.1\)\,m, \(\Delta z_{soil,2}=0.3\)\,m, \(\Delta z_{soil,3}=0.6\)\,m,
-and \(\Delta z_{soil,4}=1.0\)\,m are the thickness of the four soil layers.
+where \(\rho_{wat}=1000\)\,\unit{kg~m^{-3}} is the density of water; \(\Delta
+z_{soil,1}=0.1\)\,\unit{m}, \(\Delta z_{soil,2}=0.3\)\,\unit{m}, \(\Delta
+z_{soil,3}=0.6\)\,\unit{m}, and \(\Delta z_{soil,4}=1.0\)\,\unit{m} are the
+thickness of the four soil layers.
 
 \subsubsection{surface energy budget}
 
@@ -272,11 +273,11 @@ of a grid cell is closed as follow:
 \end{equation}
 where \(R_n\) is net radiation, \(S\) is absorbed solar radiation, \(I\) is net
 longwave radiation, \(H\) is sensible heat flux, \(L\) is latent heat flux, and
-\(\Delta U\) (J\,m$^{-2}$\,s$^{-1}$) is internal energy change of the land
-column. The reflected solar (\(S_u\), W\,m$^{-2}$) and emitted longwave
-(\(I_u\), W\,m$^{-2}$) is not included in the dataset but can be calculated
-using the NLDAS\nobreakdash-2 downward solar (\(S_u\), W\,m$^{-2}$) and longwave
-(\(I_u\), W\,m$^{-2}$) radiation data:
+\(\Delta U\) (\unit{J~m^{-2}~s^{-1}}) is internal energy change of the land
+column. The reflected solar (\(S_u\), \unit{W~m^{-2}}) and emitted longwave
+(\(I_u\), \unit{W~m^{-2}}) is not included in the dataset but can be calculated
+using the NLDAS\nobreakdash-2 downward solar (\(S_u\), \unit{W~m^{-2}}) and
+longwave (\(I_u\), \unit{W~m^{-2}}) radiation data:
 \begin{align}
     S_u = & S_d - S \text{,} \\
     I_u = & I_d - I \text{.}
@@ -306,42 +307,42 @@ canopy and ground are both balanced:
 The change in internal energy (\(\Delta U\)) is attributed to the temperature
 change and water freezing/melting of the land column:
 \begin{multline}
-    \Delta U = \sum_{j=1}^{N_{snow}} c_{snow,j} \Delta z_{snow,j} \Delta
-    T_{snow,j} \\
+    \Delta U = \sum_{j=1}^{N_{snow}} c_{snow,j}
+    \Delta z_{snow,j} \Delta T_{snow,j} \\
     + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
     + \Delta U_{melt} \text{,}
 \end{multline}
 where \(0<=N_{snow}<=3\) is the number of snow layers, \(T_{snow,j}\) is the
-temperature of the j\textsuperscript{th} snow layer (K), \(\Delta z_{snow,j}\)
-is the thickness of j\textsuperscript{th} snow layer (m), \(T_{soil,i}\) is the
-temperature of the i\textsuperscript{th} soil layer (K), and \(\Delta U_{melt}\)
-is the latent heat of water freezing/melting within the whole land column
-(J\,m$^{-2}$\,s$^{-1}$). \(c_{snow,j}\) is the volumetric heat capacity of the
-j\textsuperscript{th} snow layer (J\,m$^{-3}$\,K$^{-1}$) and derived from the
-specific heat capacity of snow ice (\(C_{ice} = 2.108 \times
-10^3\)\,J\,kg$^{-1}$\,K$^{-1}$) and supercoolded water (\(C_{wat} = 4.188 \times
-10^3\)\,J\,kg$^{-1}$\,K$^{-1}$) as follows:
+temperature of the \textit{j}\textsuperscript{th} snow layer (K), \(\Delta
+z_{snow,j}\) is the thickness of \textit{j}\textsuperscript{th} snow layer (m),
+\(T_{soil,i}\) is the temperature of the \textit{i}\textsuperscript{th} soil
+layer (K), and \(\Delta U_{melt}\) is the latent heat of water freezing/melting
+within the whole land column (\unit{J~m^{-2}~s^{-1}}). \(c_{snow,j}\) is the
+volumetric heat capacity of the \textit{j}\textsuperscript{th} snow layer
+(\unit{J~m^{-3}~K^{-1}}) and derived from the specific heat capacity of snow ice
+(\(C_{ice} = 2.108 \times 10^3\)\,\unit{J~kg^{-1}~K^{-1}}) and supercoolded
+water (\(C_{wat} = 4.188 \times 10^3\)\,\unit{J~kg^{-1}~K^{-1}}) as follows:
 \begin{equation}
-    c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j} + C_{wat} \rho_{wat} w_{liq,j}
-    \text{,}
+    c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j}
+    + C_{wat} \rho_{wat} w_{liq,j} \text{,}
 \end{equation}
-where \(\rho_{ice} = 916.2\)\,kg\,m$^{-3}$ is the density of ice. $w_{ice,j}$ is
-the volumetric snow ice content (m$^{3}$\,m$^{-3}$), \(w_{liq,j}\) is the
-volumetric liquid water content (m$^{3}$\,m$^{-3}$). \(c_{soil,i}\) is the
-volumetric heat capacity of the i\textsuperscript{th} soil layer
-(J\,m$^{-3}$\,K$^{-1}$), which is a mixture of dry soil matter, water, ice, and
-air.
+where \(\rho_{ice} = 916.2\)\,\unit{kg~m^{-3}} is the density of ice.
+$w_{ice,j}$ is the volumetric snow ice content (\unit{m^3~m^{-3}}),
+\(w_{liq,j}\) is the volumetric liquid water content (\unit{m^3~m^{-3}}).
+\(c_{soil,i}\) is the volumetric heat capacity of the
+\textit{i}\textsuperscript{th} soil layer (\unit{J~m^{-3}~K^{-1}}), which is a
+mixture of dry soil matter, water, ice, and air.
 \begin{multline}
     c_{soil,i} = c_{mine} (1 - w_{max,i}) \\
     + C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i} \\
     + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
 \end{multline}
-where \(w_{max,i}\) is soil porosity (m$^{3}$\,m$^{-3}$), $C_{p,air} =
-1004.64$\,J\,kg$^{-1}$\,K$^{-1}$ is the isobaric heat capacity of dry air,
-\(\rho_{air}\) (m) is the density of air. \(c_{mine}\) is the volumetric heat
-capacity of dry soil matter (J\,m$^{-3}$\,K$^{-1}$), whose value is
+where \(w_{max,i}\) is soil porosity (\unit{m^3~m^{-3}}), $C_{p,air} =
+1004.64$\,\unit{J~kg^{-1}~K^{-1}} is the isobaric heat capacity of dry air,
+\(\rho_{air}\) (\unit{m}) is the density of air. \(c_{mine}\) is the volumetric
+heat capacity of dry soil matter (\unit{J~m^{-3}~K^{-1}}), whose value is
 \(2\times10^6\) in Noah-MP. \(w_{ice,i}\) and \(w_{liq,i}\) are the volumetric
-content of frozen and liquid water (m$^{3}$\,m$^{-3}$), respectively, and their
+content of frozen and liquid water (\unit{m^3~m^{-3}}), respectively, and their
 sum is the volumetric water content (\(w_{i}\)) shown in
 equation~\eqref{eq:soil-vmc} (i.e., \(w_{i} = w_{ice,i} + w_{liq,i}\)).
 
@@ -371,12 +372,12 @@ groundwater table depth (\(z_{wt}\), m, positive down) as follows.
     \text{,} \label{eq:SIMGM:ffrzmax}
 \end{align}
 where \(Q_{soil,srf}\) is the water incident on the soil surface (the sumof
-precipitaiton throughfall, snowmelt, and dewfall, kg\,m$^{-2}$\,s$^{-1}$),
-\(f_{sat}\) is the saturation fraction of the grid cell (m$^2$\,m$^{-2}$), and
-\(z_{bot}\) is the depth of the soil column bottom (m, positive down).
-\(f_{frz,i}\) is the fractional frozen area of the i\textsuperscript{th} soil
-layer (m$^2$\,m$^{-2}$). Its parameterization is introduced by
-\citet{niu2006JH}:
+precipitaiton throughfall, snowmelt, and dewfall, \unit{kg~m^-2~s^{-1}}),
+\(f_{sat}\) is the saturation fraction of the grid cell (\unit{m^2~m^{-2}}), and
+\(z_{bot}\) is the depth of the soil column bottom (\unit{m}, positive down).
+\(f_{frz,i}\) is the fractional frozen area of the
+\textit{i}\textsuperscript{th} soil layer (\unit{m^2~m^{-2}}). Its
+parameterization is introduced by \citet{niu2006JH}:
 \begin{equation}
     f_{frz,i} = \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) -
     e^{-\alpha} \text{.}
@@ -387,13 +388,13 @@ groundwater storage \citep{niu2007JGRA}. The groundwater table depth (\(z_{wt}\)
 is then converted from groundwater storage by specific yield.
 
 SIMGM has four calibrable parameters: (1) \(f_{sat,max}\), the maximum
-saturation area fraction (m$^{2}$\,m$^{-2}$), which is defined as the cumulative
+saturation area fraction (\unit{m^2~m^{-2}}), which is defined as the cumulative
 distribution function of topographic index when the grid cell mean water table
 depth is zero; (2) \(f\), a runoff decay factor; (3) \(R_{sub,max}\), the
 maximum subsurface runoff when the grid cell mean water table depth is zero
-(kg\,m$^{-2}$\,s$^{-1}$); and (4) \(\Lambda\), the grid cell mean topographic
+(\unit{kg~m^{-2}~s^{-1}}); and (4) \(\Lambda\), the grid cell mean topographic
 index. In this study, the parameters have the following values: \(f_{sat,max} =
-0.38\)\,m$^{2}$\,m$^{-2}$, $f=6$, $R_{sub,max} = 5$\,kg\,m$^{-2}$\,s$^{-1}$, and
+0.38\)\,\unit{m^2~m^{-2}}, $f=6$, $R_{sub,max}=5$\,\unit{kg~m^{-2}~s^{-1}}, and
 \(\Lambda = 10.5\).
 
 \subsubsection{The SIMTOP runoff parameterization}
@@ -413,7 +414,7 @@ fraction (\(f_{sat}\)) and subsurface runoff (\(R_{sub}\)):
     R_{sub} = & (1-f_{frz,max}) R_{sub,max} e^{-\Lambda-f z_{wt}} \text{.}
 \end{align}
 Second, SIMTOP uses different values of the runoff decay factor and maximum
-subsurface runoff: \(f=2\), and \(R_{sub,max}=4\)\,kg\,m$^{-2}$\,s$^{-1}$.
+subsurface runoff: \(f=2\), and \(R_{sub,max}=4\)\,\unit{kg~m^{-2}~s^{-1}}.
 
 
 \subsubsection{The NOAHR runoff parameterization}
@@ -423,7 +424,7 @@ NOAHR parameterize surface runoff (\(R_{srf}\)) as infiltration excess:
     R_{srf} = Q_{soil,srf} - Q_{soil,in} \text{,}
 \end{equation}
 where \(Q_{sli}\) is the infiltration into the soil column
-(kg\,m$^{-2}$\,s$^{-1}$). The infiltraiton is derived from the approximate
+(\unit{kg~m^{-2}~s^{-1}}). The infiltraiton is derived from the approximate
 solution to the Richards equation of soil moisture by \citet{philip1969AiH} with
 consideration of the spatial variability of precipitation and soil infiltration
 capacity. Assuming the precipitation and infiltration capacity within a model
@@ -436,19 +437,19 @@ the formulas of the soil infiltration as follows:
     \text{,}
 \end{align}
 where \(I_{c}\) is the soil infiltration capacity of the model grid cell
-(kg\,m$^{-2}$), \(w_d\) is the water deficit of the soil column (kg\,m$^{-2}$),
-and \(\Delta t\) is the model time step (s).
+(kg\,m$^{-2}$), \(w_d\) is the water deficit of the soil column
+(\unit{kg~m^{-2}}), and \(\Delta t\) is the model time step (\unit{s}).
 
 NOAHR has only one calibrable parameter, \(K_{\Delta t}\). Following
 \citet{chen2001MWR}, the parameter is assumed as propositional to the saturated
 hydraulic conductivity of the first soil layer (\(K_{soil,sat,1}\),
-kg\,m$^{-2}$\,s$^{-1}$):
+\unit{kg~m^{-2}~s^{-1}}):
 \begin{equation}
     K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{soil,sat,1} \text{,}
 \end{equation}
 where $K_{\Delta t,ref}$ and \(k_{ref}\) are two parameters. In Noah-MP,
-\(K_{\Delta t,ref} = \frac{3}{86400}\)\,s$^{-1}$, and \(k_{ref}=2 \times
-10^{-3}\)\,kg\,m$^{-2}$\,s$^{-1}$.
+\(K_{\Delta t,ref} = \frac{3}{86400}\)\,\unit{s^{-1}}, and \(k_{ref}=2 \times
+10^{-3}\)\,\unit{kg~m^{-2}~s^{-1}}.
 
 NOAHR parameterize the subsurface runoff (\(R_{sub}\)) as free drainage from the
 bottom of the soil column:
@@ -456,7 +457,7 @@ bottom of the soil column:
     R_{sub} = k_{soil,h,N_{soil}} \label{eq:NOAHR:rsub} \text{,}
 \end{equation}
 where \(K_{soil,h,N_{soil}}\) is the hydraulic conductivity of the bottom layer
-(i.e., \(i=N_{soil}\)) of the soil (kg\,m$^{-2}$\,s$^{-1}$).
+(i.e., \(i=N_{soil}\)) of the soil (\unit{kg~m^{-2}~s^{-1}}).
 
 
 \subsubsection{The BATS runoff parameterization}
@@ -479,17 +480,30 @@ from the bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
 
 \subsubsection{The Ball-Berry scheme of stomatal conductance}
 
-Leaf stomatal resistance is
+Leaf stomatal conductance (\(g_s\), \unit{\mu mol~m^{-2}~s^{-1}}) is
 \begin{equation}
-    \frac{1}{r_s} = m\frac{A}{c_s}\frac{e_s}{e_i}P_{atm}+b \text{,}
+    g_s = m\frac{A}{c_s}\frac{e_s}{e_i}P_{atm}+b \text{,}
 \end{equation}
-where \(r_s\) is leaf stomatal resistence (s\,m$^2$\,mol$^{-1}$), \(m\) is a
-plant function type dependent parameter, \(A\) is leaf photosynthesis, \(c_s\)
-is the CO\textsubscript{2} partial pressure at the leaf surface (Pa), \(e_s\)
-isht vapor pressure at the leaf surface (Pa).
+where \(m\) is a plant function type dependent parameter, \(A\) is leaf
+photosynthesis (\unit{\mu mol~m^{-2}~s^{-1}}), \(c_s\) is the
+CO\textsubscript{2} partial pressure at the leaf surface (\unit{Pa}), \(e_s\) is
+the water vapor pressure at the leaf surface (\unit{Pa}), \(e_i\) is the water
+vapor pressure inside the stomata (\unit{Pa}), \(P_{atm}\) is the ambient air
+pressure (\unit{Pa}), and \(b\) is the stomatal conductance at zero
+photosynthesis (\unit{\mu mol~m^{-2}~s^{-1}}).
 
 
 \subsubsection{The Jarvis scheme of stomatal conductance}
+
+The canopy resistance
+\begin{align}
+    R_c = & R_{c,min} \frac{1}{l_a f_1 f_2 f_3 f_4} \text{,} \\
+    f_1 = & \frac{\frac{R_{c,min}}{R_{c,max}}+f}{1+f} text{,} \\
+    f =   & 0.55 \frac{R_g}{R_{gl}} \frac{2}{l_a} \text{,} \\
+    f_2 = & \frac{1}{1+h_s[q_{sat}(T_l)-q_a]} \text{,} \\
+    f_3 = & 1- 0.0016 (T_{ref} - T_l)^2 \text{,} \\
+    f_4 = & \sum_{i=1}^{3} \frac{(\theta_i-\theta_w)d_z}{(\theta_{ref}-\theta_w)(d+d)} \text{,} \\
+\end{align}
 
 \subsubsection{The three parameterizations of soil moisture limitation on
     photosynthesis}
