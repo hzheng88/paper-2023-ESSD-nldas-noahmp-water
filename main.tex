@@ -226,8 +226,8 @@ variables.
 
 Neglecting horizontal water exchange between adjacent grid, the water budget
 closure could be obtained among the precipitation (\(P\),
-kg\,m$^{-2}$\,s$^{-1}$), evapotranspiration (\(E\)), runoff (\(R\)), and
-terrestrial water storage (\(W\)) change \citep{zheng2020JAMES}:
+\(\mathrm{kg\,m^{-2}\,s^{-1}}\)), evapotranspiration (\(E\)), runoff (\(R\)),
+and terrestrial water storage (\(W\)) change \citep{zheng2020JAMES}:
 \begin{equation}
     P = E + R + \Delta W \text{,}
 \end{equation}
@@ -461,8 +461,8 @@ where \(K_{soil,h,N_{soil}}\) is the hydraulic conductivity of the bottom layer
 
 \subsubsection{The BATS runoff parameterization}
 
-The BATS runoff scheme parameterizes surface runoff (\(R_{srf}\)) as a funciton
-of soil wetness \citep{yang1996GPC}:
+The BATS scheme parameterizes surface runoff (\(R_{srf}\)) as a funciton of soil
+wetness \citep{yang1996GPC}:
 \begin{align}
     R_{srf} = & Q_{soil,srf} \left[ (1 - f_{frz,1}) f_{sat} + f_{frz,1} \right]
     \text{,} \\
@@ -472,12 +472,21 @@ of soil wetness \citep{yang1996GPC}:
 \end{align}
 where \(\theta\) is the averaged wetness of the soil column.
 
-Same as NOAHR, the BATS scheme also does not include a groundwater component.
-Subsurface runoff (\(R_{sub}\)) is parameterized as the free drainage from the
-bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
+Same as NOAHR, the BATS runoff scheme also does not include a groundwater
+component. Subsurface runoff (\(R_{sub}\)) is parameterized as the free drainage
+from the bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
 
 
 \subsubsection{The Ball-Berry scheme of stomatal conductance}
+
+Leaf stomatal resistance is
+\begin{equation}
+    \frac{1}{r_s} = m\frac{A}{c_s}\frac{e_s}{e_i}P_{atm}+b \text{,}
+\end{equation}
+where \(r_s\) is leaf stomatal resistence (s\,m$^2$\,mol$^{-1}$), \(m\) is a
+plant function type dependent parameter, \(A\) is leaf photosynthesis, \(c_s\)
+is the CO\textsubscript{2} partial pressure at the leaf surface (Pa), \(e_s\)
+isht vapor pressure at the leaf surface (Pa).
 
 
 \subsubsection{The Jarvis scheme of stomatal conductance}
