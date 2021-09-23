@@ -425,8 +425,8 @@ where $Q_{sli}$ is the infiltration into the soil column
 solution to the Richards equation of soil moisture by \citet{philip1969AiH} with
 consideration of the spatial variability of precipitation and soil infiltration
 capacity. Assuming the precipitation and infiltration capacity within a model
-grid cell follow the exponential distribution, NOAHR derives the formulas of the
-soil infiltration as follows:
+grid cell follow the exponential distribution, \citet{schaake1996JGRA} derived
+the formulas of the soil infiltration as follows:
 \begin{align}
     Q_{soil,in} =  & Q_{sls} \frac{I_c}{Q_{sls} \Delta t + I_c} \text{,} \\
     I_{c} =   & w_d [1-\exp(-K_{\Delta t} \Delta t)] \text{,} \\
@@ -439,14 +439,22 @@ and $\Delta t$ is the model time step (s).
 
 NOAHR has only one calibrable parameter, $K_{\Delta t}$. Following
 \citet{chen2001MWR}, the parameter is assumed as propositional to the saturated
-hydraulic conductivity of the first soil layer ($K_{sat,1}$,
+hydraulic conductivity of the first soil layer ($K_{soil,sat,1}$,
 kg\,m$^{-2}$\,s$^{-1}$):
 \begin{equation}
-    K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{sat,1} \text{,}
+    K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{soil,sat,1} \text{,}
 \end{equation}
 where $K_{\Delta t,ref}$ and $k_{ref}$ are two parameters. In Noah-MP,
 $K_{\Delta t,ref} = \frac{3}{86400}$\,s$^{-1}$, and $k_{ref}=2 \times
 10^{-3}$\,kg\,m$^{-2}$\,s$^{-1}$.
+
+NOAHR parameterize the subsurface runoff ($R_{sub}$) as free drainage from the
+bottom of the soil column:
+\begin{equation}
+    R_{sub} = k_{soil,h,N_{soil}} \text{,}
+\end{equation}
+where $K_{soil,h,N_{soil}}$ is the hydraulic conductivity of the bottom-layer
+soil (kg\,m$^{-2}$\,s$^{-1}$).
 
 
 \subsubsection{The BATS runoff parameterization}
