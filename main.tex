@@ -360,20 +360,21 @@ SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRA}. The scheme
 parameterizes runoff ($R_{srf}$ and $R_{sub}$) as an exponential function of
 groundwater table depth ($z_{wt}$, m, positive down) as follows.
 \begin{align}
-    R_{srf} =     & Q_{sls}
-        [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ] \text{,} \label{eq:SIMGM:rsrf} \\
-    f_{sat} =     & f_{sat,max}
-    \exp(-0.5 f (z_{wt} - z_{bot})) \text{,} \label{eq:SIMGM:fsat} \\
-    R_{sub} =     & (1 - f_{frz,max}) R_{sub,max}
-    e^{-\Lambda - f(z_{wt} - z_{bot})} \text{,} \label{eq:SIMGM:rsub} \\
-    f_{frz,max} = & \max_{i=1,\dots,N_{soil}} f_{frz,i} \label{eq:SIMGM:ffrzmax} \text{,}
+    R_{srf} =     & Q_{soil,srf} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ]
+        \text{,} \label{eq:SIMGM:rsrf} \\
+    f_{sat} =     & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot}))
+        \text{,} \label{eq:SIMGM:fsat} \\
+    R_{sub} =     & (1 - f_{frz,max}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})}
+        \text{,} \label{eq:SIMGM:rsub} \\
+    f_{frz,max} = & \max_{i=1,\dots,N_{soil}} f_{frz,i}
+        \text{,} \label{eq:SIMGM:ffrzmax}
 \end{align}
-where $Q_{sls}$ is the water incident on the soil surface (the sumof
+where $Q_{soil,srf}$ is the water incident on the soil surface (the sumof
 precipitaiton throughfall, snowmelt, and dewfall, kg\,m$^{-2}$\,s$^{-1}$),
 $f_{sat}$ is the saturation fraction of the grid cell (m$^2$\,m$^{-2}$), and
 $z_{bot}$ is the depth of the soil column bottom (m, positive down). $f_{frz,i}$
-is the fractional frozen area of the $i$-th soil layer (m$^2$\,m$^{-2}$). Its
-parameterization is introduced by \citet{niu2006JH}:
+is the fractional frozen area of the $i^{\mathrm{th}}$ soil layer
+(m$^2$\,m$^{-2}$). Its parameterization is introduced by \citet{niu2006JH}:
 \begin{equation}
     f_{frz,i} = \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) -
     e^{-\alpha} \text{.}
@@ -415,30 +416,37 @@ subsurface runoff: $f=2$, and $R_{sub,max} = 4$\,kg\,m$^{-2}$\,s$^{-1}$.
 
 \subsubsection{The NOAHR runoff parameterization}
 
-The NOAHR scheme parameterizes the surface runoff based on the
-infiltration-excess concept.
-
+NOAHR parameterize surface runoff ($R_{srf}$) as infiltration excess:
+\begin{equation}
+    R_{srf} = Q_{soil,srf} - Q_{soil,in} \text{,}
+\end{equation}
+where $Q_{sli}$ is the infiltration into the soil column
+(kg\,m$^{-2}$\,s$^{-1}$). The infiltraiton is derived from the approximate
+solution to the Richards equation of soil moisture by \citet{philip1969AiH} with
+consideration of the spatial variability of precipitation and soil infiltration
+capacity. Assuming the precipitation and infiltration capacity within a model
+grid cell follow the exponential distribution, NOAHR derives the formulas of the
+soil infiltration as follows:
 \begin{align}
-    R_{srf} = & Q_{sls} - Q_{sli} \text{,} \\
-    Q_{in} =  & Q_{sls} \frac{I_c}{Q_{sls} \Delta t + I_c} \text{,} \\
+    Q_{soil,in} =  & Q_{sls} \frac{I_c}{Q_{sls} \Delta t + I_c} \text{,} \\
     I_{c} =   & w_d [1-\exp(-K_{\Delta t} \Delta t)] \text{,} \\
     w_d =     & \sum_{i=1}^{N_{soil}} \rho_{wat} (w_{sat,i} - w_i) \Delta z_{soil,i}
     \text{,}
 \end{align}
- where $Q_{sli}$ is the soil infiltration rate (kg\,m$^{-2}$\,s$^{-1}$), $I_{c}$
- is the infiltration capacity of the soil (kg\,m$^{-2}$), $w_d$ is the water
- deficit of the soil column (m$^{3}$\,m$^{-3}$), and $\Delta t$ is the model
- time step (s).
+where $I_{c}$ is the soil infiltration capacity of the model grid cell
+(kg\,m$^{-2}$), $w_d$ is the water deficit of the soil column (kg\,m$^{-2}$),
+and $\Delta t$ is the model time step (s).
 
-NOAHR has only one calibrable parameter, $K_{\Delta t}$. Following the Noah LSM
-\citep{chen2001MWR}, the parameter is calculated as propositional to the
-saturated hydraulic conductivity of the first soil layer ($K_{sat,1}$):
+NOAHR has only one calibrable parameter, $K_{\Delta t}$. Following
+\citet{chen2001MWR}, the parameter is assumed as propositional to the saturated
+hydraulic conductivity of the first soil layer ($K_{sat,1}$,
+kg\,m$^{-2}$\,s$^{-1}$):
 \begin{equation}
-    K_{\Delta t} = \frac{\mathrm{K}_{\Delta t, ref}}{k_{ref}} k_{sat,1} \text{,}
+    K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{sat,1} \text{,}
 \end{equation}
-where $K_{\Delta t,ref}$ and $k_{ref}$ are two parameters; their values are
-$\mathrm{kdt}_{ref} = 3$ and $k_{ref}=2 \times 10^{-6}$~m~s$^{-1}$,
-respectively.
+where $K_{\Delta t,ref}$ and $k_{ref}$ are two parameters. In Noah-MP,
+$K_{\Delta t,ref} = \frac{3}{86400}$\,s$^{-1}$, and $k_{ref}=2 \times
+10^{-3}$\,kg\,m$^{-2}$\,s$^{-1}$.
 
 
 \subsubsection{The BATS runoff parameterization}
