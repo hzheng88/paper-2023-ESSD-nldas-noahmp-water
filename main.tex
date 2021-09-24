@@ -230,7 +230,7 @@ closure could be obtained among the precipitation (\(P\),
 \si{kg~m^{-2}~s^{-1}}, evapotranspiration (\(E\)), runoff (\(R\)), and
 terrestrial water storage (\(W\)) change \citep{zheng2020JAMES}:
 \begin{equation}
-    P = E + R + \Delta W \text{,}
+  P = E + R + \Delta W \text{,}
 \end{equation}
 where, precipitation (\(P\)) is from NLDAS\nobreakdash-2 (described in
 Sections~\ref{sec:data:nldas}) and used as model input in this study.
@@ -239,26 +239,26 @@ Noah-MP resolves the constitutes of the water budget terms. Evapotranspiration
 (\(E\)) consists of canopy evaporation (\(E_{can}\)), ground evaoration
 (\(E_{gnd}\)), and transpiration (\(E_{tran}\)):
 \begin{equation}
-    E = E_{can} + E_{gnd} + E_{tran} \text{.}
+  E = E_{can} + E_{gnd} + E_{tran} \text{.}
 \end{equation}
 Runoff (\(R\)) is the sum of a surface and subsurface component:
 \begin{equation}
-    R = R_{srf} + R_{und} \text{.}
+  R = R_{srf} + R_{und} \text{.}
 \end{equation}
 Terrestrial water storage (\(W\)) consists of canopy interception (\(W_{can}\)),
 snow water equivalent (\(W_{snow}\)), groundwater storage in unconfined aquifers
 (\(W_{gw}\)), and soil water content in four layers (\(W_{soil,i}\),
 \si{kg~m^{-2}}):
 \begin{equation}
-    W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^{N_{soil}} W_{soil,i} \text{,}
+  W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^{N_{soil}} W_{soil,i} \text{,}
 \end{equation}
 where \(N_{soil} = 4\) is the number of soil layers.  Soil water storage
 (\(W_{soil,i}\)) is not provided in the dataset but can be calculated from
 volumetric soil water content (\(w_{i}\)):
 \begin{equation}
-    W_{soil,i} = \rho_{wat} w_i \Delta z_{soil,i}
-    \quad \text{for} \; i = 1,\dots,N_{soil}
-    \label{eq:soil-vmc} \text{,}
+  W_{soil,i} = \rho_{wat} w_i \Delta z_{soil,i}
+  \quad \text{for} \; i = 1,\dots,N_{soil}
+  \label{eq:soil-vmc} \text{,}
 \end{equation}
 where \(\rho_{wat}=1000\)\,\si{kg~m^{-3}} is the density of water; \(\Delta
 z_{soil,1}=0.1\)\,\si{m}, \(\Delta z_{soil,2}=0.3\)\,\si{m}, \(\Delta
@@ -270,7 +270,7 @@ thickness of the four soil layers.
 Assuming that there is no horizontal energy exchange, the surface energy budget
 of a grid cell is closed as follow:
 \begin{equation}
-    R_n = S + I = H + L + \Delta U \text{,} \label{eq:energy-balance}
+  R_n = S + I = H + L + \Delta U \text{,} \label{eq:energy-balance}
 \end{equation}
 where \(R_n\) is net radiation, \(S\) is absorbed solar radiation, \(I\) is net
 longwave radiation, \(H\) is sensible heat flux, \(L\) is latent heat flux, and
@@ -280,17 +280,17 @@ column. The reflected solar (\(S_u\), \si{W~m^{-2}}) and emitted longwave
 using the NLDAS\nobreakdash-2 downward solar (\(S_u\), \si{W~m^{-2}}) and
 longwave (\(I_u\), \si{W~m^{-2}}) radiation data:
 \begin{align}
-    S_u = & S_d - S \text{,} \\
-    I_u = & I_d - I \text{.}
+  S_u = & S_d - S \text{,} \\
+  I_u = & I_d - I \text{.}
 \end{align}
 
 The energy budget terms consist of two components for the vegetation canopy and
 ground.
 \begin{align}
-    S = & S_{can} + S_{gnd} \text{,} \\
-    I = & I_{can} + I_{gnd} \text{,} \\
-    H = & H_{can} + H_{gnd} \text{,} \\
-    L = & L_{can} + L_{gnd} \text{,}
+  S = & S_{can} + S_{gnd} \text{,} \\
+  I = & I_{can} + I_{gnd} \text{,} \\
+  H = & H_{can} + H_{gnd} \text{,} \\
+  L = & L_{can} + L_{gnd} \text{,}
 \end{align}
 where \(S_{can}\) (\(S_{gnd}\)) is the absorbed solar radiation at the canopy
 (ground), \(I_{can}\) (\(I_{gnd}\)) is the net longwave radiation at the canopy
@@ -301,17 +301,17 @@ processes of interception evaporation (\(E_{can}\)) and transpiration
 associated with ground evaporation (\(E_{gnd}\)). The energy budget terms of the
 canopy and ground are both balanced:
 \begin{align}
-    S_{can} + I_{can} = & H_{can} + L_{can} \text{,} \\
-    S_{gnd} + I_{gnd} = & H_{gnd} + L_{gnd} + \Delta U \text{.}
+  S_{can} + I_{can} = & H_{can} + L_{can} \text{,} \\
+  S_{gnd} + I_{gnd} = & H_{gnd} + L_{gnd} + \Delta U \text{.}
 \end{align}
 
 The change in internal energy (\(\Delta U\)) is attributed to the temperature
 change and water freezing/melting of the land column:
 \begin{multline}
-    \Delta U = \sum_{j=1}^{N_{snow}} c_{snow,j}
-    \Delta z_{snow,j} \Delta T_{snow,j} \\
-    + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
-    + \Delta U_{melt} \text{,}
+  \Delta U = \sum_{j=1}^{N_{snow}} c_{snow,j}
+  \Delta z_{snow,j} \Delta T_{snow,j} \\
+  + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
+  + \Delta U_{melt} \text{,}
 \end{multline}
 where \(0<=N_{snow}<=3\) is the number of snow layers, \(T_{snow,j}\) is the
 temperature of the \textit{j}\textsuperscript{th} snow layer (K), \(\Delta
@@ -324,8 +324,8 @@ volumetric heat capacity of the \textit{j}\textsuperscript{th} snow layer
 (\(C_{ice} = 2.108 \times 10^3\)\,\si{J~kg^{-1}~K^{-1}}) and supercoolded water
 (\(C_{wat} = 4.188 \times 10^3\)\,\si{J~kg^{-1}~K^{-1}}) as follows:
 \begin{equation}
-    c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j}
-    + C_{wat} \rho_{wat} w_{liq,j} \text{,}
+  c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j}
+  + C_{wat} \rho_{wat} w_{liq,j} \text{,}
 \end{equation}
 where \(\rho_{ice} = 916.2\)\,\si{kg~m^{-3}} is the density of ice. $w_{ice,j}$
 is the volumetric snow ice content (\si{m^3~m^{-3}}), \(w_{liq,j}\) is the
@@ -334,9 +334,9 @@ volumetric heat capacity of the \textit{i}\textsuperscript{th} soil layer
 (\si{J~m^{-3}~K^{-1}}), which is a mixture of dry soil matter, water, ice, and
 air.
 \begin{multline}
-    c_{soil,i} = c_{mine} (1 - w_{max,i}) \\
-    + C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i} \\
-    + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
+  c_{soil,i} = c_{mine} (1 - w_{max,i}) \\
+  + C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i} \\
+  + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
 \end{multline}
 where \(w_{max,i}\) is soil porosity (\si{m^3~m^{-3}}), $C_{p,air} =
 1004.64$\,\si{J~kg^{-1}~K^{-1}} is the isobaric heat capacity of dry air,
@@ -363,14 +363,14 @@ SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRA}. The scheme
 parameterizes runoff (\(R_{srf}\) and \(R_{sub}\)) as an exponential function of
 groundwater table depth (\(z_{wt}\), m, positive down) as follows.
 \begin{align}
-    R_{srf} =     & Q_{soil,srf} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ]
-    \text{,} \label{eq:SIMGM:rsrf} \\
-    f_{sat} =     & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot}))
-    \text{,} \label{eq:SIMGM:fsat} \\
-    R_{sub} =     & (1 - f_{frz,max}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})}
-    \text{,} \label{eq:SIMGM:rsub} \\
-    f_{frz,max} = & \max_{i=1,\dots,N_{soil}} f_{frz,i}
-    \text{,} \label{eq:SIMGM:ffrzmax}
+  R_{srf} =     & Q_{soil,srf} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ]
+  \text{,} \label{eq:SIMGM:rsrf} \\
+  f_{sat} =     & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot}))
+  \text{,} \label{eq:SIMGM:fsat} \\
+  R_{sub} =     & (1 - f_{frz,max}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})}
+  \text{,} \label{eq:SIMGM:rsub} \\
+  f_{frz,max} = & \max_{i=1,\dots,N_{soil}} f_{frz,i}
+  \text{,} \label{eq:SIMGM:ffrzmax}
 \end{align}
 where \(Q_{soil,srf}\) is the water incident on the soil surface (the sumof
 precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^-2~s^{-1}}),
@@ -380,8 +380,8 @@ precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^-2~s^{-1}}),
 \textit{i}\textsuperscript{th} soil layer (\si{m^2~m^{-2}}). Its
 parameterization is introduced by \citet{niu2006JH}:
 \begin{equation}
-    f_{frz,i} = \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) -
-    e^{-\alpha} \text{.}
+  f_{frz,i} = \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) -
+  e^{-\alpha} \text{.}
 \end{equation}
 
 The SIMGM runoff scheme includes a dynamic groundwater component to estimate
@@ -411,8 +411,8 @@ equations~\eqref{eq:SIMGM:fsat} and \eqref{eq:SIMGM:rsub}, SIMTOP does not use
 soil column bottom depth (\(z_{bot}\)) in calculating the saturation area
 fraction (\(f_{sat}\)) and subsurface runoff (\(R_{sub}\)):
 \begin{align}
-    f_{sat} = & f_{sat,max} \exp(-0.5 f z_{wt}) \text{,} \\
-    R_{sub} = & (1-f_{frz,max}) R_{sub,max} e^{-\Lambda-f z_{wt}} \text{.}
+  f_{sat} = & f_{sat,max} \exp(-0.5 f z_{wt}) \text{,} \\
+  R_{sub} = & (1-f_{frz,max}) R_{sub,max} e^{-\Lambda-f z_{wt}} \text{.}
 \end{align}
 Second, SIMTOP uses different values of the runoff decay factor and maximum
 subsurface runoff: \(f=2\), and \(R_{sub,max}=4\)\,\si{kg~m^{-2}~s^{-1}}.
@@ -422,7 +422,7 @@ subsurface runoff: \(f=2\), and \(R_{sub,max}=4\)\,\si{kg~m^{-2}~s^{-1}}.
 
 NOAHR parameterize surface runoff (\(R_{srf}\)) as infiltration excess:
 \begin{equation}
-    R_{srf} = Q_{soil,srf} - Q_{soil,in} \text{,}
+  R_{srf} = Q_{soil,srf} - Q_{soil,in} \text{,}
 \end{equation}
 where \(Q_{sli}\) is the infiltration into the soil column
 (\si{kg~m^{-2}~s^{-1}}). The infiltraiton is derived from the approximate
@@ -432,10 +432,10 @@ capacity. Assuming the precipitation and infiltration capacity within a model
 grid cell follow the exponential distribution, \citet{schaake1996JGRA} derives
 the formulas of the soil infiltration as follows:
 \begin{align}
-    Q_{soil,in} = & Q_{sls} \frac{I_c}{Q_{sls} \Delta t + I_c} \text{,} \\
-    I_{c} =       & w_d [1-\exp(-K_{\Delta t} \Delta t)] \text{,} \\
-    w_d =         & \sum_{i=1}^{N_{soil}} \rho_{wat} (w_{sat,i} - w_i) \Delta z_{soil,i}
-    \text{,}
+  Q_{soil,in} = & Q_{sls} \frac{I_c}{Q_{sls} \Delta t + I_c} \text{,} \\
+  I_{c} =       & w_d [1-\exp(-K_{\Delta t} \Delta t)] \text{,} \\
+  w_d =         & \sum_{i=1}^{N_{soil}} \rho_{wat} (w_{sat,i} - w_i) \Delta z_{soil,i}
+  \text{,}
 \end{align}
 where \(I_{c}\) is the soil infiltration capacity of the model grid cell
 (\si{kg~m^{-2}}), \(w_d\) is the water deficit of the soil column
@@ -446,7 +446,7 @@ NOAHR has only one calibrable parameter, \(K_{\Delta t}\). Following
 hydraulic conductivity of the first soil layer (\(K_{soil,sat,1}\),
 \si{kg~m^{-2}~s^{-1}}):
 \begin{equation}
-    K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{soil,sat,1} \text{,}
+  K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{soil,sat,1} \text{,}
 \end{equation}
 where $K_{\Delta t,ref}$ and \(k_{ref}\) are two parameters. In Noah-MP,
 \(K_{\Delta t,ref} = \frac{3}{86400}\)\,\si{s^{-1}}, and \(k_{ref}=2 \times
@@ -455,7 +455,7 @@ where $K_{\Delta t,ref}$ and \(k_{ref}\) are two parameters. In Noah-MP,
 NOAHR parameterize the subsurface runoff (\(R_{sub}\)) as free drainage from the
 bottom of the soil column:
 \begin{equation}
-    R_{sub} = k_{soil,h,N_{soil}} \label{eq:NOAHR:rsub} \text{,}
+  R_{sub} = k_{soil,h,N_{soil}} \label{eq:NOAHR:rsub} \text{,}
 \end{equation}
 where \(K_{soil,h,N_{soil}}\) is the hydraulic conductivity of the bottom layer
 (i.e., \(i=N_{soil}\)) of the soil (\si{kg~m^{-2}~s^{-1}}).
@@ -466,11 +466,11 @@ where \(K_{soil,h,N_{soil}}\) is the hydraulic conductivity of the bottom layer
 The BATS scheme parameterizes surface runoff (\(R_{srf}\)) as a funciton of soil
 wetness \citep{yang1996GPC}:
 \begin{align}
-    R_{srf} = & Q_{soil,srf} \left[ (1 - f_{frz,1}) f_{sat} + f_{frz,1} \right]
-    \text{,} \\
-    f_{sat} = & \theta^4 \text{,} \\
-    \theta =  & \frac{\sum_{i=1}^{N_{soil}}\frac{w_i}{w_{sat,i}}\Delta
-    z_{soil,i}}{\sum_{i=1}^{N_{soil}}\Delta z_{soil,i}} \text{,}
+  R_{srf} = & Q_{soil,srf} \left[ (1 - f_{frz,1}) f_{sat} + f_{frz,1} \right]
+  \text{,} \\
+  f_{sat} = & \theta^4 \text{,} \\
+  \theta =  & \frac{\sum_{i=1}^{N_{soil}}\frac{w_i}{w_{sat,i}}\Delta
+  z_{soil,i}}{\sum_{i=1}^{N_{soil}}\Delta z_{soil,i}} \text{,}
 \end{align}
 where \(\theta\) is the averaged wetness of the soil column.
 
@@ -483,7 +483,7 @@ from the bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
 
 Leaf stomatal conductance (\(g_s\), \si{\mu mol~m^{-2}~s^{-1}}) is
 \begin{equation}
-    g_s = m\frac{A}{c_s}\frac{e_s}{e_i}P_{atm}+b \text{,}
+  g_s = m\frac{A}{c_s}\frac{e_s}{e_i}P_{atm}+b \text{,}
 \end{equation}
 where \(m\) is a plant function type dependent parameter, \(A\) is leaf
 photosynthesis (\si{\umol~m^{-2}~s^{-1}}), \(c_s\) is the CO\textsubscript{2}
@@ -498,61 +498,61 @@ and \(b\) is the stomatal conductance at zero photosynthesis
 
 The canopy resistance
 \begin{align}
-    R_c = & R_{c,min} \frac{1}{l_a f_1 f_2 f_3 f_4} \text{,} \\
-    f_1 = & \frac{\frac{R_{c,min}}{R_{c,max}}+f}{1+f} text{,} \\
-    f =   & 0.55 \frac{R_g}{R_{gl}} \frac{2}{l_a} \text{,} \\
-    f_2 = & \frac{1}{1+h_s[q_{sat}(T_l)-q_a]} \text{,} \\
-    f_3 = & 1- 0.0016 (T_{ref} - T_l)^2 \text{,} \\
-    f_4 = & \sum_{i=1}^{3} \frac{(\theta_i-\theta_w)d_z}{(\theta_{ref}-\theta_w)(d+d)} \text{,} \\
+  R_c = & R_{c,min} \frac{1}{l_a f_1 f_2 f_3 f_4} \text{,} \\
+  f_1 = & \frac{\frac{R_{c,min}}{R_{c,max}}+f}{1+f} text{,} \\
+  f =   & 0.55 \frac{R_g}{R_{gl}} \frac{2}{l_a} \text{,} \\
+  f_2 = & \frac{1}{1+h_s[q_{sat}(T_l)-q_a]} \text{,} \\
+  f_3 = & 1- 0.0016 (T_{ref} - T_l)^2 \text{,} \\
+  f_4 = & \sum_{i=1}^{3} \frac{(\theta_i-\theta_w)d_z}{(\theta_{ref}-\theta_w)(d+d)} \text{,} \\
 \end{align}
 
 \subsubsection{The three parameterizations of soil moisture limitation on
     photosynthesis}
 
 \begin{equation}
-    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
-    \min\left(1, \frac{w_{liq,i} - w_{wilt}}{w_{ref} - w_{wilt}}\right)
-    \text{,}
+  \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
+  \min\left(1, \frac{w_{liq,i} - w_{wilt}}{w_{ref} - w_{wilt}}\right)
+  \text{,}
 \end{equation}
 
 \begin{equation}
-    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
-    \min\left(1, \frac{\psi_{wilt} - \psi_{i}}{\psi_{wilt} - \psi_{sat}}\right)
-    \text{,}
+  \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
+  \min\left(1, \frac{\psi_{wilt} - \psi_{i}}{\psi_{wilt} - \psi_{sat}}\right)
+  \text{,}
 \end{equation}
 
 \begin{equation}
-    \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
-    \min\left(1,
-    1 - e^{-c^2 \ln\left(\frac{\psi_{wilt}}{\psi_{i}} \right)} \right) \text{,}
+  \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
+  \min\left(1,
+  1 - e^{-c^2 \ln\left(\frac{\psi_{wilt}}{\psi_{i}} \right)} \right) \text{,}
 \end{equation}
 
 \subsubsection{The Chen97 scheme of near-surface turbulence}
 
 \begin{multline}
-    C_h = \kappa^2 \left[ \ln\left(\frac{z}{z_{0m}}\right)
-        - \Psi_{m}\left(\frac{z}{L}\right)
-        + \Psi_{m}\left(\frac{z_{0m}}{L}\right) \right]^{-1} \\
-    \left[ \ln\left(\frac{z}{z_{0h}}\right)
-        - \Psi_{h}\left(\frac{z}{L}\right)
-        + \Psi_{h}\left(\frac{z_{0h}}{L}\right) \right]^{-1} \text{,}
+  C_h = \kappa^2 \left[ \ln\left(\frac{z}{z_{0m}}\right)
+      - \Psi_{m}\left(\frac{z}{L}\right)
+      + \Psi_{m}\left(\frac{z_{0m}}{L}\right) \right]^{-1} \\
+  \left[ \ln\left(\frac{z}{z_{0h}}\right)
+      - \Psi_{h}\left(\frac{z}{L}\right)
+      + \Psi_{h}\left(\frac{z_{0h}}{L}\right) \right]^{-1} \text{,}
 \end{multline}
 \begin{equation}
-    z_{0h} = z_{0m} \exp\left(-\kappa C \sqrt{\text{Re}^*}\right)
+  z_{0h} = z_{0m} \exp\left(-\kappa C \sqrt{\text{Re}^*}\right)
 \end{equation}
 
 \subsubsection{The M-O scheme of near-surface turbulence}
 
 \begin{multline}
-    C_h = \kappa^2 \left[ \ln\left(\frac{z-d_0}{z_{0m}}\right)
-        - \Psi_{m}\left(\frac{z-d_0}{L}\right) \right]^{-1} \\
-    \left[ \ln\left(\frac{z-d_0}{z_{0h}}\right)
-        - \Psi_{h}\left(\frac{z-d_0}{L}\right) \right]^{-1}
-    \text{,}
+  C_h = \kappa^2 \left[ \ln\left(\frac{z-d_0}{z_{0m}}\right)
+      - \Psi_{m}\left(\frac{z-d_0}{L}\right) \right]^{-1} \\
+  \left[ \ln\left(\frac{z-d_0}{z_{0h}}\right)
+      - \Psi_{h}\left(\frac{z-d_0}{L}\right) \right]^{-1}
+  \text{,}
 \end{multline}
 
 \begin{equation}
-    z_{0h} = z_{0m} = 0.65 z_{ct}
+  z_{0h} = z_{0m} = 0.65 z_{ct}
 \end{equation}
 
 

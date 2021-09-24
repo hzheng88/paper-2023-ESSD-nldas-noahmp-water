@@ -1,4 +1,18 @@
 defaultIndent: "  "
+indentRules:
+  table: "  "
+  table*: "  "
+  tabular: "  "
+  tabular*: "  "
+  equation: "  "
+  equation*: "  "
+  align: "  "
+  align*: "  "
+  multline: "  "
+  multline*: "  "
+  gathered: "  "
+  gathered*: "  "
+  split: "  "
 noAdditionalIndent:
   abstract: 1
   acknowledgements: 1
@@ -14,6 +28,8 @@ noAdditionalIndent:
   inlineMath: 1
 lookForAlignDelims:
   align:
+    alignDoubleBackSlash: 0
+  align*:
     alignDoubleBackSlash: 0
   tabular:
     alignDoubleBackSlash: 0
