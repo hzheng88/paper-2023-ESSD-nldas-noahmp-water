@@ -482,71 +482,72 @@ from the bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
 \subsubsection{The Ball-Berry scheme of stomatal conductance}
 
 Leaf stomata are tiny pores typically on the underside of leaves. They are the
-gates of the gas diffusion of CO\textsubscript{2}, H\textsubscript{2}O, and
+gates of the gas exchange of CO\textsubscript{2}, H\textsubscript{2}O, and
 O\textsubscript{2} between the internal leaf structure and external atmosphere.
-The opening and closing of the stomata is characterized by stomatal conductance
-in LSMs.
+The opening and closing of the stomatal aperture are characterized by stomatal
+conductance in LSMs.
 \begin{align}
   A_{CO_2} = & g_{s,CO_2} \frac{p_{CO_2,s} - p_{CO_2,i}}{P_{atm}} \text{,} \\
   A_{H_2O} = & g_{s,H_2O} \frac{p_{H_2O,s} - p_{H_2O,i}}{P_{atm}} \text{,} \\
   A_{O_2} =  & g_{s,O_2} \frac{p_{O_2,s} - p_{O_2,i}}{P_{atm}} \text{,}
 \end{align}
-where \(g_{s,CO_2}\) (\si{\umol_{CO_2}~m^{-2}~s^{-1}}), \(g_{s,H_2O}\)
-(\si{\umol_{H_2O}~m^{-2}~s^{-1}}), and \(g_{s,O_2}\)
-(\si{\umol_{O_2}~m^{-2}~s^{-1}}) are the stomatal conductance for
-CO\textsubscript{2}, H\textsubscript{2}O, and O\textsubscript{2}, respectively.
-\(A_{CO_2}\) (\si{umol_{CO_2}~m^{-2}~s^{-1}}), \(A_{H_2O}\)
-(\si{umol_{H_2O}~m^{-2}~s^{-1}}), and \(A_{O_2}\)
-(\si{umol_{O_2}~m^{-2}~s^{-1}}) are the fluxes of CO\textsubscript{2},
-H\textsubscript{2}O, and O\textsubscript{2}. \(P_{atm}\) is the atmospheric
-pressure (\si{Pa}). \(p_{CO_2}\), \(p_{H_2O}\), and \(p_{O_2}\) are the partial
-pressure (\si{Pa}) of CO\textsubscript{2}, H\textsubscript{2}O, and
-O\textsubscript{2}, where the subscript \(s\) denotes the pressure at the leaf
-surface, and the subscript \(i\) denotes the pressure inside the leaf. The water
-vapor pressure inside the leaf (\(p_{H_2O,i}\)) is assumed to be saturated,
-which is a function of leaf temperature (\(T_l\), \si{K}).
+where \(g_{s,CO_2}\), \(g_{s,H_2O}\), and \(g_{s,O_2}\) are the stomatal
+conductance (\si{mol~m^{-2}~s^{-1}}) for CO\textsubscript{2},
+H\textsubscript{2}O, and O\textsubscript{2}, respectively. \(A_{CO_2}\),
+\(A_{H_2O}\), and \(A_{O_2}\) are the molar fluxes (\si{mol~m^{-2}~s^{-1}}) of
+CO\textsubscript{2}, H\textsubscript{2}O, and O\textsubscript{2}. \(P_{atm}\) is
+the atmospheric pressure (\si{Pa}). \(p_{CO_2}\), \(p_{H_2O}\), and \(p_{O_2}\)
+are the partial pressure (\si{Pa}) of CO\textsubscript{2}, H\textsubscript{2}O,
+and O\textsubscript{2}, where the subscript \(s\) denotes the pressure at the
+leaf surface, and the subscript \(i\) denotes the pressure inside the
+substomatal cavity. The water vapor pressure inside the substomatal cavity
+(\(p_{H_2O,i}\)) is assumed to be saturated at the leaf temperature (\(T_l\),
+\si{K}).
 
 The Ball-Berry scheme \citep{ball1987PiPR, collatz1991AFM, collatz1992FPB}
 formulates the stomatal conductance of H\textsubscript{2}O (\(g_{s,H_2O}\)) as
 follows:
 \begin{equation}
-  g_{s,H_2O} = m A_{CO_2} \frac{P_{atm}}{p_{CO_2,s}}\frac{p_{H_2O,s}}{p_{H_2O,i}} + b \text{.}
+  g_{s,H_2O} = m \max(A_{CO_2},0) \frac{P_{atm}}{p_{CO_2,s}}\frac{p_{H_2O,s}}{p_{H_2O,s,sat}} + b \text{,}
 \end{equation}
-There are two calibratable parameters: (1) \(m\), a vegetation-type dependent
-parameter (\si{\umol_{H_2O}~\umol_{CO_2}^{-1}}), and (2) \(b\), the stomatal
-conductance at zero photosynthesis (\si{\umol_{CO2}~m^{-2}~s^{-1}}). In Noah-MP,
-\(m\) and \(b\) are assigned using a look-up table of vegetation types. The
-typical value of \(m\) is 9 for C\textsubscript{3} plants and 6 for
-C\textsubscript{4} plants. The typical value of \(b\) is
-\si{5\times10^{-5}~m~s^{-1}}.
+where \(p_{H_2O,s,sat}\) is the saturation water vapor pressure at the leave
+surface (\si{Pa}), which is a function of leaf temperature (\(T_l\)). There are
+two calibratable parameters: (1) \(m\), a vegetation-type dependent parameter
+(\si{mol~mol^{-1}}), and (2) \(b\), the minimum stomatal conductance
+(\si{mol~m^{-2}~s^{-1}}) at \(A_{CO_2} = 0\). In Noah-MP, \(m\) and \(b\) are
+assigned using a look-up table of vegetation types. The typical value of \(m\)
+is 9 for C\textsubscript{3} plants, 4 for C\textsubscript{4} plants, and 6 for
+confiners \citep{sellers1996JC}. The typical value of \(b\) is
+\(0.01\)\,\si{mol~m^{-2}~s^{-1}} for C\textsubscript{3} plants, and
+\(0.04\)\,\si{mol~m^{-2}~s^{-1}} for C\textsubscript{4} plants.
+\citet{Lombardozzi2017GMD} synthesized a set of observed values for \(b\).
 
 The stomatal condutance of CO\textsubscript{2}, and O\textsubscript{2} are
 propositional to that of H\textsubscript{2}O.
 \begin{align}
-  g_{s,CO_2} = & k_{CO_2,H_2O} g_{s,H_2O} \text{,} \\
-  g_{s,O_2} = & k_{O_2,H_2O} g_{s,H_2O} \text{,}
+  g_{s,CO_2} = & f_{s,CO_2/H_2O} \cdotp g_{s,H_2O} \text{,} \\
+               & \text{where} \quad 0.634 \leq f_{s,CO_2,H_2O} \leq 1 \text{,} \nonumber \\
+  g_{s,O_2} =  & f_{s,O_2/H_2O} \cdotp g_{s,H_2O} \text{,} \\
+               & \text{where} \quad 0.836 \leq f_{s,O_2,H_2O} \leq 1 \text{,} \nonumber
 \end{align}
-where the values of the coefficients (i.e., \(k_{CO_2,H_2O}\), \(k_{O_2,H_2O}\))
-vary with the flow condition. In flowing air, the diffusion rate of
-different gases (e.g., CO\textsubscript{2}, H\textsubscript{2}O, and
-O\textsubscript{2}) are the same. In still air, the diffusion rate of gas \(X\)
-is inversely propositional to its molecular weight \(M_X\) according to the
-Graham's law:
-\begin{equation*}
-  g_{s,X} \propto \frac{1}{\sqrt{M_X}} \text{.}
-\end{equation*}
-Under such conditions, the stomatal conductance for CO\textsubscript{2},
-H\textsubscript{2}O, and O\textsubscript{2} are calculated as follows:
-\begin{align}
-  g_{s,CO_2} \approx & 0.64 g_{s,H_2O} \text{,} \\
-  g_{s,O_2} \approx  & 0.75 g_{s,H_2O} \text{.}
-\end{align}
-A value between 1 and the equations have to be set considering the flow
-conditions.
+The coefficients, \(f_{s,CO_2/H_2O}\) and \(f_{s,O_2/H_2O}\)), vary with air
+flow condition. The value range of the coefficients are determined as follows.
+First, in still air, molecular diffusion dominate the gas transfer through the
+stomata, and the conductance is proportional to the coefficients of molecular
+diffusivity. Molecular diffusivity (\si{m^~s^{-1}}) is inversely propostional to
+molecular weight according to Graham's law. Using the values recommended by
+\citet[Table 8]{massman1998AE}, we obtain \(f_{s,CO_2,H_2O} =
+\frac{0.1381}{0.2178} = 0.634\), and \(f_{s,O2,H_2O} = \frac{0.1820}{0.2178} =
+0.836\). Second, in moving air, turbulence dominates the gas transport, and the
+conductance of different gases are the same: \(k_{CO_2,H_2O}=k_{O_2,H_2O}=1\).
 
-Note that two different units are used for stomatal conductance:
-\si{\umol_{H_2O}~m^{-2}~s^{-1}} and \si{kg~m^{-2}~s^{-1}}. The conversion
-between the two units follows \citet{cowan1978}.
+Note that two different units are used for the conductance:
+\si{mol~m^{-2}~s^{-1}} and \si{m~s^{-1}}. The conversion between the two units
+follows \citet{cowan1978}:
+\begin{equation}
+  1\,\si{m~s^{-1}} = \frac{R_{gas}T}{P_{atm}} \, \si{mol~m^{-2}~s^{-1}} \text{,}
+\end{equation}
+where \(R_{gas}\) is the universal gas constant (\si{J~K^{-1}~mol^{-1}}).
 
 
 \subsubsection{The Jarvis scheme of stomatal conductance}
