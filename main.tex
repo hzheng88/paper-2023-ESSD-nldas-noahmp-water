@@ -4,7 +4,7 @@
 \begin{document}
 
 \title{A 48-member perturbed-physics ensemble of 1/8\degree{} terrestrial water
-    budget data over the conterminous United States, 1980--2015}
+  budget data over the conterminous United States, 1980--2015}
 
 \Author[1]{Hui}{Zheng}
 \Author[2]{Zong-Liang}{Yang}
@@ -17,28 +17,28 @@
 \Author[1]{Kai}{Li}
 
 \affil[1]{Key Laboratory of Regional Climate-Environment Research for Temperate
-    East Asia, Institute of Atmospheric Physics, Chinese Academy of Sciences,
-    Beijing, 100029, China}
+  East Asia, Institute of Atmospheric Physics, Chinese Academy of Sciences,
+  Beijing, 100029, China}
 \affil[2]{Department of Geological Sciences, John A. and Katherine G. Jackson
-    School of Geosciences, The University of Texas at Austin,
-    Austin, Texas, 78705, USA}
+  School of Geosciences, The University of Texas at Austin,
+  Austin, Texas, 78705, USA}
 \affil[3]{University of Chinese Academy of Sciences, Beijing, 100049, China}
 \affil[4]{Institute of Remote Sensing and Geographic Information System, School
-    of Earth and Space Sciences, Peking University,
-    Beijing, 100871, China}
+  of Earth and Space Sciences, Peking University,
+  Beijing, 100871, China}
 \affil[5]{Collaborative Innovation Center on Forecast and Evaluation of
-    Meteorological Disasters/Key Laboratory of Meteorological Disaster,
-    Ministry of Education/International Joint Research Laboratory on Climate
-    and Environment Change,
-    Nanjing University of Information Science and Technology,
-    Nanjing, 210044, China}
+  Meteorological Disasters/Key Laboratory of Meteorological Disaster,
+  Ministry of Education/International Joint Research Laboratory on Climate
+  and Environment Change,
+  Nanjing University of Information Science and Technology,
+  Nanjing, 210044, China}
 \affil[6]{Pacific Northwest National Laboratory,
-    Richland, Washington, 99354, USA}
+  Richland, Washington, 99354, USA}
 \affil[7]{School of Geographical Sciences, Southwest University,
-    Chongqing, 400715, China}
+  Chongqing, 400715, China}
 
 \correspondence{Zong-Liang Yang
-    (\href{mailto:liang@jsg.utexas.edu}{liang@jsg.utexas.edu})}
+  (\href{mailto:liang@jsg.utexas.edu}{liang@jsg.utexas.edu})}
 
 \runningtitle{NLDAS-NoahMP perturbed-physics ensemble hydrological data}
 
@@ -481,32 +481,68 @@ from the bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
 
 \subsubsection{The Ball-Berry scheme of stomatal conductance}
 
-Leaf stomata are the small pores typically on the underside of leaves. They are
-the gates of the gas exchanges of CO\textsubscript{2}, H\textsubscript{2}O, and
+Leaf stomata are tiny pores typically on the underside of leaves. They are the
+gates of the gas diffusion of CO\textsubscript{2}, H\textsubscript{2}O, and
 O\textsubscript{2} between the internal leaf structure and external atmosphere.
 The opening and closing of the stomata is characterized by stomatal conductance
 in LSMs.
+\begin{align}
+  A_{CO_2} = & g_{s,CO_2} \frac{p_{CO_2,s} - p_{CO_2,i}}{P_{atm}} \text{,} \\
+  A_{H_2O} = & g_{s,H_2O} \frac{p_{H_2O,s} - p_{H_2O,i}}{P_{atm}} \text{,} \\
+  A_{O_2} =  & g_{s,O_2} \frac{p_{O_2,s} - p_{O_2,i}}{P_{atm}} \text{,}
+\end{align}
+where \(g_{s,CO_2}\) (\si{\umol_{CO_2}~m^{-2}~s^{-1}}), \(g_{s,H_2O}\)
+(\si{\umol_{H_2O}~m^{-2}~s^{-1}}), and \(g_{s,O_2}\)
+(\si{\umol_{O_2}~m^{-2}~s^{-1}}) are the stomatal conductance for
+CO\textsubscript{2}, H\textsubscript{2}O, and O\textsubscript{2}, respectively.
+\(A_{CO_2}\) (\si{umol_{CO_2}~m^{-2}~s^{-1}}), \(A_{H_2O}\)
+(\si{umol_{H_2O}~m^{-2}~s^{-1}}), and \(A_{O_2}\)
+(\si{umol_{O_2}~m^{-2}~s^{-1}}) are the fluxes of CO\textsubscript{2},
+H\textsubscript{2}O, and O\textsubscript{2}. \(P_{atm}\) is the atmospheric
+pressure (\si{Pa}). \(p_{CO_2}\), \(p_{H_2O}\), and \(p_{O_2}\) are the partial
+pressure (\si{Pa}) of CO\textsubscript{2}, H\textsubscript{2}O, and
+O\textsubscript{2}, where the subscript \(s\) denotes the pressure at the leaf
+surface, and the subscript \(i\) denotes the pressure inside the leaf. The water
+vapor pressure inside the leaf (\(p_{H_2O,i}\)) is assumed to be saturated,
+which is a function of leaf temperature (\(T_l\), \si{K}).
 
 The Ball-Berry scheme \citep{ball1987PiPR, collatz1991AFM, collatz1992FPB}
-formulates the stomatal conductance of H\textsubscript{2}O (\(g_s\),
-\si{\umol_{H_2O}~m^{-2}~s^{-1}}) as follows:
+formulates the stomatal conductance of H\textsubscript{2}O (\(g_{s,H_2O}\)) as
+follows:
 \begin{equation}
-  g_s = m A \frac{P_{atm}}{c_s}\frac{e_s}{e_i} + b \text{,}
+  g_{s,H_2O} = m A_{CO_2} \frac{P_{atm}}{p_{CO_2,s}}\frac{p_{H_2O,s}}{p_{H_2O,i}} + b \text{.}
 \end{equation}
-where \(A\) is the photosynthesis rate (\si{\umol_{CO_2}~m^{-2}~s^{-1}}),
-\(c_s\) is the CO\textsubscript{2} partial pressure at the leaf surface
-(\si{Pa}), \(e_s\) is the water vapor pressure at the leaf surface (\si{Pa}),
-\(e_i\) is the saturation water vapor pressure inside the leaf (\si{Pa}) at the
-leaf temperature (\(T_l\), \si{k}), \(P_{atm}\) is the ambient atmosphere
-pressure (\si{Pa}).
+There are two calibratable parameters: (1) \(m\), a vegetation-type dependent
+parameter (\si{\umol_{H_2O}~\umol_{CO_2}^{-1}}), and (2) \(b\), the stomatal
+conductance at zero photosynthesis (\si{\umol_{CO2}~m^{-2}~s^{-1}}). In Noah-MP,
+\(m\) and \(b\) are assigned using a look-up table of vegetation types. The
+typical value of \(m\) is 9 for C\textsubscript{3} plants and 6 for
+C\textsubscript{4} plants. The typical value of \(b\) is
+\si{5\times10^{-5}~m~s^{-1}}.
 
-The Ball-Berry scheme has two calibratable parameters: (1) \(m\), a
-vegetation-type dependent parameter (\si{\umol_{H_2O}~\umol_{CO_2}^{-1}}), and
-(2) \(b\), the stomatal conductance at zero photosynthesis
-(\si{\umol_{CO2}~m^{-2}~s^{-1}}). In Noah-MP, \(m\) and \(b\) are assigned using
-a look-up table of vegetation types. The typical value of \(m\) is 9 for
-C\textsubscript{3} plants and 6 for C\textsubscript{4} plants. The typical value
-of \(b\) is \si{5\times10^{-5}~m~s^{-1}}.
+The stomatal condutance of CO\textsubscript{2}, and O\textsubscript{2} are
+propositional to that of H\textsubscript{2}O.
+\begin{align}
+  g_{s,CO_2} = & k_{CO_2,H_2O} g_{s,H_2O} \text{,} \\
+  g_{s,O_2} = & k_{O_2,H_2O} g_{s,H_2O} \text{,}
+\end{align}
+where the values of the coefficients (i.e., \(k_{CO_2,H_2O}\), \(k_{O_2,H_2O}\))
+vary with the flow condition. In flowing air, the diffusion rate of
+different gases (e.g., CO\textsubscript{2}, H\textsubscript{2}O, and
+O\textsubscript{2}) are the same. In still air, the diffusion rate of gas \(X\)
+is inversely propositional to its molecular weight \(M_X\) according to the
+Graham's law:
+\begin{equation*}
+  g_{s,X} \propto \frac{1}{\sqrt{M_X}} \text{.}
+\end{equation*}
+Under such conditions, the stomatal conductance for CO\textsubscript{2},
+H\textsubscript{2}O, and O\textsubscript{2} are calculated as follows:
+\begin{align}
+  g_{s,CO_2} \approx & 0.64 g_{s,H_2O} \text{,} \\
+  g_{s,O_2} \approx  & 0.75 g_{s,H_2O} \text{.}
+\end{align}
+A value between 1 and the equations have to be set considering the flow
+conditions.
 
 Note that two different units are used for stomatal conductance:
 \si{\umol_{H_2O}~m^{-2}~s^{-1}} and \si{kg~m^{-2}~s^{-1}}. The conversion
@@ -516,14 +552,14 @@ between the two units follows \citet{cowan1978}.
 \subsubsection{The Jarvis scheme of stomatal conductance}
 
 Noah-MP inherits the Javis scheme \citep{jarvis1976PTRSLBBS} of stomatal
-conductance from Noah \citep{chen2001MWR}. The Jarvis scheme calculates the
-stomatal conductance (\(g_s\), \si{m~s^{-1}}) as follows:
+conductance parameterization from Noah \citep{chen2001MWR}. The Jarvis scheme
+calculates the stomatal conductance (\(g_s\), \si{m~s^{-1}}) as follows:
 \begin{align}
-  g_s =   & g_{s,max} f_{S} f_{D} f_{T} \beta \text{,} \\
-  f_{S} = & \frac{\frac{g_{s,min}}{g_{s,max}}+f_{s}}{1+f_{s}} \text{,} \\
-  f_{s} = & 0.55 \frac{S_d}{S_{gl}} \frac{2}{l_a} \text{,} \\
-  f_{D} = & \{1+h_s[q_{sat}(T_a)-q_a]\}^{-1} \text{,} \\
-  f_{T} = & 1- 0.0016 (T_{opt} - T_l)^2 \text{.}
+  g_s =    & g_{s,max} f_{S} f_{D} f_{T} \beta \text{,} \\
+  f_{S} =  & \frac{\frac{g_{s,min}}{g_{s,max}}+f'_{S}}{1+f'_{S}} \text{,} \\
+  f'_{S} = & 0.55 \frac{S_d}{S_{gl}} \frac{2}{l_a} \text{,} \\
+  f_{D} =  & \{1+h_s[q_{sat}(T_a)-q_a]\}^{-1} \text{,} \\
+  f_{T} =  & 1- 0.0016 (T_{opt} - T_l)^2 \text{.}
 \end{align}
 \(f_{S}\), \(f_{D}\), \(f_{T}\), \(\beta\) range from 0 to 1. They represent the
 limitations of solar radiation, water vapor deficit (\(q_a\)), air temperature
@@ -542,7 +578,7 @@ are assigned from a look-up table depending on vegetation type. \(g_{s,min}\) is
 \(T_{opt}\) is assigned as \(298\)\,\si{K} according to \citet{noilhan1989MWR}.
 
 \subsubsection{The three parameterizations of soil moisture limitation on
-    photosynthesis}\label{sec:data:noahmp:beta}
+  photosynthesis}\label{sec:data:noahmp:beta}
 
 \begin{equation}
   \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
@@ -566,11 +602,11 @@ are assigned from a look-up table depending on vegetation type. \(g_{s,min}\) is
 
 \begin{multline}
   C_h = \kappa^2 \left[ \ln\left(\frac{z}{z_{0m}}\right)
-      - \Psi_{m}\left(\frac{z}{L}\right)
-      + \Psi_{m}\left(\frac{z_{0m}}{L}\right) \right]^{-1} \\
+    - \Psi_{m}\left(\frac{z}{L}\right)
+    + \Psi_{m}\left(\frac{z_{0m}}{L}\right) \right]^{-1} \\
   \left[ \ln\left(\frac{z}{z_{0h}}\right)
-      - \Psi_{h}\left(\frac{z}{L}\right)
-      + \Psi_{h}\left(\frac{z_{0h}}{L}\right) \right]^{-1} \text{,}
+    - \Psi_{h}\left(\frac{z}{L}\right)
+    + \Psi_{h}\left(\frac{z_{0h}}{L}\right) \right]^{-1} \text{,}
 \end{multline}
 \begin{equation}
   z_{0h} = z_{0m} \exp\left(-\kappa C \sqrt{\text{Re}^*}\right)
@@ -580,9 +616,9 @@ are assigned from a look-up table depending on vegetation type. \(g_{s,min}\) is
 
 \begin{multline}
   C_h = \kappa^2 \left[ \ln\left(\frac{z-d_0}{z_{0m}}\right)
-      - \Psi_{m}\left(\frac{z-d_0}{L}\right) \right]^{-1} \\
+    - \Psi_{m}\left(\frac{z-d_0}{L}\right) \right]^{-1} \\
   \left[ \ln\left(\frac{z-d_0}{z_{0h}}\right)
-      - \Psi_{h}\left(\frac{z-d_0}{L}\right) \right]^{-1}
+    - \Psi_{h}\left(\frac{z-d_0}{L}\right) \right]^{-1}
   \text{,}
 \end{multline}
 
