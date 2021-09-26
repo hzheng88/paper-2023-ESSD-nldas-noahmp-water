@@ -363,19 +363,21 @@ SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRA}. The scheme
 parameterizes runoff (\(R_{srf}\) and \(R_{sub}\)) as an exponential function of
 groundwater table depth (\(z_{wt}\), m, positive down) as follows.
 \begin{align}
-  R_{srf} =     & Q_{soil,srf} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ]
+  R_{srf} = & Q_{soil,srf} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ]
   \text{,} \label{eq:SIMGM:rsrf} \\
-  f_{sat} =     & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot}))
+  f_{sat} = & f_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot}))
   \text{,} \label{eq:SIMGM:fsat} \\
-  R_{sub} =     & (1 - f_{frz,max}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})}
+  R_{sub} = & (1 - f_{frz}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})}
   \text{,} \label{eq:SIMGM:rsub} \\
-  f_{frz,max} = & \max_{i=1,\dots,N_{soil}} f_{frz,i}
+  f_{frz} = & \max_{i=1,\dots,N_{soil}} f_{frz,i}
   \text{,} \label{eq:SIMGM:ffrzmax}
 \end{align}
 where \(Q_{soil,srf}\) is the water incident on the soil surface (the sumof
 precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^-2~s^{-1}}),
 \(f_{sat}\) is the saturation fraction of the grid cell (\si{m^2~m^{-2}}), and
 \(z_{bot}\) is the depth of the soil column bottom (\si{m}, positive down).
+
+\(f_{frz}\) is the impermeable area due to frozen soil (\si{m^2~m^{-2}}).
 \(f_{frz,i}\) is the fractional frozen area of the
 \textit{i}\textsuperscript{th} soil layer (\si{m^2~m^{-2}}). Its
 parameterization is introduced by \citet{niu2006JH}:
@@ -432,14 +434,29 @@ capacity. Assuming the precipitation and infiltration capacity within a model
 grid cell follow the exponential distribution, \citet{schaake1996JGRA} derives
 the formulas of the soil infiltration as follows:
 \begin{align}
-  Q_{soil,in} = & Q_{sls} \frac{I_c}{Q_{sls} \Delta t + I_c} \text{,} \\
+  Q_{soil,in} = & Q_{soil,srf} \frac{I_c}{Q_{soil,srf} \Delta t + I_c} (1-f_{frz}) \text{,} \\
   I_{c} =       & w_d [1-\exp(-K_{\Delta t} \Delta t)] \text{,} \\
-  w_d =         & \sum_{i=1}^{N_{soil}} \rho_{wat} (w_{sat,i} - w_i) \Delta z_{soil,i}
+  w_d =         & \sum_{i=1}^{N_{soil}} \rho_{wat} (w_{sat,i} - w_i - w_{wilt,i}) \Delta z_{soil,i}
   \text{,}
 \end{align}
 where \(I_{c}\) is the soil infiltration capacity of the model grid cell
 (\si{kg~m^{-2}}), \(w_d\) is the water deficit of the soil column
-(\si{kg~m^{-2}}), and \(\Delta t\) is the model time step (\si{s}).
+(\si{kg~m^{-2}}), \(w_{wilt,i}\) is the wilting point of the
+\textit{i}\textsuperscript{th} soil layer, and \(\Delta t\) is the model time
+step (\si{s}).
+
+NOAHR parameterizes the frozen area fraction (\(f_{frz}\)) following
+\citet{koren1999JGRA} by assuming a Gamma distribution of the ice content.
+\begin{equation}
+  f_{frz} = e^{-v} \sum_{i=1}^{\alpha^*} \frac{v^{\alpha^*-1}}{\Gamma(\alpha^*-i+1)}
+\end{equation}
+
+The calculated infiltration has to be no greater than the water
+incident at the soil surface and no less than the hydraulic conductivity of the
+first soil layer (\(K_{soil,i}\), \si{kg~m^{-2}~s^{-1}}).
+\begin{equation}
+  K_{soil,1} (1-f_{frz}) \leq Q_{soil,i} \leq Q_{soil,srf}
+\end{equation}
 
 NOAHR has only one calibrable parameter, \(K_{\Delta t}\). Following
 \citet{chen2001MWR}, the parameter is assumed as propositional to the saturated
@@ -448,7 +465,7 @@ hydraulic conductivity of the first soil layer (\(K_{soil,sat,1}\),
 \begin{equation}
   K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{soil,sat,1} \text{,}
 \end{equation}
-where $K_{\Delta t,ref}$ and \(k_{ref}\) are two parameters. In Noah-MP,
+where \(K_{\Delta t,ref}\) and \(k_{ref}\) are two parameters. In Noah-MP,
 \(K_{\Delta t,ref} = \frac{3}{86400}\)\,\si{s^{-1}}, and \(k_{ref}=2 \times
 10^{-3}\)\,\si{kg~m^{-2}~s^{-1}}.
 
@@ -481,8 +498,8 @@ from the bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
 
 \subsubsection{The Ball-Berry scheme of stomatal conductance}
 
-Leaf stomata are tiny pores typically on the underside of leaves. They are the
-gates of the gas exchange of CO\textsubscript{2}, H\textsubscript{2}O, and
+Leaf stomata are tiny pores typically on the underside of leaves. They control
+the gas exchange of CO\textsubscript{2}, H\textsubscript{2}O, and
 O\textsubscript{2} between the internal leaf structure and external atmosphere.
 The opening and closing of the stomatal aperture are characterized by stomatal
 conductance in LSMs.
@@ -508,7 +525,7 @@ The Ball-Berry scheme \citep{ball1987PiPR, collatz1991AFM, collatz1992FPB}
 formulates the stomatal conductance of H\textsubscript{2}O (\(g_{s,H_2O}\)) as
 follows:
 \begin{equation}
-  g_{s,H_2O} = m \max(A_{CO_2},0) \frac{P_{atm}}{p_{CO_2,s}}\frac{p_{H_2O,s}}{p_{H_2O,s,sat}} + b \text{,}
+  g_{s,H_2O} = m \max(A_{CO_2},0) \frac{P_{atm}}{p_{CO_2,s}}\frac{p_{H_2O,s}}{p_{sat}(T_l)} + b \text{,}
 \end{equation}
 where \(p_{H_2O,s,sat}\) is the saturation water vapor pressure at the leave
 surface (\si{Pa}), which is a function of leaf temperature (\(T_l\)). There are
@@ -520,7 +537,8 @@ is 9 for C\textsubscript{3} plants, 4 for C\textsubscript{4} plants, and 6 for
 confiners \citep{sellers1996JC}. The typical value of \(b\) is
 \(0.01\)\,\si{mol~m^{-2}~s^{-1}} for C\textsubscript{3} plants, and
 \(0.04\)\,\si{mol~m^{-2}~s^{-1}} for C\textsubscript{4} plants.
-\citet{Lombardozzi2017GMD} synthesized a set of observed values for \(b\).
+\citet{Lombardozzi2017GMD} synthesized a set of observed values for \(b\), but
+the values have not bee used in this study.
 
 The stomatal condutance of CO\textsubscript{2}, and O\textsubscript{2} are
 propositional to that of H\textsubscript{2}O.
@@ -560,14 +578,15 @@ calculates the stomatal conductance (\(g_s\), \si{m~s^{-1}}) as follows:
   f_{S} =  & \frac{\frac{g_{s,min}}{g_{s,max}}+f'_{S}}{1+f'_{S}} \text{,} \\
   f'_{S} = & 0.55 \frac{S_d}{S_{gl}} \frac{2}{l_a} \text{,} \\
   f_{D} =  & \{1+h_s[q_{sat}(T_a)-q_a]\}^{-1} \text{,} \\
-  f_{T} =  & 1- 0.0016 (T_{opt} - T_l)^2 \text{.}
+  f_{T} =  & 1- 0.0016 (T_{opt} - T_a)^2 \text{.}
 \end{align}
 \(f_{S}\), \(f_{D}\), \(f_{T}\), \(\beta\) range from 0 to 1. They represent the
 limitations of solar radiation, water vapor deficit (\(q_a\)), air temperature
 (\(T\)), and soil moisture (detailed in Section~\ref{sec:data:noahmp:beta}),
 respectively. \(S_d\) is the solar radiation (\si{W~m^{-2}}), \(l_a\) is leaf
-area index (\si{m^2~m^{-2}}), and \(q_{sat}(T_a)\) is the saturation vapor
-mixing ratio at the temperature \(T_a\).
+area index (\si{m^2~m^{-2}}), \(q\) is the mixing ratio of surface air
+(\si{kg~kg^{-1}}), and \(q_{sat}(T_a)\) is the saturation vapor mixing ratio at
+the temperature \(T_a\) (\si{K}).
 
 The Jarvis scheme used in Noah-MP has five calibratable parameters: (1)
 \(g_{s,max}\), (2) \(g_{s,min}\), the cuticular conductance of the leaves, (3)
