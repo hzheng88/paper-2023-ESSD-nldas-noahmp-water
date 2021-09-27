@@ -365,15 +365,15 @@ groundwater table depth (\(z_{wt}\), m, positive down) as follows.
   \text{,} \label{eq:SIMGM:rsrf} \\
   a_{sat} = & a_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot}))
   \text{,} \label{eq:SIMGM:fsat} \\
-  R_{sub} = & (1 - a_{frz}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{bot})}
+  R_{sub} = & (1 - a_{frz}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{soil,bot})}
   \text{,} \label{eq:SIMGM:rsub} \\
   a_{frz} = & \max_{i=1,\dots,N_{soil}} a_{frz,i}
   \text{,} \label{eq:SIMGM:ffrzmax}
 \end{align}
-where \(Q_{soil,srf}\) is the water incident on the soil surface (the sumof
-precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^-2~s^{-1}}),
+where \(Q_{soil,srf}\) is the water incident on the soil surface (the sum of
+precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^{-2}~s^{-1}}),
 \(a_{sat}\) is the saturation fraction of the grid cell (\si{m^2~m^{-2}}), and
-\(z_{bot}\) is the depth of the soil column bottom (\si{m}, positive down).
+\(z_{soil,bot}\) is the depth of the soil column bottom (\si{m}, positive down).
 
 \(a_{frz}\) is the impermeable area due to frozen soil (\si{m^2~m^{-2}}).
 \(a_{frz,i}\) is the fractional frozen area of the \(i\)-th soil layer
@@ -423,8 +423,8 @@ NOAHR parameterize surface runoff (\(R_{srf}\)) as infiltration excess:
 \begin{equation}
   R_{srf} = Q_{soil,srf} - Q_{soil,in} \text{,}
 \end{equation}
-where \(Q_{sli}\) is the infiltration into the soil column
-(\si{kg~m^{-2}~s^{-1}}). The infiltraiton is derived from the approximate
+where \(Q_{soil,in}\) is the infiltration into the soil column
+(\si{kg~m^{-2}~s^{-1}}). The infiltration is derived from the approximate
 solution to the Richards equation of soil moisture by \citet{philip1969AiH} with
 consideration of the spatial variability of precipitation and soil infiltration
 capacity. Assuming the precipitation and infiltration capacity within a model
