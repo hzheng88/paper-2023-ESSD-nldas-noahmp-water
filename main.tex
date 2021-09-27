@@ -314,12 +314,11 @@ change and water freezing/melting of the land column:
   + \Delta U_{melt} \text{,}
 \end{multline}
 where \(0<=N_{snow}<=3\) is the number of snow layers, \(T_{snow,j}\) is the
-temperature of the \textit{j}\textsuperscript{th} snow layer (K), \(\Delta
-z_{snow,j}\) is the thickness of \textit{j}\textsuperscript{th} snow layer (m),
-\(T_{soil,i}\) is the temperature of the \textit{i}\textsuperscript{th} soil
-layer (K), and \(\Delta U_{melt}\) is the latent heat of water freezing/melting
-within the whole land column (\si{J~m^{-2}~s^{-1}}). \(c_{snow,j}\) is the
-volumetric heat capacity of the \textit{j}\textsuperscript{th} snow layer
+temperature of the \(j\)-th snow layer (K), \(\Delta z_{snow,j}\) is the
+thickness of \(j\)-th snow layer (m), \(T_{soil,i}\) is the temperature of the
+\(i\)-th soil layer (K), and \(\Delta U_{melt}\) is the latent heat of water
+freezing/melting within the whole land column (\si{J~m^{-2}~s^{-1}}).
+\(c_{snow,j}\) is the volumetric heat capacity of the \(j\)-th snow layer
 (\si{J~m^{-3}~K^{-1}}) and derived from the specific heat capacity of snow ice
 (\(C_{ice} = 2.108 \times 10^3\)\,\si{J~kg^{-1}~K^{-1}}) and supercoolded water
 (\(C_{wat} = 4.188 \times 10^3\)\,\si{J~kg^{-1}~K^{-1}}) as follows:
@@ -330,9 +329,8 @@ volumetric heat capacity of the \textit{j}\textsuperscript{th} snow layer
 where \(\rho_{ice} = 916.2\)\,\si{kg~m^{-3}} is the density of ice. $w_{ice,j}$
 is the volumetric snow ice content (\si{m^3~m^{-3}}), \(w_{liq,j}\) is the
 volumetric liquid water content (\si{m^3~m^{-3}}). \(c_{soil,i}\) is the
-volumetric heat capacity of the \textit{i}\textsuperscript{th} soil layer
-(\si{J~m^{-3}~K^{-1}}), which is a mixture of dry soil matter, water, ice, and
-air.
+volumetric heat capacity of the \(i\)-th soil layer (\si{J~m^{-3}~K^{-1}}),
+which is a mixture of dry soil matter, water, ice, and air.
 \begin{multline}
   c_{soil,i} = c_{mine} (1 - w_{max,i}) \\
   + C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i} \\
@@ -378,9 +376,8 @@ precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^-2~s^{-1}}),
 \(z_{bot}\) is the depth of the soil column bottom (\si{m}, positive down).
 
 \(f_{frz}\) is the impermeable area due to frozen soil (\si{m^2~m^{-2}}).
-\(f_{frz,i}\) is the fractional frozen area of the
-\textit{i}\textsuperscript{th} soil layer (\si{m^2~m^{-2}}). Its
-parameterization is introduced by \citet{niu2006JH}:
+\(f_{frz,i}\) is the fractional frozen area of the \(i\)-th soil layer
+(\si{m^2~m^{-2}}). Its parameterization is introduced by \citet{niu2006JH}:
 \begin{equation}
   f_{frz,i} = \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) -
   e^{-\alpha} \text{.}
@@ -441,9 +438,8 @@ the formulas of the soil infiltration as follows:
 \end{align}
 where \(I_{c}\) is the soil infiltration capacity of the model grid cell
 (\si{kg~m^{-2}}), \(w_d\) is the water deficit of the soil column
-(\si{kg~m^{-2}}), \(w_{wilt,i}\) is the wilting point of the
-\textit{i}\textsuperscript{th} soil layer, and \(\Delta t\) is the model time
-step (\si{s}).
+(\si{kg~m^{-2}}), \(w_{wilt,i}\) is the wilting point of the \(i\)-th soil
+layer, and \(\Delta t\) is the model time step (\si{s}).
 
 NOAHR parameterizes the frozen area fraction (\(f_{frz}\)) following
 \citet{koren1999JGRA} by assuming a Gamma distribution of the ice content.
