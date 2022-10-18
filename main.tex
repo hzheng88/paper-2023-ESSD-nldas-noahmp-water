@@ -86,14 +86,14 @@ process-level attribution of the estimation uncertainty.
 Estimates of terrestrial water budget (TWB) over continental domains are of high
 interest for a broad range of hydrological applications. Publicly available data
 have been applied to investigate the state of the terrestrial water cycle
-\citep{trenberth2013GRL, rodell2015JC, scanlon2018P, yin2020HESS,
-pascolini-campbell2021N}, to understand the interactions among hydrological
+\citep{trenberth2013GRL, rodell2015JC, scanlon2018PNASU, yin2020HESS,
+pascolini-campbell2020WRR}, to understand the interactions among hydrological
 processes, vegetation, climate, and human activities \citep{trenberth2013JC,
-lafontaine2015JAWRA, ward2014PNAS, levia2020NG}, to examine the availability and
+lafontaine2015JAWRA, ward2014PNASU, levia2020NG}, to examine the availability and
 variability of water resources and use \citep{wu2021JH, hejazi2014HESS,
-scanlon2012P, voss2013WRR, lv2019JGRA, le2011P, rodell2009N}, and to assess the
+scanlon2012PNASU, voss2013WRR, lv2019JGRA, le2011PNASU, rodell2009N}, and to assess the
 risk of extreme events such as droughts \citep{peters-lidard2021BAMS,
-prudhomme2014P, dai2013NCC, su2021JH} and floods \citep{emerton2017NC,
+prudhomme2014PNASU, dai2013NCC, su2021JH} and floods \citep{emerton2017NC,
 lin2018JH}. With the expanding applications, the availability of TWB datasets
 has been rapidly increasing \citep{peters-lidard2018MM, saxe2021HESS,
 zhang2018HESS}.
@@ -137,7 +137,7 @@ process parameterizations and modeling skills \citep{kumar2017WRR}. An ensemble
 of multiple models could produce an aggregated estimate that outperforms most of
 the ensemble constitutes \citep{fei2021WRR, beck2017HESS, guo2007QJRMS,
 ajami2007WRR} as well as quantify the estimation uncertainty resulted from
-different model formulations \citep{troin2021WRR, cloke2009JoH}. Evaluations of
+different model formulations \citep{troin2021WRR, cloke2009JH}. Evaluations of
 the NLDAS\nobreakdash-2 four-LSM ensemble estimates have shown satisfactory
 performance in matching the observed evapotranspiration \citep{zhang2020AFM,
 xia2012JGRA, kumar2018RS}, runoff \citep{xia2012JGRAa}, soil moisture
@@ -221,7 +221,7 @@ variables are provided for each 1/8° NLDAS\nobreakdash-2 grid indicated by the
 land-water mask (\(X\)). The variables fall into two groups: the surface water
 and energy budget variables.
 
-\input{tbl_variables.tex}
+\include{tbl_variables.tex}
 
 \subsubsection{surface water budget}
 
@@ -357,7 +357,7 @@ following sections will detail the formulations.
 
 \subsubsection{The SIMGM runoff parameterization}
 
-SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRA}. The scheme
+SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRa}. The scheme
 parameterizes runoff (\(R_{srf}\) and \(R_{sub}\)) as an exponential function of
 groundwater table depth (\(z_{wt}\), m, positive down) as follows.
 \begin{align}
@@ -384,7 +384,7 @@ precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^{-2}~s^{-1}}),
 \end{equation}
 
 The SIMGM runoff scheme includes a dynamic groundwater component to estimate
-groundwater storage \citep{niu2007JGRA}. The groundwater table depth (\(z_{wt}\))
+groundwater storage \citep{niu2007JGRa}. The groundwater table depth (\(z_{wt}\))
 is then converted from groundwater storage by specific yield.
 
 SIMGM has four calibratable parameters: (1) \(a_{sat,max}\), the maximum
@@ -533,7 +533,7 @@ typical value of \(m\) is 9 for C\textsubscript{3} plants, 4 for
 C\textsubscript{4} plants, and 6 for confiners \citep{sellers1996JCa}. The
 typical value of \(g_{s,H_2O,min}\) is \(0.01\)\,\si{mol~m^{-2}~s^{-1}} for
 C\textsubscript{3} plants, and \(0.04\)\,\si{mol~m^{-2}~s^{-1}} for
-C\textsubscript{4} plants. \citet{Lombardozzi2017GMD} synthesized a set of
+C\textsubscript{4} plants. \citet{lombardozzi2017GMD} synthesized a set of
 observed values for \(g_{s,H_2O,min}\), but the values have not been used in
 this study.
 
@@ -567,7 +567,7 @@ where \(R_{gas}\) is the universal gas constant (\si{J~K^{-1}~mol^{-1}}).
 
 \subsubsection{The Jarvis scheme of stomatal conductance}
 
-Noah-MP inherits the Javis scheme \citep{jarvis1976PTRSLBBS} of stomatal
+Noah-MP inherits the Javis scheme \citep{jarvis1976PTRSLB} of stomatal
 conductance parameterization from Noah \citep{chen2001MWR}. The Jarvis scheme
 calculates the stomatal conductance (\(g_s\), \si{m~s^{-1}}) as follows:
 \begin{align}
@@ -716,7 +716,7 @@ This work is supported by the National Science Foundation of China (grants
 
 
 %% REFERENCES
+\bibliography{references.bib}
 \bibliographystyle{copernicus}
-\bibliography{library.bib}
 
 \end{document}
