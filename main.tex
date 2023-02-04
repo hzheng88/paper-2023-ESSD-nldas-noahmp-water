@@ -1,48 +1,32 @@
-\documentclass[essd]{copernicus}
+\documentclass[essd, manuscript]{copernicus}
+\let\unit\undefined
 \usepackage{siunitx}
 
 \begin{document}
 
-\title{A 48-member perturbed-physics ensemble of 1/8\degree{} terrestrial water
-  budget data over the conterminous United States, 1980--2015}
+\title{An ensemble of 48 physically perturbed model estimates of the 1/8
+  \degree{} terrestrial water budget over the conterminous United States, 1980--2015}
 
 \Author[1]{Hui}{Zheng}
-\Author[2]{Zong-Liang}{Yang}
-\Author[1,3]{Wenli}{Fei}
-\Author[4,2]{Peirong}{Lin}
-\Author[2]{Wen-Ying}{Wu}
-\Author[5,2]{Jiangfeng}{Wei}
-\Author[6,2]{Lingcheng}{Li}
-\Author[7,2]{Long}{Zhao}
+\Author[1,2]{Wenli}{Fei}
+\Author[3]{Zong-Liang}{Yang}
+\Author[3,4]{Jiangfeng}{Wei}
+\Author[3,5]{Long}{Zhao}
+\Author[3,6]{Lingcheng}{Li}
 \Author[1]{Kai}{Li}
 
-\affil[1]{Key Laboratory of Regional Climate-Environment Research for Temperate
-  East Asia, Institute of Atmospheric Physics, Chinese Academy of Sciences,
-  Beijing, 100029, China}
-\affil[2]{Department of Geological Sciences, John A. and Katherine G. Jackson
-  School of Geosciences, The University of Texas at Austin,
-  Austin, Texas, 78705, USA}
-\affil[3]{University of Chinese Academy of Sciences, Beijing, 100049, China}
-\affil[4]{Institute of Remote Sensing and Geographic Information System, School
-  of Earth and Space Sciences, Peking University,
-  Beijing, 100871, China}
-\affil[5]{Collaborative Innovation Center on Forecast and Evaluation of
-  Meteorological Disasters/Key Laboratory of Meteorological Disaster,
-  Ministry of Education/International Joint Research Laboratory on Climate
-  and Environment Change,
-  Nanjing University of Information Science and Technology,
-  Nanjing, 210044, China}
-\affil[6]{Pacific Northwest National Laboratory,
-  Richland, Washington, 99354, USA}
-\affil[7]{School of Geographical Sciences, Southwest University,
-  Chongqing, 400715, China}
+\affil[1]{Key Laboratory of Regional Climate-Environment Research for Temperate East Asia, Institute of Atmospheric Physics, Chinese Academy of Sciences, Beijing, 100029, China}
+\affil[2]{University of Chinese Academy of Sciences, Beijing, 100049, China}
+\affil[3]{Department of Geological Sciences, John A. and Katherine G. Jackson School of Geosciences, the University of Texas at Austin, Austin, Texas, 78705, USA}
+\affil[4]{Collaborative Innovation Center on Forecast and Evaluation of Meteorological Disasters/Key Laboratory of Meteorological Disaster, Ministry of Education/International Joint Research Laboratory on Climate and Environment Change, Nanjing University of Information Science and Technology, Nanjing, 210044, China}
+\affil[5]{School of Geographical Sciences, Southwest University, Chongqing, 400715, China}
+\affil[6]{Pacific Northwest National Laboratory, Richland, Washington, 99354, USA}
 
-\correspondence{Zong-Liang Yang
-  (\href{mailto:liang@jsg.utexas.edu}{liang@jsg.utexas.edu})}
+\correspondence{Zong-Liang Yang (\href{mailto:liang@jsg.utexas.edu}{liang@jsg.utexas.edu})}
 
 \runningtitle{NLDAS-NoahMP perturbed-physics ensemble hydrological data}
 
-\runningauthor{Zheng, Yang, Fei, et al.}
+\runningauthor{Zheng, Fei, Yang, et al.}
 
 \firstpage{1}
 
@@ -50,673 +34,542 @@
 
 \begin{abstract}
 
-Terrestrial water budget (TWB) data over large domains are of high interest for
-various hydrological applications. Land surface model (LSM) ensembles are
-well-suited for a spatiotemporally continuous and physically consistent
-estimation. As an augmentation of the operational North American Land Data
-Assimilation System phase 2 (NLDAS\nobreakdash-2) four-LSM ensemble, this study
-presents a 48-member perturbed-physics ensemble configured from the Noah LSM
-with multi-physics options (Noah-MP). The forty-eight Noah-MP physics
-configurations are selected to give a representative cross-section of commonly
-used LSMs for parameterizing runoff, near-surface atmospheric turbulence, soil
-moisture limitation on leaf stomata, and stomatal conductance.
+Terrestrial water budget (TWB) data over large domains are of high interest for various hydrological applications. Spatiotemporally continuous and physically consistent estimations of TWB rely on land surface models (LSMs). As an augmentation of the operational North American Land Data Assimilation System Phase 2 (NLDAS-2) four-LSM ensemble, this study presents a 48-member perturbed-physics ensemble configured from the Noah LSM with multi-physics options (Noah-MP). The 48 Noah-MP physics configurations are selected to give a representative cross-section of commonly used LSMs for parameterizing runoff, atmospheric surface layer turbulence, soil moisture limitation on photosynthesis, and stomatal conductance.
 
-Simulation of the ensemble reproduced 1980–2015 monthly TWB over the
-conterminous United States at a 1/8° spatial resolution. Total and the
-constitutes of evapotranspiration (i.e., canopy evaporation, soil evaporation,
-and transpiration) and runoff (i.e., the surface and subsurface components) are
-freely downloadable at \url{https://doi.org/place-holder-nmpens-pretrn}.
-Terrestrial water storage and its components (i.e., snow water equivalent,
-four-layer soil water content from the ground down to 2-m depth, and groundwater
-storage anomaly) are retrievable from
-\url{https://doi.org/place-holder-nmpens-tws}.
-
-Inter-comparisons and evaluations of the ensemble reconstructions show a larger
-ensemble size and would facilitate a better quantification and process-level
-attribution of the reconstruction uncertainty. The others include: (1) improved
-performance, (2) updated quantification of reconstruction uncertainty, (3)
-process-level attribution of the estimation uncertainty.
-
+The ensemble simulated the 1980--2015 monthly TWB over the conterminous United States (CONUS) at a 1/8\degree{} spatial resolution. Simulation outputs include total evapotranspiration and its constituents (canopy evaporation, soil evaporation, and transpiration), runoff (the surface and subsurface components), as well as terrestrial water storage (snow water equivalent, four-layer soil water content from the surface down to 2 m, and the groundwater storage anomaly). This dataset is available at \url{https://doi.org/10.5281/zenodo.7109816} \citep{zheng2022}. Evaluations carried out in this study and previous investigations show that the ensemble performs well in reproducing the observed terrestrial water storage, snow water equivalent, soil moisture, and runoff. Noah-MP complements the NLDAS models well, and adding Noah-MP consistently improves the NLDAS estimations of the above variables in most areas of CONUS\@. Besides, the perturbed-physics ensemble facilities the identification of model deficiencies. The parameterizations of shallow snow, lakes, and near-surface atmospheric turbulence should be improved in future model versions.
 
 \end{abstract}
 
-
 \introduction\label{sec:intro}
 
-Estimates of terrestrial water budget (TWB) over continental domains are of high
-interest for a broad range of hydrological applications. Publicly available data
-have been applied to investigate the state of the terrestrial water cycle
-\citep{trenberth2013GRL, rodell2015JC, scanlon2018PNASU, yin2020HESS,
-pascolini-campbell2020WRR}, to understand the interactions among hydrological
-processes, vegetation, climate, and human activities \citep{trenberth2013JC,
-lafontaine2015JAWRA, ward2014PNASU, levia2020NG}, to examine the availability and
-variability of water resources and use \citep{wu2021JH, hejazi2014HESS,
-scanlon2012PNASU, voss2013WRR, lv2019JGRA, le2011PNASU, rodell2009N}, and to assess the
-risk of extreme events such as droughts \citep{peters-lidard2021BAMS,
-prudhomme2014PNASU, dai2013NCC, su2021JH} and floods \citep{emerton2017NC,
-lin2018JH}. With the expanding applications, the availability of TWB datasets
-has been rapidly increasing \citep{peters-lidard2018MM, saxe2021HESS,
-zhang2018HESS}.
+Estimates of the terrestrial water budgets (TWBs)---evapotranspiration, runoff, terrestrial water storage, and their constitutes---over continental domains are of high interest for a broad range of hydrological applications. Publicly available data have been applied to investigate the state of the terrestrial water cycle \citep{trenberth2013GRL,rodell2015JC, scanlon2018PNASU, yin2020HESS}; to understand the interactions among hydrological processes, vegetation, climate, and human activities \citep{trenberth2013JC,lafontaine2015JAWRA, ward2014PNASU, levia2020NG}; to examine the availability and variability of water resources and use \citep{wu2021JHa, hejazi2014HESS, scanlon2012PNASU, voss2013WRR, lv2019JGRA, le2011PNASU, rodell2009N}; and to assess the risk of extreme events such as droughts \citep{peters-lidard2021BAMS, prudhomme2014PNASU, dai2013NCC, su2021JHa} and floods \citep{emerton2017NC, lin2018JH}.
 
-Commonly used methods of estimating TWB include remote sensing, in-situ
-observations, and model simulations \citep{saxe2021HESS, mccabe2017HESS,
-pan2012JC, gao2010IJRS, trenberth2007JH}. Among these methods, land surface
-models (LSMs) are apt for continuously producing physically consistent TWB over
-a large domain and long period. These characteristics are particularly favorable
-for some circumstances. LSMs could estimate various TWB components
-simultaneously, whereas, for some components, such as runoff \citep{lin2019WRR,
-beck2017HESS}, root-zone soil moisture \citep{xia2015JHa, xia2015JH}, and
-transpiration \citep{lian2018NCC}, direct remote sensing is either unavailable
-or highly uncertain. In remote or topographically complex regions, LSMs are
-valuable as in-situ observations are sparse \citep{kim2021TC}. Estimation based
-on remote sensing and in-situ observations is often impeded by scale mismatch
-and observation gaps, whereas the issues impair LSM simulations less. Besides,
-LSM simulations are well complementary to remote sensing and in-situ
-observations. Combinations of the estimates from different techniques can
-improve the estimation accuracy \citep{zhang2018HESS, pan2012JC}, whereas
-comparisons between the model-simulated estimates and observations could reveal
-the impacts of human activities \citep{zaussinger2019HESS} and underground
-processes \citep{zheng2020JAMES}.
+As the applications have expanded, the availability of TWB estimates has increased rapidly \citep{peters-lidard2018MM, saxe2021HESS, zhang2018HESS}. Commonly used estimation methods include remote sensing, in-situ observations, and model simulations \citep{saxe2021HESS, mccabe2017HESS, pan2012JC, gao2010IJRS, trenberth2007JH}. Among these methods, land surface models (LSMs) are apt for continuously producing physically consistent TWBs over a large domain and long period, and their characteristics are particularly favorable for certain circumstances. For instance, LSMs can estimate various TWB components simultaneously; whereas, for some components, such as runoff \citep{lin2019WRRa, beck2017HESS}, root-zone soil moisture \citep{xia2015JHa, xia2015JH}, and transpiration \citep{lian2018NCC}, direct remote sensing is either unavailable or highly uncertain. Additionally, LSMs are valuable in remote or topographically complex regions because of the sparseness of in-situ observations \citep{kim2021TC}. Estimations based on remote sensing and in-situ observations are often impeded by scale mismatches and observation gaps, whereas these issues are rarely an impairment for LSM simulations. Besides, LSM simulations can complement remote sensing and in-situ observations well. Combinations of estimates from different techniques can improve the estimation accuracy \citep{zhang2018HESS, pan2012JC, zhao2018RSE}, while comparisons between model-simulated estimates and observations can reveal the impacts of human activities \citep{zaussinger2019HESS} and underground processes \citep{zheng2020JAMES}.
 
-For delivering consistent and continuous TWB estimates over a large domain,
-several operational multi-LSM ensemble simulation systems have been set up
-\citep{xia2019JMR, shi2011SCES, carrera2015JH, rodell2004BAMS}. The North
-American Land Data Assimilation System (NLDAS) \citep{xia2012JGRA, xia2012JGRAa,
-mitchell2004JGRA} stands as one of the pioneering and most successful systems.
-The NLDAS phase 2 (NLDAS\nobreakdash-2) operates over the conterminous United
-States (CONUS) from 1979 to near real-time at a spatial resolution of 1/8°. The
-system generates a set of multi-source synthesized data of surface meteorology,
-vegetation, and soils and uses them to drive an ensemble of four different LSMs.
-The four LSMs, namely Noah version 2.8 \citep{ek2003JGRA, chen2001MWR,
-chen2001MWRa, chen1997BM}, Variable Infiltration Capacity (VIC) version 4.0.3
-\citep{liang1994JGRA}, Mosaic \citep{koster1992JGRA}, and Sacramento Soil
-Moisture Accounting (SAC) \citep{burnash1973}, are selected to give a good
-cross-section of diverse LSMs with different physical parameterizations
-\citep{mitchell2004JGRA}. The models have varying strengths and weaknesses in
-process parameterizations and modeling skills \citep{kumar2017WRR}. An ensemble
-of multiple models could produce an aggregated estimate that outperforms most of
-the ensemble constitutes \citep{fei2021WRR, beck2017HESS, guo2007QJRMS,
-ajami2007WRR} as well as quantify the estimation uncertainty resulted from
-different model formulations \citep{troin2021WRR, cloke2009JH}. Evaluations of
-the NLDAS\nobreakdash-2 four-LSM ensemble estimates have shown satisfactory
-performance in matching the observed evapotranspiration \citep{zhang2020AFM,
-xia2012JGRA, kumar2018RS}, runoff \citep{xia2012JGRAa}, soil moisture
-\citep{xia2015JH, xia2015JHa}.
+Several operational LSM simulation systems have been set up over different regions of the globe \citep{xia2019JMR, shi2011SCES, carrera2015JH, rodell2004BAMS}. The systems combine an ensemble of LSMs to utilize the competitive strengths of different LSMs and to eliminate the weakness associated with individual ones. Among them, the North American Land Data Assimilation System (NLDAS) \citep{xia2012JGRAa, xia2012JGRA, mitchell2004JGRA} stands as a pioneering and successful one. The NLDAS phase 2 (NLDAS-2) operates over the conterminous United States (CONUS) from 1979 to near real-time at a spatial resolution of 1/8\degree{}. The system generates a set of multisource synthesized data of surface meteorology, vegetation, and soils, and uses them to drive an ensemble of four different LSMs. The four LSMs---namely Noah version 2.8 \citep{ek2003JGRA, chen2001MWR, chen2001MWRa, chen1997BM}, Variable Infiltration Capacity (VIC) version 4.0.3 \citep{liang1994JGRA}, Mosaic \citep{koster1992JGRA}, and Sacramento Soil Moisture Accounting (SAC) model \citep{burnash1973}, were selected to give a good cross-section of the diverse range of LSMs with their different physical parameterizations \citep{mitchell2004JGRA}. The models have varying strengths and weaknesses in process parameterizations and modeling skills \citep{kumar2017WRR}. An ensemble of multiple models can produce an aggregated estimate that outperforms most of the individual ensemble constituents \citep{fei2021WRR, beck2017HESS, guo2007QJRMS, ajami2007WRR} and quantify the estimation uncertainty resulting from different model formulations \citep{troin2021WRR, cloke2009JH}. Evaluations of the NLDAS-2 four-LSM ensemble estimates have shown satisfactory performance in matching the observed evapotranspiration (ET) \citep{zhang2020AFM, xia2012JGRA, kumar2018RS}, runoff \citep{xia2012JGRAa}, and soil moisture \citep{xia2015JHa, xia2015JH}.
 
-This study enriches the NLDAS\nobreakdash-2 four-model ensemble with forty-eight
-perturbed-physics configurations of the Noah LSM with multi-physics options
-(Noah-MP) citep{niu2011JGRA, yang2011JGRA}. Noah-MP has more physically
-realistic representations of the vertical stratification than the
-NLDAS\nobreakdash-2 models have. A column of the land in Noah-MP consists of a
-vegetation canopy layer, three snowpack layers, four soil layers, and a
-groundwater component \citep{niu2011JGRA}. Conceptual (e.g., the five water
-tanks of SAC) and lumped (e.g., the vegetation-soil combined surface layer of
-Noah) representations of the stratification of vegetation and soil, as used in
-the NLDAS\nobreakdash-2 models, are minimized. Noah-MP has a more comprehensive
-representation of various land surface processes that are evident at different
-depths. The modeled processes include snow accumulation and ablation,
-infiltration, percolation, retention, freezing/thawing of snow/soil water,
-groundwater recharge/discharge, and energy constraints \citep{niu2011JGRA}. The
-improvements in vertical stratification and process parameterizations are
-expected to produce better TWB estimates. Previous comparisons between Noah-MP
-and the four NLDAS\nobreakdash-2 LSMs have shown that Noah-MP is comparable or
-better in estimating soil moisture \citep{cai2014JGRAa}, runoff
-\citep{fei2021WRR, cai2014JGRAa}, and evapotranspiration \citep{zhang2020AFM}.
-The results encouraged computationally expensive runs of Noah-MP as done in this
-study.
+This study enriches the NLDAS-2 four-model ensemble with 48 perturbed-physics configurations of the Noah LSM with multi-physics options (Noah-MP) \citep{niu2011JGRA, yang2011JGRA}. Noah-MP has more physically realistic representations of the vertical stratification than the NLDAS-2 models have. A column of land in Noah-MP consists of a vegetation canopy layer, three snowpack layers, four soil layers, and a groundwater component \citep{niu2011JGRA}. Conceptual (e.g., the five water tanks of SAC) and lumped (e.g., the combined vegetation-soil surface layer of Noah) representations of the stratification of vegetation and soil, as used in the NLDAS-2 models, are minimized. Moreover, Noah-MP has a more comprehensive representation of various land surface processes that are evident at different depths. The modeled processes include snow accumulation and ablation, infiltration, percolation, retention, freeze-thaw of snow or soil water, groundwater recharge/discharge, and energy constraints \citep{niu2011JGRA}. These improvements in vertical stratification and process parameterizations are expected to better estimate TWBs. Indeed, previous comparisons between Noah-MP and the four NLDAS-2 LSMs have shown that Noah-MP is comparable or better when it comes to estimating soil moisture \citep{cai2014JGRAa}, runoff \citep{cai2014JGRA, fei2021WRR}, and ET \citep{zhang2020AFM}. Such results have encouraged computationally expensive runs of Noah-MP, as performed in this study.
 
-The enrichment also features a single-model perturbed-physics ensemble, which is
-different from the widely-used multi-model ensembles. The Noah-MP ensemble is
-constructed by shuffling the available parameterization options of several
-selected processes. The ensemble size grows exponentially as a multiplication of
-the available parameterization options of different processes
-\citep{yang2011JGRA, zhang2016JGRA, gan2019WRR}. A large ensemble should give a
-broad cross-section of feasible model formulations to account for the model
-uncertainty in TWB estimation \citep{telteu2021GMD, mitchell2004JGRA} and is
-critical for a statistically reliable estimation of the probability of
-hydrological events such as floods and droughts \citep{troin2021WRR}. The
-single-model perturbed-physics ensemble also facilitates uncertainty attribution
-and reduction. The ensemble consists of pairs that are different in the
-parameterization of one process and the same in the other processes. The impacts
-of the process’s parameterizations can be pinpointed from the model predictive
-variations. Variance analysis can be applied to quantify the contribution of the
-parameterization of the process and compare the relative importance of two
-processes \citep{clark2011WRR, zheng2019WRR}. The quantification could inform
-further model development to reduce the model uncertainty. However, there are
-pitfalls unique to the single-model perturbed-physics ensemble. The ensemble
-members share a significant portion of the same model formulations
-\citep{fei2021WRR}. The physics similarity among the ensemble members may create
-redundant information and lower the efficiency characterized by the ratio of
-ensemble utility over computational costs. Future development of ensemble
-aggregation and optimization methods should be developed for the single-model
-perturbed-physics ensemble. A publically available dataset would promote the
-studies.
+The enrichment of this study also features a single-model perturbed-physics ensemble, which is different from the widely used multi-model ensemble approach. The Noah-MP ensemble is constructed by shuffling the available parameterization options of several selected processes. The ensemble size grows exponentially as a multiplication of the available parameterization options of different processes \citep{yang2011JGRA, zhang2016JGRA, gan2019WRR}. A large ensemble should give a broad cross-section of feasible model formulations to account for the model uncertainty in TWB estimation \citep{telteu2021GMD, mitchell2004JGRA} and is critical for a statistically reliable estimation of the probability of hydrological events such as floods and droughts \citep{troin2021WRR}. The single-model perturbed-physics ensemble also facilitates uncertainty attribution and reduction. The ensemble consists of pairs that are different in the parameterization of one process and the same for another. The impacts of the process's parameterizations can be pinpointed from the model predictive variations. Variance analysis can be applied to quantify the contribution of the parameterization of the process and compare the relative importance of two processes \citep{zheng2019WRR, clark2011WRR}, and such a quantification could inform further model development to reduce the model uncertainty. However, there are pitfalls unique to the single-model perturbed-physics ensemble.
 
-We will show the information necessary for using the dataset in
-Section~\ref{sec:data}, including the dataset variables, file organizations, and
-the source data and models used for data generation. In this study, we will
-focus on the assessment of data performance and uncertainty. The assessment
-methods are described in Section~\ref{sec:evaluation}, and
-Section~\ref{sec:result} presents the assessment results. The results could
-directly inform applications of the data. After Section~\ref{sec:availability}
-shows the data availability, Section~\ref{sec:conclusion} provides conclusions
-and discussions.
+In this study, we assess the spread among the ensemble members, reveal the difference with the NLDAS models, and evaluate the performance against various observations. The paper is organized as follows. Section~\ref{sec:data} presents the information necessary for using the dataset, including the dataset variables, file organization, and the source data and models used for data generation. Section~\ref{sec:methods} describes the intercomparison and evaluation methods, along with the reference datasets. Section~\ref{sec:results} presents the results and related discussion. Finally, after stating the data availability in Section~\ref{sec:availability}, Section~\ref{sec:conclusions} concludes this study.
 
+\section{Data description}\label{sec:data}
 
-\section{Dataset description}\label{sec:data}
-
-The dataset contains gridded surface energy and water budget variables over the
-CONUS. Section~\ref{sec:data:variables} describes the dataset variables and
-their physical relationships. The forty-eight Noah-MP physics configurations
-used to create the dataset are detailed in Section~\ref{sec:data:noahmp}.
-Sections~\ref{sec:data:nldas} and \ref{sec:data:simulation} brief the
-atmospheric forcing, static parameters of vegetation and soil, and simulation
-settings.
-
+The dataset contains gridded water budget variables over CONUS\@. Section~\ref{sec:data:variables} describes the dataset variables and their physical relationships. The 48 Noah-MP physics configurations used to create the dataset are detailed in Section~\ref{sec:data:noahmp}. Section~\ref{sec:data:static} brief the atmospheric forcing, static parameters of vegetation and soil, and simulation settings.
 
 \subsection{Dataset variables}\label{sec:data:variables}
 
-Table~\ref{tbl:variables} lists the variables available in the dataset. The
-variables are provided for each 1/8° NLDAS\nobreakdash-2 grid indicated by the
-land-water mask (\(X\)). The variables fall into two groups: the surface water
-and energy budget variables.
+Table~\ref{tab:variables} lists the dataset variables. The variables are available at each 1/8\degree{} grid points in NLDAS-2, indicated by a land-water mask (\(X\)). The surface water budgets of each grid cell are represented as follows:
 
-\include{tbl_variables.tex}
+\begin{table}[t]
+  \caption{The dataset variables.}
+  \label{tab:variables}
+  \input{fig/tab01.tex}
+\end{table}
 
-\subsubsection{surface water budget}
-
-Neglecting horizontal water exchange between adjacent grid, the water budget
-closure could be obtained among the precipitation (\(P\),
-\si{kg~m^{-2}~s^{-1}}, evapotranspiration (\(E\)), runoff (\(R\)), and
-terrestrial water storage (\(W\)) change \citep{zheng2020JAMES}:
+Neglecting horizontal water exchange between adjacent grids, the water budget closure can be obtained among the precipitation (\(P\), \unit{kg.m^{-2}.s^{-1}}), ET (\(E\)), runoff (\(R\)), and terrestrial water storage change (\(\Delta W\)) \citep{zheng2020JAMES}:
 \begin{equation}
-  P = E + R + \Delta W \text{,}
-\end{equation}
-where, precipitation (\(P\)) is from NLDAS\nobreakdash-2 (described in
-Sections~\ref{sec:data:nldas}) and used as model input in this study.
-
-Noah-MP resolves the constitutes of the water budget terms. Evapotranspiration
-(\(E\)) consists of canopy evaporation (\(E_{can}\)), ground evaoration
-(\(E_{gnd}\)), and transpiration (\(E_{tran}\)):
-\begin{equation}
-  E = E_{can} + E_{gnd} + E_{tran} \text{.}
-\end{equation}
-Runoff (\(R\)) is the sum of a surface and subsurface component:
-\begin{equation}
-  R = R_{srf} + R_{und} \text{.}
-\end{equation}
-Terrestrial water storage (\(W\)) consists of canopy interception (\(W_{can}\)),
-snow water equivalent (\(W_{snow}\)), groundwater storage in unconfined aquifers
-(\(W_{gw}\)), and soil water content in four layers (\(W_{soil,i}\),
-\si{kg~m^{-2}}):
-\begin{equation}
-  W = W_{can} + W_{snow} + W_{gw} + \sum_{i=1}^{N_{soil}} W_{soil,i} \text{,}
-\end{equation}
-where \(N_{soil} = 4\) is the number of soil layers.  Soil water storage
-(\(W_{soil,i}\)) is not provided in the dataset but can be calculated from
-volumetric soil water content (\(w_{i}\)):
-\begin{equation}
-  W_{soil,i} = \rho_{wat} w_i \Delta z_{soil,i}
-  \quad \text{for} \; i = 1,\dots,N_{soil}
-  \label{eq:soil-vmc} \text{,}
-\end{equation}
-where \(\rho_{wat}=1000\)\,\si{kg~m^{-3}} is the density of water; \(\Delta
-z_{soil,1}=0.1\)\,\si{m}, \(\Delta z_{soil,2}=0.3\)\,\si{m}, \(\Delta
-z_{soil,3}=0.6\)\,\si{m}, and \(\Delta z_{soil,4}=1.0\)\,\si{m} are the
-thickness of the four soil layers.
-
-\subsubsection{surface energy budget}
-
-Assuming that there is no horizontal energy exchange, the surface energy budget
-of a grid cell is closed as follow:
-\begin{equation}
-  R_n = S + I = H + L + \Delta U \text{,} \label{eq:energy-balance}
-\end{equation}
-where \(R_n\) is net radiation, \(S\) is absorbed solar radiation, \(I\) is net
-longwave radiation, \(H\) is sensible heat flux, \(L\) is latent heat flux, and
-\(\Delta U\) (\si{J~m^{-2}~s^{-1}}) is internal energy change of the land
-column. The reflected solar (\(S_u\), \si{W~m^{-2}}) and emitted longwave
-(\(I_u\), \si{W~m^{-2}}) is not included in the dataset but can be calculated
-using the NLDAS\nobreakdash-2 downward solar (\(S_u\), \si{W~m^{-2}}) and
-longwave (\(I_u\), \si{W~m^{-2}}) radiation data:
-\begin{align}
-  S_u = & S_d - S \text{,} \\
-  I_u = & I_d - I \text{.}
-\end{align}
-
-The energy budget terms consist of two components for the vegetation canopy and
-ground.
-\begin{align}
-  S = & S_{can} + S_{gnd} \text{,} \\
-  I = & I_{can} + I_{gnd} \text{,} \\
-  H = & H_{can} + H_{gnd} \text{,} \\
-  L = & L_{can} + L_{gnd} \text{,}
-\end{align}
-where \(S_{can}\) (\(S_{gnd}\)) is the absorbed solar radiation at the canopy
-(ground), \(I_{can}\) (\(I_{gnd}\)) is the net longwave radiation at the canopy
-(ground), \(H_{can}\) (\(H_{gnd}\)) is the sensible heat flux from the canopy
-(ground). \(L_{can}\) is the latent heat flux from the canopy and linked to the
-processes of interception evaporation (\(E_{can}\)) and transpiration
-(\(E_{tran}\)). \(L_{gnd}\) is the latent heat flux from the ground and
-associated with ground evaporation (\(E_{gnd}\)). The energy budget terms of the
-canopy and ground are both balanced:
-\begin{align}
-  S_{can} + I_{can} = & H_{can} + L_{can} \text{,} \\
-  S_{gnd} + I_{gnd} = & H_{gnd} + L_{gnd} + \Delta U \text{.}
-\end{align}
-
-The change in internal energy (\(\Delta U\)) is attributed to the temperature
-change and water freezing/melting of the land column:
-\begin{multline}
-  \Delta U = \sum_{j=1}^{N_{snow}} c_{snow,j}
-  \Delta z_{snow,j} \Delta T_{snow,j} \\
-  + \sum_{i=1}^{N_{soil}} c_{soil,i} \Delta z_{soil,i} \Delta T_{soil,i}
-  + \Delta U_{melt} \text{,}
-\end{multline}
-where \(0<=N_{snow}<=3\) is the number of snow layers, \(T_{snow,j}\) is the
-temperature of the \(j\)-th snow layer (K), \(\Delta z_{snow,j}\) is the
-thickness of \(j\)-th snow layer (m), \(T_{soil,i}\) is the temperature of the
-\(i\)-th soil layer (K), and \(\Delta U_{melt}\) is the latent heat of water
-freezing/melting within the whole land column (\si{J~m^{-2}~s^{-1}}).
-\(c_{snow,j}\) is the volumetric heat capacity of the \(j\)-th snow layer
-(\si{J~m^{-3}~K^{-1}}) and derived from the specific heat capacity of snow ice
-(\(C_{ice} = 2.108 \times 10^3\)\,\si{J~kg^{-1}~K^{-1}}) and supercoolded water
-(\(C_{wat} = 4.188 \times 10^3\)\,\si{J~kg^{-1}~K^{-1}}) as follows:
-\begin{equation}
-  c_{snow,j} = C_{ice} \rho_{ice} w_{ice,j}
-  + C_{wat} \rho_{wat} w_{liq,j} \text{,}
-\end{equation}
-where \(\rho_{ice} = 916.2\)\,\si{kg~m^{-3}} is the density of ice. $w_{ice,j}$
-is the volumetric snow ice content (\si{m^3~m^{-3}}), \(w_{liq,j}\) is the
-volumetric liquid water content (\si{m^3~m^{-3}}). \(c_{soil,i}\) is the
-volumetric heat capacity of the \(i\)-th soil layer (\si{J~m^{-3}~K^{-1}}),
-which is a mixture of dry soil matter, water, ice, and air.
-\begin{multline}
-  c_{soil,i} = c_{mine} (1 - w_{max,i}) \\
-  + C_{ice} \rho_{ice} w_{ice,i} + C_{wat} \rho_{wat} w_{liq,i} \\
-  + C_{p,air} \rho_{air} (w_{max,i} - w_{ice,i} - w_{liq,i}) \text{,}
-\end{multline}
-where \(w_{max,i}\) is soil porosity (\si{m^3~m^{-3}}), $C_{p,air} =
-1004.64$\,\si{J~kg^{-1}~K^{-1}} is the isobaric heat capacity of dry air,
-\(\rho_{air}\) (\si{m}) is the density of air. \(c_{mine}\) is the volumetric
-heat capacity of dry soil matter (\si{J~m^{-3}~K^{-1}}), whose value is
-\(2\times10^6\) in Noah-MP. \(w_{ice,i}\) and \(w_{liq,i}\) are the volumetric
-content of frozen and liquid water (\si{m^3~m^{-3}}), respectively, and their
-sum is the volumetric water content (\(w_{i}\)) shown in
-equation~\eqref{eq:soil-vmc} (i.e., \(w_{i} = w_{ice,i} + w_{liq,i}\)).
-
-\subsection{Forty-eight Noah-MP physics configurations} \label{sec:data:noahmp}
-
-We used the Noah-MP LSM version 3.6. The forty-eight physics configurations of
-Noah-MP are generated by combining four runoff parameterizations, two
-parameterizations of stomatal conductance, three parameterizations of soil
-moisture limitation on photosynthesis, and two parameterizations of near-surface
-atmospheric turbulence (i.e., \(48 = 4 \times 2 \times 3 \times 2\)). While
-\citet[Table 1]{zheng2019WRR} have listed the used parameterizations, the
-following sections will detail the formulations.
-
-\subsubsection{The SIMGM runoff parameterization}
-
-SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRa}. The scheme
-parameterizes runoff (\(R_{srf}\) and \(R_{sub}\)) as an exponential function of
-groundwater table depth (\(z_{wt}\), m, positive down) as follows.
-\begin{align}
-  R_{srf} = & Q_{soil,srf} [(1 - a_{frz,1}) a_{sat} + a_{frz,1} ]
-  \text{,} \label{eq:SIMGM:rsrf} \\
-  a_{sat} = & a_{sat,max} \exp(-0.5 f (z_{wt} - z_{bot}))
-  \text{,} \label{eq:SIMGM:fsat} \\
-  R_{sub} = & (1 - a_{frz}) R_{sub,max} e^{-\Lambda - f(z_{wt} - z_{soil,bot})}
-  \text{,} \label{eq:SIMGM:rsub} \\
-  a_{frz} = & \max_{i=1,\dots,N_{soil}} a_{frz,i}
-  \text{,} \label{eq:SIMGM:ffrzmax}
-\end{align}
-where \(Q_{soil,srf}\) is the water incident on the soil surface (the sum of
-precipitaiton throughfall, snowmelt, and dewfall, \si{kg~m^{-2}~s^{-1}}),
-\(a_{sat}\) is the saturation fraction of the grid cell (\si{m^2~m^{-2}}), and
-\(z_{soil,bot}\) is the depth of the soil column bottom (\si{m}, positive down).
-
-\(a_{frz}\) is the impermeable area due to frozen soil (\si{m^2~m^{-2}}).
-\(a_{frz,i}\) is the fractional frozen area of the \(i\)-th soil layer
-(\si{m^2~m^{-2}}). Its parameterization is introduced by \citet{niu2006JH}:
-\begin{equation}
-  a_{frz,i} = \exp\left(-\alpha(1 - \frac{w_{ice,1}}{w_{max,1}})\right) -
-  e^{-\alpha} \text{.}
-\end{equation}
-
-The SIMGM runoff scheme includes a dynamic groundwater component to estimate
-groundwater storage \citep{niu2007JGRa}. The groundwater table depth (\(z_{wt}\))
-is then converted from groundwater storage by specific yield.
-
-SIMGM has four calibratable parameters: (1) \(a_{sat,max}\), the maximum
-saturation area fraction (\si{m^2~m^{-2}}), which is defined as the cumulative
-distribution function of topographic index when the grid cell mean water table
-depth is zero; (2) \(f\), a runoff decay factor; (3) \(R_{sub,max}\), the
-maximum subsurface runoff when the grid cell mean water table depth is zero
-(\si{kg~m^{-2}~s^{-1}}); and (4) \(\Lambda\), the grid cell mean topographic
-index. In this study, the parameters have the following values: \(a_{sat,max} =
-0.38\)\,\si{m^2~m^{-2}}, $f=6$, $R_{sub,max}=5$\,\si{kg~m^{-2}~s^{-1}}, and
-\(\Lambda = 10.5\).
-
-\subsubsection{The SIMTOP runoff parameterization}
-
-SIMTOP is basically the same as the SIMGM shown by equations
-\eqref{eq:SIMGM:rsrf}~--~\eqref{eq:SIMGM:ffrzmax}. The most notable difference
-is that SIMTOP does not have a dynamic groundwater component. Instead, SIMTOP
-parameterizes the groundwater table depth (\(z_{wt}\)) using soil liquid water
-content (\(w_{liq,i}\)) by assuming the water head is at equilibrium throughout
-the soil column down to the groundwater table. There are other implementation
-differences between SIMTOP and SIMGM in the code. First, in comparison with
-equations~\eqref{eq:SIMGM:fsat} and \eqref{eq:SIMGM:rsub}, SIMTOP does not use
-soil column bottom depth (\(z_{bot}\)) in calculating the saturation area
-fraction (\(f_{sat}\)) and subsurface runoff (\(R_{sub}\)):
-\begin{align}
-  f_{sat} = & f_{sat,max} \exp(-0.5 f z_{wt}) \text{,} \\
-  R_{sub} = & (1-f_{frz,max}) R_{sub,max} e^{-\Lambda-f z_{wt}} \text{.}
-\end{align}
-Second, SIMTOP uses different values of the runoff decay factor and maximum
-subsurface runoff: \(f=2\), and \(R_{sub,max}=4\)\,\si{kg~m^{-2}~s^{-1}}.
-
-
-\subsubsection{The NOAHR runoff parameterization}
-
-NOAHR parameterize surface runoff (\(R_{srf}\)) as infiltration excess:
-\begin{equation}
-  R_{srf} = Q_{soil,srf} - Q_{soil,in} \text{,}
-\end{equation}
-where \(Q_{soil,in}\) is the infiltration into the soil column
-(\si{kg~m^{-2}~s^{-1}}). The infiltration is derived from the approximate
-solution to the Richards equation of soil moisture by \citet{philip1969AiH} with
-consideration of the spatial variability of precipitation and soil infiltration
-capacity. Assuming the precipitation and infiltration capacity within a model
-grid cell follow the exponential distribution, \citet{schaake1996JGRA} derives
-the formulas of the soil infiltration as follows:
-\begin{align}
-  Q_{soil,in} = & Q_{soil,srf} \frac{I_c}{Q_{soil,srf} \Delta t + I_c} (1-a_{frz}) \text{,} \\
-  I_{c} =       & w_d [1-\exp(-K_{\Delta t} \Delta t)] \text{,} \\
-  w_d =         & \sum_{i=1}^{N_{soil}} \rho_{wat} (w_{sat,i} - w_i - w_{wilt,i}) \Delta z_{soil,i}
+  P = E + R + \Delta W
   \text{,}
-\end{align}
-where \(I_{c}\) is the soil infiltration capacity of the model grid cell
-(\si{kg~m^{-2}}), \(w_d\) is the water deficit of the soil column
-(\si{kg~m^{-2}}), \(w_{wilt,i}\) is the wilting point of the \(i\)-th soil
-layer, and \(\Delta t\) is the model time step (\si{s}).
-
-NOAHR parameterizes the frozen area fraction (\(a_{frz}\)) following
-\citet{koren1999JGRA} by assuming a Gamma distribution of the ice content.
-\begin{equation}
-  a_{frz} = e^{-v} \sum_{i=1}^{\alpha^*} \frac{v^{\alpha^*-1}}{\Gamma(\alpha^*-i+1)}
 \end{equation}
+where precipitation (\(P\)) is from NLDAS-2 (described in Section~\ref{sec:intro}) and used as the model input.
 
-The calculated infiltration has to be no greater than the water
-incident at the soil surface and no less than the hydraulic conductivity of the
-first soil layer (\(K_{soil,i}\), \si{kg~m^{-2}~s^{-1}}).
+Noah-MP resolves the components of the water budget terms of equation (1). ET (\(E\)) consists of canopy evaporation (\(E_{can}\)), ground evaporation (\(E_{gnd}\)), and transpiration (\(E_{tran}\)):
 \begin{equation}
-  K_{soil,1} (1-f_{frz}) \leq Q_{soil,i} \leq Q_{soil,srf}
+  E = E_{can} + E_{gnd} + E_{tran}
+  \text{.}
 \end{equation}
-
-NOAHR has only one calibrable parameter, \(K_{\Delta t}\). Following
-\citet{chen2001MWR}, the parameter is assumed as propositional to the saturated
-hydraulic conductivity of the first soil layer (\(K_{soil,sat,1}\),
-\si{kg~m^{-2}~s^{-1}}):
+Runoff (\(R\)) has a surface (\(R_{srf}\)) and subsurface (\(R_{sub}\)) component:
 \begin{equation}
-  K_{\Delta t} = \frac{{K}_{\Delta t, ref}}{k_{ref}} k_{soil,sat,1} \text{,}
+  R = R_{srf} + R_{sub}
+  \text{.}
 \end{equation}
-where \(K_{\Delta t,ref}\) and \(k_{ref}\) are two parameters. In Noah-MP,
-\(K_{\Delta t,ref} = \frac{3}{86400}\)\,\si{s^{-1}}, and \(k_{ref}=2 \times
-10^{-3}\)\,\si{kg~m^{-2}~s^{-1}}.
-
-NOAHR parameterize the subsurface runoff (\(R_{sub}\)) as free drainage from the
-bottom of the soil column:
+Terrestrial water storage (TWS, \(W\)) is the sum of snow water equivalent (SWE, \(W_{snow}\)), groundwater storage in unconfined aquifers (\(W_{gw}\)), and soil water content in the four model layers (\(W_{soil,i}\)):
 \begin{equation}
-  R_{sub} = k_{soil,h,N_{soil}} \label{eq:NOAHR:rsub} \text{,}
+  W = W_{snow} + W_{gw} + \sum_{i=1}^{N_{soil}} W_{soil,i}
+  \text{,}
 \end{equation}
-where \(K_{soil,h,N_{soil}}\) is the hydraulic conductivity of the bottom layer
-(i.e., \(i=N_{soil}\)) of the soil (\si{kg~m^{-2}~s^{-1}}).
+where \(N_{soil} = 4\) is the number of soil layers. Soil water storage (\(W_{soil,i}\)) is not included in the dataset but can be calculated from the volumetric water content (\(w_{soil,i}\)) as follows:
+\begin{equation}
+  W_{soil,i} = \rho_{wat} w_{soil,i} \Delta z_{soil,i} \quad \mathrm{for}\ i = 1, \cdots, N_{soil}
+  \text{,}
+\end{equation}
+where \(\rho_{wat} = \qty{1000}{kg.m^{-3}}\) is the water density; and \(\Delta z_{soil,1} = \qty{0.1}{m}\), \(\Delta z_{soil,2} = \qty{0.3}{m}\), \(\Delta z_{soil,3} = \qty{0.6}{m}\), and \(\Delta z_{soil,4} = \qty{1}{m}\) are the thicknesses of the four soil layers.
 
+\subsection{The 48 Noah-MP physics configurations}\label{sec:data:noahmp}
 
-\subsubsection{The BATS runoff parameterization}
+The Noah-MP LSM version 3.6 is used. The 48 physics configurations (\(48 = 4 \times 2 \times 3 \times 2\)) are generated by combining four runoff parameterizations (Sections~\ref{sec:data:noahmp:simgm}--\ref{sec:data:noahmp:bats}), two parameterizations of stomatal conductance (Sections~\ref{sec:data:noahmp:ballberry} and \ref{sec:data:noahmp:jarvis}), three parameterizations of soil moisture stress factor (Section~\ref{sec:data:noahmp:beta}), and two parameterizations of near-surface atmospheric turbulence (Sections~\ref{sec:data:noahmp:chen97} and \ref{sec:data:noahmp:mo}). In addition to the explanations of the adopted parameterizations and their acronyms in \citet[Table 1]{zheng2019WRR}, the following subsections detail the formulations of the parameterization schemes.
 
-The BATS scheme parameterizes surface runoff (\(R_{srf}\)) as a funciton of soil
-wetness \citep{yang1996GPC}:
+\subsubsection{SIMGM Runoff Parameterization Scheme}\label{sec:data:noahmp:simgm}
+
+SIMGM is a TOPMODEL-based runoff model \citep{niu2007JGRa}. The scheme parameterizes runoff (\(R_{srf}\) and \(R_{sub}\)) as an exponential function of groundwater table depth (\(z_{wt}\), \unit{m}, positive down) as follows.
+\begin{equation}
+  R_{srf} = Q_{soil,srf} [(1 - f_{frz,1}) f_{sat} + f_{frz,1} ]
+  \text{,} \label{eq:simgm:rsrf}
+\end{equation}
+\begin{equation}
+  f_{sat} = f_{sat,max} \exp[-0.5 f (z_{wt} - z_{bot})]
+  \text{,} \label{eq:simgm:fsat}
+\end{equation}
+\begin{equation}
+  R_{sub} = [1 - \max_{i=1,\dots,N_{soil}} (f_{frz,i})] R_{sub,max}
+  \exp[-\Lambda - f(z_{wt} - z_{bot})]
+  \text{,} \label{eq:simgm:rsub}
+\end{equation}
+where \(Q_{soil,srf}\) is the water incident on the soil surface (the sum of precipitaiton throughfall, snowmelt, and dewfall; \unit{kg.m^{-2}.s^{-1}}), \(f_{frz,i}\) is the fractional frozen area of the \(i\)-th soil layer (\unit{m^2.m^{-2}}), which is parameterized using the frozen water content of the soil layer following \citet{niu2006JH}, \(f_{sat}\) is the saturation fraction of the grid cell (\unit{m^2.m^{-2}}), and \(z_{bot}\) is the depth of the soil column bottom (2 m in this study), and \(z_{wt}\) is the groundwater table depth (m), which is converted from the groundwater storage by a specific-yield parameter. The groundwater storage is predicted using a dynamic groundwater model interacting with the soil column bottom \citep{niu2007JGRa}.
+
+The scheme has four calibratable parameters: (1) \(f_{sat,max}\), the maximum saturation area fraction (\unit{m^2.m^{-2}}), which is defined as the cumulative distribution function of topographic index when the grid-cell-mean water table depth is zero; (2) \(f\), a runoff decay factor (unitless); (3) \(R_{sub,max}\), the maximum subsurface runoff when the grid-cell-mean water table depth is zero (\unit{kg.m^{-2}.s^{-1}}); and (4) \(\Lambda\), the grid-cell-mean topographic index (unitless). In this study, the parameters have the following values: \(f_{sat,max} = 0.38\)\,\unit{m^2.m^{-2}}, $f=6$, $R_{sub,max}=5$\,\unit{kg.m^{-2}.s^{-1}}, and \(\Lambda = 10.5\).
+
+\subsubsection{SIMTOP Runoff Parameterization Scheme}\label{sec:data:noahmp:simtop}
+
+SIMTOP is also a TOPMODEL-based runoff parameterization scheme, the same as SIMGM (equations~\eqref{eq:simgm:rsrf}--\eqref{eq:simgm:rsub}). The major difference between SIMTOP and SIMGM is that SIMTOP parameterizes the groundwater table depth (\(z_{wt}\)) using the soil liquid water content by assuming the water head is at equilibrium throughout the soil column down to the water table \citep{niu2005JGRA}. Although SIMTOP and SIMGM share the same conceptual model of runoff generation, implementation differences exist. First, in contrast to equations \eqref{eq:simgm:fsat} and \eqref{eq:simgm:rsub}, SIMTOP does not use the soil column bottom depth (\(z_{bot}\)) in calculating the saturation area fraction (\(f_{sat}\)) and subsurface runoff:
 \begin{align}
-  R_{srf} = & Q_{soil,srf} \left[ (1 - a_{frz,1}) a_{sat} + a_{frz,1} \right]
+  f_{sat} = & f_{sat,max} \exp(-0.5 f z_{wt})
   \text{,} \\
-  a_{sat} = & \theta^4 \text{,} \\
-  \theta =  & \frac{\sum_{i=1}^{N_{soil}}\frac{w_i}{w_{sat,i}}\Delta
-  z_{soil,i}}{\sum_{i=1}^{N_{soil}}\Delta z_{soil,i}} \text{,}
+  R_{sub} = & [1-\max_{i=1,\cdots,N_{soil}}(f_{frz,i})]
+  R_{sub,max} \exp(-\Lambda - f z_{wt})
+  \text{.}
 \end{align}
-where \(\theta\) is the averaged wetness of the soil column.
+Second, parameter values are slightly different for the runoff decay factor and maximum subsurface runoff: \(f=2\), and \(R_{sub,max}=4\)\,\unit{kg.m^{-2}.s^{-1}}.
 
-Same as NOAHR, the BATS runoff scheme also does not include a groundwater
-component. Subsurface runoff (\(R_{sub}\)) is parameterized as the free drainage
-from the bottom of the soil using the equation~\eqref{eq:NOAHR:rsub}.
+\subsubsection{NOAHR Runoff Parameterization Scheme}\label{sec:data:noahmp:noahr}
 
-
-\subsubsection{The Ball-Berry scheme of stomatal conductance}
-
-Leaf stomata are tiny pores typically on the underside of leaves. They control
-the gas exchange of CO\textsubscript{2}, H\textsubscript{2}O, and
-O\textsubscript{2} between the internal leaf structure and external atmosphere.
-The opening and closing of the stomatal aperture are characterized by stomatal
-conductance in LSMs.
-\begin{align}
-  A_{CO_2} = & g_{s,CO_2} \frac{p_{CO_2,s} - p_{CO_2,i}}{p_{atm}} \text{,} \\
-  A_{H_2O} = & g_{s,H_2O} \frac{p_{H_2O,s} - p_{H_2O,i}}{p_{atm}} \text{,} \\
-  A_{O_2} =  & g_{s,O_2} \frac{p_{O_2,s} - p_{O_2,i}}{p_{atm}} \text{,}
-\end{align}
-where \(g_{s,CO_2}\), \(g_{s,H_2O}\), and \(g_{s,O_2}\) are the stomatal
-conductance (\si{mol~m^{-2}~s^{-1}}) for CO\textsubscript{2},
-H\textsubscript{2}O, and O\textsubscript{2}, respectively. \(A_{CO_2}\),
-\(A_{H_2O}\), and \(A_{O_2}\) are the molar fluxes (\si{mol~m^{-2}~s^{-1}}) of
-CO\textsubscript{2}, H\textsubscript{2}O, and O\textsubscript{2}. \(p_{atm}\) is
-the atmospheric pressure (\si{Pa}). \(p_{CO_2}\), \(p_{H_2O}\), and \(p_{O_2}\)
-are the partial pressure (\si{Pa}) of CO\textsubscript{2}, H\textsubscript{2}O,
-and O\textsubscript{2}, where the subscript \(s\) denotes the pressure at the
-leaf surface, and the subscript \(i\) denotes the pressure inside the
-substomatal cavity. The water vapor pressure inside the substomatal cavity
-(\(p_{H_2O,i}\)) is assumed to be saturated at the leaf temperature (\(T_l\),
-\si{K}).
-
-The Ball-Berry scheme \citep{ball1987PiPR, collatz1991AFM, collatz1992FPB}
-formulates the stomatal conductance of H\textsubscript{2}O (\(g_{s,H_2O}\)) as
-follows:
+NOAHR parameterizes surface runoff (\(R_{srf}\)) as infiltration excess:
 \begin{equation}
-  g_{s,H_2O} = m \max(A_{CO_2},0) \frac{P_{atm}}{p_{CO_2,s}}\frac{p_{H_2O,s}}{p_{sat}(T_l)} + g_{s,H_2O,min} \text{,}
+  R_{srf} = Q_{soil,srf} - Q_{soil,in}
+  \text{,}
 \end{equation}
-where \(p_{H_2O,s,sat}\) is the saturation water vapor pressure at the leave
-surface (\si{Pa}), which is a function of leaf temperature (\(T_l\)). There are
-two calibratable parameters: (1) \(m\), a vegetation-type dependent parameter
-(\si{mol~mol^{-1}}), and (2) \(g_{s,H_2O,min}\), the minimum stomatal
-conductance (\si{mol~m^{-2}~s^{-1}}) at \(A_{CO_2} = 0\). In Noah-MP, \(m\) and
-\(g_{s,H_2O,min}\) are assigned using a look-up table of vegetation types. The
-typical value of \(m\) is 9 for C\textsubscript{3} plants, 4 for
-C\textsubscript{4} plants, and 6 for confiners \citep{sellers1996JCa}. The
-typical value of \(g_{s,H_2O,min}\) is \(0.01\)\,\si{mol~m^{-2}~s^{-1}} for
-C\textsubscript{3} plants, and \(0.04\)\,\si{mol~m^{-2}~s^{-1}} for
-C\textsubscript{4} plants. \citet{lombardozzi2017GMD} synthesized a set of
-observed values for \(g_{s,H_2O,min}\), but the values have not been used in
-this study.
-
-The stomatal condutance of CO\textsubscript{2}, and O\textsubscript{2} are
-propositional to that of H\textsubscript{2}O.
+where \(Q_{soil,i}\) is the infiltration into the soil (\unit{kg.m^{-2}.s^{-1}}). The infiltration is derived from the approximate solution to the Richards equation following \citet{philip1969AiH} with additional considerations of the spatial variability of precipitation and infiltration capacity. By assuming exponential and independent distributions of precipitation and infiltration capacity within a model grid cell, NOAHR formulates the soil infiltration as follows:
 \begin{align}
-  g_{s,CO_2} = & f_{s,CO_2/H_2O} \cdotp g_{s,H_2O} \text{,} \\
-               & \text{where} \quad 0.634 \leq f_{s,CO_2,H_2O} \leq 1 \text{,} \nonumber \\
-  g_{s,O_2} =  & f_{s,O_2/H_2O} \cdotp g_{s,H_2O} \text{,} \\
-               & \text{where} \quad 0.836 \leq f_{s,O_2,H_2O} \leq 1 \text{,} \nonumber
+  Q_{soil,in} = & Q_{soil,srf} \frac{I_c}{Q_{soil,srf} \Delta t + I_c}
+  \text{,} \\
+  I_{c} =       & w_d [1-\exp(-K_{\Delta t} \Delta t)]
+  \text{,} \\
+  w_d =         & \sum_{i=1}^{N_{soil}} \rho_{wat} (w_{sat,i} - w_{soil,i}) \Delta z_{soil,i}
+  \text{,}
 \end{align}
-The coefficients, \(f_{s,CO_2/H_2O}\) and \(f_{s,O_2/H_2O}\), vary with air
-flow condition. The value range of the coefficients are determined as follows.
-First, in still air, molecular diffusion dominate the gas transfer through the
-stomata, and the conductance is proportional to the coefficients of molecular
-diffusivity. Molecular diffusivity (\si{m^~s^{-1}}) is inversely propostional to
-molecular weight according to Graham's law. Using the values recommended by
-\citet[Table 8]{massman1998AE}, we obtain \(f_{s,CO_2,H_2O} =
-\frac{0.1381}{0.2178} = 0.634\), and \(f_{s,O2,H_2O} = \frac{0.1820}{0.2178} =
-0.836\). Second, in moving air, turbulence dominates the gas transport, and the
-conductance of different gases are the same: \(k_{CO_2,H_2O}=k_{O_2,H_2O}=1\).
-
-Note that two different units are used for the conductance:
-\si{mol~m^{-2}~s^{-1}} and \si{m~s^{-1}}. The conversion between the two units
-follows \citet{cowan1978}:
+where \(I_{c}\) is the soil infiltration capacity of the model grid cell (\unit{kg.m^{-2}}), \(w_d\) is the water deficit of the soil column (\unit{kg.m^{-2}}), and \(\Delta t\) is the model time step (s). Following \citep{chen2001MWR}, the parameter is assumed as propositional to the saturated hydraulic conductivity of the first soil layer (\(K_{sat,1}\), \unit{kg.m^{-2}.s^{-1}}):
 \begin{equation}
-  1\,\si{m~s^{-1}} = \frac{R_{gas}T}{P_{atm}} \, \si{mol~m^{-2}~s^{-1}} \text{,}
+  K_{\Delta t} = \frac{K_{\Delta t,ref}}{k_{ref}} K_{sat,1}
+  \text{,}
 \end{equation}
-where \(R_{gas}\) is the universal gas constant (\si{J~K^{-1}~mol^{-1}}).
+where \(K_{\Delta t,ref}\) and \(k_{ref}\) are two parameters. In Noah-MP (and Noah), \(K_{\Delta t,ref} = \frac{3}{86400}\,\unit{s^{-1}}\), and \(k_{ref}=\qty{2e-3}{kg.m^{-2}.s^{-1}}\). \(K_{sat,1}\) is assigned using a soil parameter lookup table according to the soil texture type.
 
+NOAHR assumes free drainage at the soil column bottom. The subsurface runoff is calculated as
+\begin{equation}
+  R_{sub} = \alpha_{slope} K_{soil,N_{soil}} \label{eq:noahr:rsub}
+  \text{,}
+\end{equation}
+where \(\alpha_{slope}\) is the terrain slope index, which is arbitrarily given as 0.1 in the adopted version of Noah-MP\@. \(K_{soil,N_{soil}}\) is the hydraulic conductivity of the bottom soil layer, which is parameterized following \citet{clapp1978WRR}.
 
-\subsubsection{The Jarvis scheme of stomatal conductance}
+\subsubsection{BATS Runoff Parameterization Scheme}\label{sec:data:noahmp:bats}
 
-Noah-MP inherits the Javis scheme \citep{jarvis1976PTRSLB} of stomatal
-conductance parameterization from Noah \citep{chen2001MWR}. The Jarvis scheme
-calculates the stomatal conductance (\(g_s\), \si{m~s^{-1}}) as follows:
+The BATS scheme parameterizes surface runoff (\(R_{srf}\)) as a funciton of soil wetness \citep{yang1996GPC}:
 \begin{align}
-  g_s =    & g_{s,max} f_{S} f_{D} f_{T} \beta \text{,} \\
-  f_{S} =  & \frac{\frac{g_{s,min}}{g_{s,max}}+f'_{S}}{1+f'_{S}} \text{,} \\
-  f'_{S} = & 0.55 \frac{S_d}{S_{gl}} \frac{2}{a_l} \text{,} \\
-  f_{D} =  & \{1+h_s[q_{sat}(T_{atm})-q_{atm}]\}^{-1} \text{,} \\
-  f_{T} =  & 1- 0.0016 (T_{opt} - T_a)^2 \text{.}
+  R_{srf} = & Q_{soil,srf} \left[ (1 - f_{frz,1}) f_{sat} + f_{frz,1} \right]
+  \text{,} \\
+  f_{sat} = & \theta^4
+  \text{,} \\
+  \theta =  & \frac{\sum_{i=1}^{N_{soil}}\frac{w_{soil,i}}{w_{sat,i}}\Delta
+  z_{soil,i}}
+  {\sum_{i=1}^{N_{soil}}\Delta z_{soil,i}}
+  \text{,}
 \end{align}
-\(f_{S}\), \(f_{D}\), \(f_{T}\), \(\beta\) range from 0 to 1. They represent the
-limitations of solar radiation, water vapor deficit, canopy air temperature
-(\(T_{atm}\)), and soil moisture (detailed in
-Section~\ref{sec:data:noahmp:beta}), respectively. \(S_d\) is the solar
-radiation (\si{W~m^{-2}}), \(a_l\) is leaf area index (\si{m^2~m^{-2}}),
-\(q_{atm}\) is the mixing ratio of canopy air (\si{kg~kg^{-1}}), and
-\(q_{sat}(T_{atm})\) is the saturation vapor mixing ratio at the temperature
-\(T_{atm}\) (\si{K}).
+where \(\theta\) is the averaged wetness throughout the soil column (\unit{m^3.m^{-3}}).
 
-The Jarvis scheme used in Noah-MP has five calibratable parameters: (1)
-\(g_{s,max}\), (2) \(g_{s,min}\), the cuticular conductance of the leaves, (3)
-\(S_{gl}\), the solar radiation for which \(f_{S}\) is about to half its maximum
-value, (4) \(h_s\), and (5) \(T_{opt}\), the optimal temperature at which there
-is no temperature stress (\(f_{T}=1\)). \(g_{s,max}\), \(R_{gl}\), and \(h_s\)
-are assigned from a look-up table depending on vegetation type. \(g_{s,min}\) is
-\(2\times10^{-4}\)\,\si{m~s^{-1}} according to \citet{dickinson1993}, and
-\(T_{opt}\) is assigned as \(298\)\,\si{K} according to \citet{noilhan1989MWR}.
+Similar to NOAHR, the BATS scheme also assumes a free drainage boundary condition at the soil column bottom. Subsurface runoff (\(R_{sub}\)) is parameterized as follows:
+\begin{equation}
+  R_{sub} = \left(1 - \max_{i=1,\cdots,N_{soil}}(f_{frz,i})\right) K_{soil,N_{soil}}
+  \text{.}
+\end{equation}
 
-\subsubsection{The three parameterizations of soil moisture limitation on
-  photosynthesis}\label{sec:data:noahmp:beta}
+\subsubsection{Ball--Berry scheme of Stomatal Resistance}\label{sec:data:noahmp:ballberry}
 
+Leaf stomata are the small pores typically found on the underside of leaves. They control the gas exchange of CO\textsubscript{2}, H\textsubscript{2}O, and O\textsubscript{2} between the internal leaf structure and the external atmosphere. In LSMs, the opening and closing of the stomata are characterized by stomatal conductance.
+
+The Ball--Berry scheme for parameterizing the stomatal conductance (\(g_{s}\)) for H\textsubscript{2}O is as follows:
+\begin{equation}
+  g_{s}   = m \frac{A}{c_{s}} \frac{e_{s}}{e_{i}} P_{atm} + b
+  \text{,}
+\end{equation}
+where \(g_{s}\) is the leaf stomatal conductance (\unit{\mu mol.m^{-2}.s^{-1}}), \(m\) is a vegetation-type dependent parameter (unitless), \(A\) is the leaf photosynthesis rate, \(c_{s}\) is the CO\textsubscript{2} partial pressure at the leaf surface (\unit{Pa}), \(e_{s}\) is the water vapor pressure at the leaf surface (\unit{Pa}), \(e_{i}\) is the saturated water vapor at the stomata (\unit{Pa}), \(P_{atm}\) is the ambient air pressure (\unit{Pa}), and \(b\) is the stomatal conductance at zero photosynthesis (\unit{\mu mol.m^{-2}.s^{-1}}). The parameters \(m\) and \(b\) are assigned from a lookup table using the vegetation type.
+
+\subsubsection{Jarvis Scheme of Stomatal Resistance}\label{sec:data:noahmp:jarvis}
+
+The Jarvis scheme for parameterizing the canopy resistance (\(R_{c}\)) based on the product of four stress factors (\unit{s.m^{-1}}) is calculated as follows \citep{chen1996JGRA, sellers1996JCa, jarvis1976PTRSLB}:
+\begin{align}
+  R_c =   & R_{c,min} \frac{1}{f_{1} f_{2} f_{3} \beta}
+  \text{,} \\
+  f_{1} = & \frac{\frac{R_{c,min}}{R_{c,max}}+f}{1+f}
+  \text{,} \\
+  f =     & 0.55 \frac{2 R_{g}}{R_{gl}}
+  \text{,} \\
+  f_{2} = & \frac{1}{1+h_s[q_{sat}(T_{l})-q_{a}]}
+  \text{,} \\
+  f_{3} = & 1- 0.0016 (T_{ref} - T_l)^2
+  \text{,}
+\end{align}
+where \(f_{1}\), \(f_{2}\) and \(f_{3}\) are the stress factors of solar radiation, vapor pressure deficit, and air temperature, respectively (unitless), which are unitless and range from 0 to 1; \(\beta\) is the soil moisture stress factor, which is detailed in Section~\ref{sec:data:noahmp:beta}; \(R_{g}\) is the incoming solar radiation (\unit{W.m^{-2}}) for unit leaf area index; \(T_{l}\) is leaf temperature (\unit{K}); \(q_{sat}(T_{l})\) is the saturated specific humidity at the temperature of \(T_{l}\) (\unit{kg.kg^{-1}}); and \(q_{a}\) is the ambient specific humidity (\unit{kg.kg^{-1}}). The scheme has five parameters: \(R_{c,min}\) the minimum stomatal resistance (\unit{s.m^{-1}}) per unit leaf area index; \(R_{c,max}\) the maximum resistance; \(R_{gl}\) a radiation scaling factor (unitless); \(h_{s}\) a humidity scaling factor (unitless); \(T_{ref}\) the optimum temperature (\unit{K}). Among these parameters, \(R_{c,min}\), \(R_{gl}\), and \(h_{s}\) are assigned using a vegetation-parameter lookup table, while \(R_{c,max}\) and \(T_{ref}\) are preassembly-assigned to \qty{5000}{s.m^{-1}} and \qty{298}{K}, respectively.
+
+\subsubsection{Three Soil Moisture Stress Factor Schemes}\label{sec:data:noahmp:beta}
+
+The NOAHB scheme parameterizes the soil moisture stress factor controlling transpiration (\beta{}-factor) as a function of soil moisture, which is calculated as follows:
 \begin{equation}
   \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
-  \min\left(1, \frac{w_{liq,i} - w_{wilt}}{w_{ref} - w_{wilt}}\right)
+  \min(1, \frac{\theta_i - \theta_{wilt}}{\theta_{ref} - \theta_{wilt}})
   \text{,}
 \end{equation}
+where \(N_{root}\) is the total number of soil layers that contain roots, \(z_{root}\) is the total depth of the root zone layer (\unit{m}), and \(\theta_i\) is the volumetric soil moisture of the \(i\)-th soil layer (\unit{m^3.m^{-3}}). NOAHB has two parameters: \(\theta_{ref}\) the field capacity (\unit{m^3.m^{-3}}); and \(\theta_{wilt}\), the wilting volumetric soil moisture (\unit{m^3.m^{-3}}).
 
+The CLM scheme \citep{oleson2004} parameterizes \(\beta\) as a function of soil matric potential, which is calculated as follows:
 \begin{equation}
   \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
-  \min\left(1, \frac{\psi_{wilt} - \psi_{i}}{\psi_{wilt} - \psi_{sat}}\right)
+  \min(1, \frac{\psi_{wilt} - \psi_i}{\psi_{wilt} - \psi_{sat}})
   \text{,}
 \end{equation}
+where \(\psi_i\) is the water pressure head of the \(i\)-th soil layer (\unit{m}), and \(\psi_i\) is converted from \(\theta_i\) using the formula of \citet{clapp1978WRR}. CLM has two parameters: \(\psi_{sat}\), the saturated water pressure head (\unit{m}), and \(\psi_{wilt}\), the wilting pressure head (\unit{m}).
 
+The SSiB scheme \citet{xue1991JC} also parameterizes the \beta{}-factor as a function of the soil pressure head, similar to CLM\@. However, the formula is different, as follows:
 \begin{equation}
   \beta = \sum_{i=1}^{N_{root}} \frac{\Delta z_{soil,i}}{z_{root}}
-  \min\left(1, 1 - e^{-c^2 \ln\left(\frac{\psi_{wilt}}{\psi_{i}} \right)} \right)
+  \min\left[1, 1 - \exp\left(-c_2 \ln(\frac{\psi_{wilt}}{\psi_{i}})\right)\right]
+  \text{,}
+\end{equation}
+SSiB has two parameters: \(\psi_{wilt}\), the wilting pressure head (\unit{m}); and \(c_2\), a unitless coefficient.
+
+In Noah-MP version 3.6, the parameters \(\theta_{sat}\), \(\theta_{wilt}\), and \(\psi_{sat}\) are assigned using a soil parameter lookup table \citep[Table 2]{chen2001MWR}; \(\psi_{wilt}\) is \qty{-10}{m}, independent of vegetation and soil types \citep{niu2011JGRA}; \(c_2\) is assumed constant at \num{5.8}, whereas in SSiB, this parameter varies with vegetation type \citep[Table 2]{xue1991JC}.
+
+\subsubsection{Chen97 Near-surface Turbulence Scheme}\label{sec:data:noahmp:chen97}
+
+The Chen97 scheme \citep{chen1997BM} parameterizes the surface exchange coefficient for heat (\(C_{h}\)) as follows:
+\begin{equation}
+  C_{h} = \kappa^{2} \left[ \ln(\frac{z}{z_{0m}})
+    - \Psi_{m}(\frac{z}{L})
+    + \Psi_{m}(\frac{z_{0m}}{L})\right]^{-1}
+  \left[\ln(\frac{z}{z_{0h}})
+    - \Psi_{h}(\frac{z}{L})
+    + \Psi_{h}(\frac{z_{0h}}{L})\right]^{-1}
+  \text{,}
+\end{equation}
+where \(\kappa=0.4\) is the von Kármán constant; \(L\) is the Monin--Obukhov (M--O) length (m); \(z\) is the reference height (m); \(\Psi_{m}\) and \(\Psi_{h}\) are the similarity theory-based stability functions for momentum and heat, respectively; \(z_{0m}\) the roughness length for momentum (m), depends on the land cover/land-use type; and \(z_{0h}\) is the roughness length for heat (m). \citet{niu2011JGRA} parameterized \(z_{0h} = z_{0m} \exp(-\kappa C \sqrt{{Re}^*})\), where \(C=0.1\) and \({Re}^*\) is the roughness Reynolds number. However, in the code of Noah-MP version 3.6, \(z_{0h} = z_{0m}\).
+
+\subsubsection{M--O Near-surface Turbulence Scheme}\label{sec:data:noahmp:mo}
+
+The M--O scheme is based on the M--O similarity theory \citep{brutsaert1982}, which parameterizes \(C_h\) as follows:
+\begin{equation}
+  C_h = \kappa^2 \left[ \ln(\frac{z - d_{0}}{z_{0m}})
+    - \Psi_{m}(\frac{z - d_0}{L})\right]^{-1}
+  \left[\ln(\frac{z - d_0}{z_{0h}})
+    -\Psi_{h}(\frac{z - d_0}{L})\right]^{-1}
+\end{equation}
+where \(z_{0h} = z_{0m}\), and \(d_0\) is the zero-displacement height (m),
+\begin{equation}
+  d_0 = 0.64 z_{ct}
+  \text{,}
+\end{equation}
+where \(z_{ct}\) is the canopy top height (m).
+
+\subsection{Domain, Temporal Span, Atmospheric Forcings, and Static Parameters}\label{sec:data:static}
+
+The simulation domain covers the all of CONUS (25\degree{}--53\degree{}N, 125\degree{}--67\degree{}W), which is also called the NLDAS-2 testbed \citep{xia2012JGRA, xia2012JGRAa}. The simulations were performed at a spatial resolution of 0.125\degree{}, which is the same as for NLDAS-2 models.
+
+The hourly NLDAS-2 atmospheric forcings at a spatial resolution of 0.125\degree{} were used to drive the 48 Noah-MP configurations. This study used seven forcing variables: downward solar radiation, downward longwave radiation, air temperature, surface pressure, specific humidity, wind speed, and precipitation rate. The static datasets, including topography (\url{https://ldas.gsfc.nasa.gov/nldas/elevation}), predominant vegetation class (\url{https://ldas.gsfc.nasa.gov/nldas/vegetation-class}), and soil texture type (\url{https://ldas.gsfc.nasa.gov/nldas/soils}), are also the same as in NLDAS-2. We used the default Noah-MP lookup tables to convert the input vegetation and soil types to parameter values.
+
+The simulation spans 36 years from January 1980 to December 2015 at a time step of 15 minutes. The initial states of each Noah-MP configuration were obtained from a 100-year-long spin-up over the single year of 1979. Details of the simulation settings and spin-up run can be found in \citet[Section 2.3]{zheng2019WRR} and \citet[Section 2.2]{fei2021WRR}.
+
+\section{Intercomparison and Evaluation Methods}\label{sec:methods}
+
+We have previously evaluated the runoff and compared it with NLDAS \citep{fei2021WRR}. Therefore, this study focuses on assessing TWS, SWE, soil moisture, and ET\@. We also examine the spread among the Noah-MP configurations. The evaluations and intercomparisons are performed for 12 River Forecast Centers (RFCs): Northeast (NE), Mid-Atlantic (MA), Ohio (OH), Lower Mississippi (LM), Southeast (SE), North Central (NC), Northwest (NW), Arkansas (AB), Missouri (MB), West Gulf (WG), California-Nevada (CN), and Colorado (CB). Figure S1 displays the geographical delineation of the RFCs. More details on the RFCs, such as their multi-year average precipitation, potential evaporation, and topography, can be found in \citet[Figure 1]{fei2021WRR}.
+
+The intercomparison and evaluations were conducted at three different time scales---namely the long-term climatology, annual cycle, and interannual anomaly. Section~\ref{sec:methods:variables} details how the temporal variations at different time scales are derived. Ensemble spread is defined in Section~\ref{sec:methods:spread}, and a ranking of the spread magnitude is assigned relative to the temporal variation following the Global Soil Wetness Project (GSWP) \citep{dirmeyer2006BAMS}. We utilized the Taylor diagram and Taylor Skill Score (TSS) to measure the performance of Noah-MP against various reference datasets. The evaluation methods are shown in Section~\ref{sec:methods:taylor}, and the reference datasets are described in Section~\ref{sec:methods:ref}. In addition to the inter-comparisons and evaluations, Section~\ref{sec:methods:sobol} introduces the Sobol' sensitivity index for the process sensitivity analysis.
+
+\subsection{Climatology, Annual Cycle, and Interannual Anomaly}\label{sec:methods:variables}
+
+For each variable \(r_{y,m}\) of the dataset (month \(m\) of the year \(y\), \(m=1, \cdots, 12\), \(y=1, \cdots, Y\)), the multi-year averaged climatology (\(r_{clim}\)), annual cycle (\(r_{ancy,m}\)), and interannual anomaly (\(r_{anom,y,m}\)) are calculated as follows:
+\begin{equation}
+  r_{clim} = \frac{1}{12 Y} \sum_{y=1}^{Y} \sum_{m=1}^{12} r_{y,m}
+  \text{,}
+\end{equation}
+\begin{equation}
+  r_{ancy,m} = \frac{1}{Y} \sum_{y=1}^{Y} {r_{y,m} - r_{clim}}
+  \text{,}
+\end{equation}
+\begin{equation}
+  r_{anom,y,m} = r_{y,m} - r_{ancy,m} - r_{clim}
   \text{,}
 \end{equation}
 
-\subsubsection{The Chen97 scheme of near-surface turbulence}
-
-\begin{multline}
-  C_h = \kappa^2 \left[ \ln\left(\frac{z}{z_{0m}}\right)
-    - \Psi_{m}\left(\frac{z}{L}\right)
-    + \Psi_{m}\left(\frac{z_{0m}}{L}\right) \right]^{-1} \\
-  \left[ \ln\left(\frac{z}{z_{0h}}\right)
-    - \Psi_{h}\left(\frac{z}{L}\right)
-    + \Psi_{h}\left(\frac{z_{0h}}{L}\right) \right]^{-1} \text{,}
-\end{multline}
+The temporal variability of \(r_{y,m}\) (\(\sigma_{total}\)), \(r_{ancy,m}\) (\(\sigma_{ancy}\)), and \(r_{anom,y,m}\) (\(\sigma_{anom}\)) are derived as follows:
 \begin{equation}
-  z_{0h} = z_{0m} \exp\left(-\kappa C \sqrt{\text{Re}^*}\right)
-\end{equation}
-
-\subsubsection{The M-O scheme of near-surface turbulence}
-
-\begin{multline}
-  C_h = \kappa^2 \left[ \ln\left(\frac{z-d_0}{z_{0m}}\right)
-    - \Psi_{m}\left(\frac{z-d_0}{L}\right) \right]^{-1} \\
-  \left[ \ln\left(\frac{z-d_0}{z_{0h}}\right)
-    - \Psi_{h}\left(\frac{z-d_0}{L}\right) \right]^{-1}
+  \sigma_{total} = \sqrt{\frac{1}{12 Y}\sum_{y,m} (r_{y,m} - r_{clim})^2}
+  \label{eq:var:total}
   \text{,}
-\end{multline}
-
+\end{equation}
 \begin{equation}
-  z_{0h} = z_{0m} = 0.65 z_{ct}
+  \sigma_{ancy} = \sqrt{\frac{1}{12}\sum_{m} (r_{ancy,m} - r_{clim})^2}
+  \text{,}
+\end{equation}
+\begin{equation}
+  \sigma_{anom} = \sqrt{\frac{1}{12 Y} \sum_{y,m} (r_{y,m} - r_{ancy,m})^2}
+  \text{.}
 \end{equation}
 
+\subsection{Spread among the Ensemble Members}\label{sec:methods:spread}
 
-\subsection{NLDAS-2 atmospheric forcing and static parameters}\label{sec:data:nldas}
+The spread among \(N\) ensemble members is measured by standard deviations following GSWP \citep{dirmeyer2006BAMS}:
+\begin{equation}
+  \sigma(r_{t}) = \sqrt{\frac{1}{N}\sum_{n=1}^{N}(r_{n,t} - \overline{r_{t}})^{2}}
+  \text{,}
+\end{equation}
+where \(\overline{r_{t}}\) refers to the ensemble mean.
 
-Static parameters
+Measures of the ensemble spread at different time scales are obtained as temporal averages over the time horizon as follows:
+\begin{equation}
+  \sigma_{lss,total} = \frac{1}{T} \sum_{t=1}^{T} \sigma(r_{t})
+  \text{,}
+\end{equation}
+\begin{equation}
+  \sigma_{lss,ancy} = \frac{1}{12} \sum_{m=1}^{12} \sigma(r_{ancy,m})
+  \text{,}
+\end{equation}
+\begin{equation}
+  \sigma_{lss,anom} = \frac{1}{12Y} \sum_{y=1}^{Y} \sum_{m=1}^{12} \sigma(r_{anom,y,m})
+  \text{,}
+\end{equation}
+where \(\sigma_{lss,total}\) is the ensemble spread defined the same as in GSWP, \(\sigma_{lss,ancy}\) is the ensemble spread for the modeled annual cycle, and \(\sigma_{lss,anom}\) is the ensemble spread for the modeled interannual anomaly.
 
-Atmospheric forcings
+To compare the ensemble spread for various dataset variables at different time scales, the ratio (\(R\)) of the ensemble spread to the temporal variability is calculated: (1) \(R=\sigma_{lss,total}/\sigma_{total}\), for the whole time series; (2) \(R=\sigma_{lss,ancy}/\sigma_{ancy}\), for the annual cycle; and (3) \(R=\sigma_{lss,anom}/\sigma_{anom}\), for the interannual anomaly. Similar to GSWP \citep{dirmeyer2006BAMS}, we grade the ratio as follows: ``A'' for \(R < 0.316\); ``B'' for \(0.316 \le R < 1\); ``C'' for \(1 \le R < 3.16\); ``D'' for \(3.16 \le R < 10\); and ``E'' for \(R > 10\). A lower (higher) \(R\) or a higher (lower) grade denotes a lower (higher) ensemble spread.
 
-The Noah-MP LSM version 3.6 is used.
+\subsection{Taylor Diagram and Skill Score}\label{sec:methods:taylor}
 
-Details of the NLDAS multi-model ensemble can be found in \citet{xia2012JGRA,
-xia2012JGRAa, fei2021WRR}.
+The Taylor diagram \citep{taylor2001JGRA} is a graphical representation of how closely a model simulation matches observations in terms of correlation coefficient (\(R\)), normalized unbiased root-mean-square error (nuRMSE), and normalized standard deviation (\(\widehat{\sigma_{f}}\)). The TSS is an index that measures the distance between a model simulation and the observations in the Taylor diagram. The TSS is defined as follows:
+\begin{equation}
+  TSS = \frac{4 (1 + R)}{(\widehat{\sigma_{f}} + \frac{1}{\widehat{\sigma_{f}}})^2 ( 1 + R_{0})}
+\end{equation}
+\begin{equation}
+  \widehat{\sigma_{f}} = \frac{\sigma_{f}}{\sigma_{o}}
+\end{equation}
+where \(\sigma_{f}\) and \(\sigma_{o}\) are the standard deviations of the model simulation and the observation, and \(R_{0}\) is the maximum correlation coefficient attainable (in this study, \(R_{0} = 1\)). The value range of TSS is from 0 to 1. A higher TSS indicates a higher overall performance of model prediction with reference to the observations.
 
-Details of the Noah-MP multi-parameterization ensemble can be found in
-\citet{zheng2019WRR, zheng2020JAMES, fei2021WRR}.
+\subsection{Sobol's Total Sensitivity Index}\label{sec:methods:sobol}
 
+The sensitivity of the Noah-MP ensemble to a physical process can be quantified by the Sobol' total sensitivity index \citep{sobol1993MMCE, zheng2019WRR}. The Sobol' total sensitivity index measures the proportion of the variance of different processes to the total variance, which is defined as follows:
+\begin{equation}
+  S_{\Lambda} = \frac{\mathrm{E}_{\sim\Lambda}(\mathrm{Var}_{\Lambda}(Y|\sim\Lambda))}{\mathrm{Var}(Y)}
+  \text{,}
+\end{equation}
+where \(S_{\Lambda}\) is the Sobol' total sensitivity index for one process \(\Lambda\); \(\sim\Lambda\) represents the other processes except for \(\Lambda\); \(Y\) represents the 48 Noah-MP ensemble members; \(\mathrm{Var}(Y)\) is the variance of \(Y\); \(\mathrm{Var}_{\Lambda}(Y|\sim\Lambda)\) denotes the variance among different parameterization schemes of the process \(\Lambda\), and \(\mathrm{E}(\sim\Lambda)\) denotes the arithmetic average across all combinations of the other processes except for \(\Lambda\). Detailed calculations and examples can be found in \citet[Appendix A]{zheng2019WRR}.
 
-\subsection{Simulation settings}\label{sec:data:simulation}
+\subsection{Reference data}\label{sec:methods:ref}
 
+\subsubsection{Terrestrial Water Storage}\label{sec:methods:ref:tws}
 
-\section{Evaluation and intercomparison methods}\label{sec:evaluation}
+We use the 1\degree{}\times{}1\degree{} monthly Gravity Recovery and Climate Experiment (GRACE) land water-equivalent-thickness surface mass anomaly, level-3, Release 6.0, version 04, as the reference of TWS (\(W\) in Table~\ref{tab:variables}). The GRACE products are derived from the gravity anomaly measured by twin satellites and have had the signals from factors such as glacial isostatic adjustment and tides removed. The GRACE products from different processing centers are slightly different. Therefore, to reduce the noise of different products \citep{sakumura2014GRL}, we use the arithmetic average of the products from three centers---namely GeoForschungsZentrum Potsdam (or the German Research Center for Geosciences) (\url{https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC_L3_GFZ_RL06_LND_v04}); the Center for Space Research at the University of Texas, Austin (\url{https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC_L3_CSR_RL06_LND_v04}); and NASA's Jet Propulsion Laboratory (\url{https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC_L3_JPL_RL06_LND_v04}). The GRACE satellites began orbiting Earth on 17 March 2002; we select the period from 2003 to 2015 for the evaluation. There are 14 missing values during the period, which were filled with a simple linear interpolation.
 
+The GRACE products experience signal leakages between land and lake grids \citep{save2016JGRSE}; and such signal leakage could impact the evaluations of the RFCs that are adjacent to the Great Lakes \citep{ma2017JGRA}. To alleviate the impacts of this, we create the reference TWS for the NC, OH, and NE RFCs as follows: (1) aggregate the GRACE-derived TWS over both the RFC land area and neighboring lakes (lakes Superior, Michigan, and Huron for NC; Erie for OH, and Ontario for NE); and (2) subtract the lake water storage anomaly from the aggregated TWS. The lake water storage is calculated as the product of the observed water level and the lake area.
 
-\section{Results} \label{sec:result}
+The lake water level is an arithmetic average of selected National Oceanic and Atmospheric Administration (NOAA) site observations (\url{https://tidesandcurrents.noaa.gov/stations.html?type=Water+Levels}). For Lake Superior, five observation stations were selected: Point Iroquois, Marquette C.G., Ontonagon, Duluth, and Grand Marais. For Lake Michigan, seven stations were selected: Ludington, Holland, Calumet Harbor, Milwaukee, Kewaunee, Sturgeon Bay Canal, and Port Inland. For Lake Huron, five stations were selected: Lakeport, Harbor Beach, Essexville, Mackinaw City, and De Tour Village. For Lake Erie, eight stations were selected: Buffalo, Sturgeon Point, Erie, Fairport, Cleveland, Marblehead, Toledo, and Fermi Power Plant. And for Lake Ontario, four stations were selected: Cape Vincent, Oswego, Rochester, and Olcott.
 
-\subsection{Spread}
+The lake area is estimated from the lake boundary data provided by the United States Geological Survey (\url{https://www.sciencebase.gov/catalog/item/530f8a0ee4b0e7e46bd300dd}). Only the area within the United States is considered, which is within a 150\,\unit{km} radius from the studied RFCs. The lake areas are calculated as follows: 52441\,\unit{km^2} for Lake Superior within the USA; 57509\,\unit{km^2} for Lake Michigan; 23185\,\unit{km^2} for Lake Huron within the USA; 25494\,\unit{km^2} for Lake Erie; and 18871\,\unit{km^2} for Lake Ontario. Month-to-month variations in lake area are neglected in this study for simplicity.
 
-\subsection{Performance}
+\subsubsection{Soil Moisture}\label{sec:methods:ref:sm}
 
-Biases have been evaluated by \citet{zheng2020JAMES}.
+We use the daily North American Soil Moisture Database (NASMD) \citep{quiring2016BAMS} as the reference for the simulated soil moisture (\(W_{soil,i}\) in Table~\ref{tab:variables}), similar to previous NLDAS evaluations \citep{xia2015JHa, xia2015JH}. NASMD assembles the soil moisture time series at multiple depths of more than 2200 stations of 24 networks with quality control. We obtained the data from the NASMD website at Texas A\&M University (\url{http://soilmoisture.tamu.edu}). The observation depth varies with the network. We interpolated the observations to the centers of the Noah-MP soil layers, which are \qty{0.05}{m}, \qty{0.25}{m}, \qty{0.7}{m}, and \qty{1.5}{m}, respectively. The interpolation is performed only when a valid observation is exactly at, or two valid observations exist above and below, the given depth; otherwise, a missing value is given. We excluded the soil layers with more than 50\% missing values to minimize the impacts of missing values on the evaluation, after which 264 \(w_{soil,1}\), 214 \(w_{soil,2}\), 95 \(w_{soil,3}\), and 23 \(w_{soil,4}\) valid time series remained. Daily data from 1996 to 2013 were then aggregated into monthly values. For any month, if less than 10 days of valid data is available, a missing value is assigned.
 
-\subsubsection{Terrestrial water storage}
+\subsubsection{Snow Water Equivalent}
 
-\citep{landerer2012WRR}
+We use the daily Snow Data Assimilation System (SNODAS) as the reference of SWE (\(W_{snow}\) in Table~\ref{tab:variables}). SNODAS is a data assimilation system developed by the NOAA National Weather Service's National Operational Hydrologic Remote Sensing Center. This system aims to provide a physically consistent framework to combine snow modeling and observations from satellites, airborne platforms, and ground stations (National Operational Hydrologic Remote Sensing Center, 2004). We downloaded the dataset from the National Snow and Ice Data Center website (\url{https://nsidc.org/data/G02158/versions/1}). The original spatial resolution is 1\,km\times{}1\,km, and we bilinearly interpolated the data to the 0.125\degree{} NLDAS grids. SNODAS began on 2003-09-28, and we selected 11 years of whole snow seasons from September 2004 to August 2015. \citet{clow2012HP} showed that the SNODAS SWE performs well in the forest areas of the Colorado Rocky Mountains, but performs poorly in the alpine areas.
 
+\subsubsection{Evapotranspiration}\label{sec:methods:ref:et}
 
-\subsubsection{Evapotranspiration}
+We use plot-scale AmeriFlux observations and four gridded products as the reference ET (\(E\) in Table\ref{tab:variables}). The four gridded products are derived from different methods, and a common evaluation period from 1982 to 2015 is selected for this study. The gridded products have different spatial resolutions. We downscaled the data to the NLDAS grids and then aggregated them to the 12 RFCs.
 
-\subsubsection{Runoff}
+We select 25 AmeriFlux sites (\url{https://ameriflux.lbl.gov}). AmeriFlux is a network of eddy-covariance systems measuring ecosystem CO\textsubscript{2}, water, and energy fluxes across the United States. The 25 selected sites were selected because they have the longest observation periods for seven major land cover types (i.e., evergreen forest, deciduous forest, mixed forest, shrubland, savanna, grassland, and cropland). Figure S1 and Table S1 detail the selected sites. AmeriFlux provides hourly or half-hourly latent heat measurements of the selected sites since 1991, and we calculate ET by dividing the latent heat of water vaporization (\(2.5104\times{}10^6\)\,\unit{J~kg^{-1}}). In this study, AmeriFlux serves as the ground truth for the gridded ET products and model estimation. The data have been widely used in LSM evaluations \citep{cai2014JGRA, zhang2020AFM}. We aggregated the original hourly or half-hourly data into daily and then monthly values. In the process of aggregation, if there was less than eight valid hours in a day, a missing day was marked; if there was less than ten valid days in a month, a missing month was assigned; if there was less than 50\% valid months, the time series was dropped.
 
+The first gridded ET product is FLUXNET Multi-Tree Ensemble (MTE) \citep{jung2009B} (\url{https://www.bgc-jena.mpg.de/geodb/projects/Home.php}). FLUXNET MTE ET is a monthly data produced from the FLUXNET eddy covariance measurements, remote sensing, and meteorological data using the multi-tree ensemble statistical method \citep{jung2009B}. The product is widely used in LSM evaluations \citep{cai2014JGRA, ma2017JGRA, xia2016JGRA, jung2019SD, fang2020AFM, zhang2020AFM, pan2020HESS}. FLUXNET MTE ET has a spatial resolution of 0.5\degree{}\times{}0.5\degree{}. We remap the data to the 0.125\degree{}\times{}0.125\degree{} NLDAS grids with a first-order conservative method.
 
-\codedataavailability{ The data are freely available for download from the
-Zenodo online repository at \url{https://doi.org/place-holder-nmpens-pretrn} and
-\url{https://doi.org/place-holder-nmpens-tws}. The dataset (along with datasets
-on which it is based) is subject to a Creative Commons BY (attribution) license
-agreement (\url{https://creativecommons.org/licenses}, last access:
-2021-08-16).} \label{sec:availability}
+The second gridded ET product is the Global Land Evaporation Amsterdam Model (GLEAM), version 3.3a (\url{https://www.gleam.eu}), which is another widely used ET product \citep{xu2019JHa}. GLEAM estimates transpiration, canopy evaporation, soil evaporation, open-water evaporation, and sublimation separately, and then sums them as ET. The method aims to maximize the utilization of satellite information. The product estimates monthly ET at a spatial resolution of 0.25\degree{}\times{}0.25\degree{}. We bilinearly interpolated the data to the NLDAS grids.
 
+The third gridded ET product was developed by \citet{ma2019WRR}, based on Complementary Relationship (CR) method (\url{https://digitalcommons.unl.edu/natrespapers/986}). Regional ET is estimated as a complementary function \citep{szilagyi2017JGRA} of maximum attainable ET and wet environment ET. The product requires only commonly available meteorological data but has shown reasonable performance in describing the annual ET cycle, linear trends, and interannual anomaly \citep{ma2019JGRA, ma2019WRR}. This CR-based product has a spatial resolution of 4\,\unit{km}, and we used local area averaging to interpolate the data to the NLDAS grids.
 
-\conclusions[Conclusions and Discussion]\label{sec:conclusion}
+We evaluated the above three gridded datasets at 25 AmeriFlux sites using three skill metrics---namely R, TSS, and nuRMSE. We selected the grid points closest to these 25 sites for evaluation. The evaluation results are shown in Tables S2--S4. All three datasets can capture the annual ET cycle well (average TSSs above 0.8). Among them, the FLUXNET MTE ET performs the best. However, all three datasets cannot capture the interannual ET anomaly well (average TSSs below 0.6). Among them, the GLEAM ET performs the best.
 
-conclusion text
+\subsection{NLDAS ensemble}\label{sec:methods:nldas}
 
+We used three NLDAS-2 models---namely Noah-2.8, VIC-4.0.3, and Mosaic, as the benchmark of the Noah-MP ensemble. Their outputs can be publicly downloaded from the NASA Goddard Earth Sciences Data and Information Services Center (\url{https://disc.gsfc.nasa.gov/datasets?keywords=NLDAS}). More information on the NLDAS-2 models, the forcing and static datasets, and simulation settings can be found in \citet{xia2012JGRA, xia2012JGRAa} and \citet[Section 2.1]{fei2021WRR}. The NLDAS-2 datasets have been proven to perform soundly for regional hydrological simulations \citep{xia2012JGRA, xia2012JGRAa, xia2016JGRA, xia2015JHa, xia2015JH} and are widely selected for LSM comparisons \citep{cai2014JGRAa, fei2021WRR}.
 
-\authorcontribution{ ZLY initiated and funded the study. HZ conducted the
-simulation and generated the data. WF contributed to the generation of the
-figures. WYW, PL, and JW contributed to the validation of the data. All authors
-contributed to the drafting of the manuscript.}\label{sec:contribution}
+\section{Results and discussions}\label{sec:results}
 
+In this section, we begin in in Section~\ref{sec:results:spread} by quantifying the spread among the members of the Noah-MP ensemble. Then, Section~\ref{sec:results:evaluation} evaluates the estimated TWS anomaly (TWSA), SWE, soil moisture, and ET in comparison with the NLDAS ensemble. More results on runoff can be found in \citet{zheng2020JAMES} and \citet{fei2021WRR}.
+
+\subsection{Spread among the ensemble members}\label{sec:results:spread}
+
+All the dataset variables are aggregated across CONUS and the spread among the 48 Noah-MP configurations is calculated, as shown in Table 2. Among the variables, runoff (including surface and subsurface components) shows the largest spread, which is comparable to that estimated in GSWP-2. The spread of ET and that of TWS are significantly smaller than those observed in GSWP-2. The high consistency among the Noah-MP configurations could be a sign of the limited sampling of available process parameterizations, but also could be a result of continuous model improvements. ET might be the former case, whereas TWS is likely the latter. The spread in surface soil moisture is marginal and increases significantly in the deep layers. The surface soil moisture is controlled tightly by the atmospheric forcings, whereas the spread of the sub-surface soil moisture hints at the complex interplay among various land surface processes (e.g., root water uptake and subsurface runoff) \citep{koster2015BAMS}. The constraints of the atmospheric forcing are also obvious for the interannual anomaly, resulting in a relatively smaller ensemble spread. LSM parameterizations play a major role in estimating annual cycles, and the spread in the annual cycle is dominant for the overall ensemble spread of runoff and soil moisture.
+
+\begin{table*}[t]
+  \caption{The ensemble spread, temporal variability, and rating of different water budget components. \(\sigma_{lss,ancy}\), \(\sigma_{lss,anom}\), and \(\sigma_{lss,total}\) denote the spread of the 48 Noah-MP configurations in simulating the multi-year averaged annual cycle, interannual anomaly, and total 36-year monthly time series, respectively. \(\sigma_{ancy}\), \(\sigma_{anom}\), and \(\sigma_{total}\) denote the temporal variability of the annual cycle, interannual anomaly, and the 36-year monthly, respectively. \(R_{ancy}\), \(R_{anom}\), and \(R_{total}\) denote the rating of the three above-mentioned time scales based on the normalized ensemble spread, respectively \(W'\) (\(W'_{gw}\)) denotes the terrestrial water storage (groundwater) anomaly (\unit{kg.m^{-2}}), whereas \(\Delta W\) (\(\Delta W_{gw}\)) denotes the monthly terrestrial water storage (groundwater) change (\unit{kg.m^{-2}.s^{-1}}).}
+  \label{tab:statistics}
+  \tiny
+  \input{fig/tab02.tex}
+\end{table*}
+
+\subsection{Evaluation with Observations}\label{sec:results:evaluation}
+
+\subsubsection{Terrestrial Water Storage Anomaly}\label{sec:results:twsa}
+
+Figure~\ref{fig:twsa:ancy} shows the annual cycle of the TWSA estimated from GRACE, Noah-MP, and NLDAS. Figure~\ref{fig:twsa:ancy:tss} presents the TSS\@. In the 12 RFCs over CONUS, the TWSA peaks in spring, declines rapidly in summer, reaches a minimum in autumn, and recovers in winter. In terms of the timing of the peak and trough, Noah-MP and the NLDAS models perform similarly. In terms of the amplitude of variation, Noah-MP generally produces higher values in all RFCs. Previous studies have attributed this difference to the inclusion of a bucket groundwater component in Noah-MP \citep{cai2014JGRAa, ma2017JGRA}. However, we found the Noah-MP configurations without a groundwater component can still produce a higher amplitude, especially considering the structural similarity between Noah-MP and Noah. Further investigation of the model difference is necessary.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig01.pdf}
+  \caption{Annual cycle from modeled and GRACE-derived TWSA in 12 RFCs for the period 2003--2015. TWSA is calculated from TWS by removing the 13-year average (2003 to 2015). Black dots denote the GRACE TWSA\@. The shaded areas denote the range between the maxima and minima of the 48 Noah-MP estimates. The solid red line denotes the Noah-MP multi-physics ensemble mean. The three NLDAS models (Noah, Mosaic, VIC) and their ensemble mean are denoted by the blue, green, cyan, and dark golden lines, respectively. The 12 RFCs are sorted based on climatic aridity, i.e., the most humid RFC in the top left and the driest RFC in the bottom right.}
+  \label{fig:twsa:ancy}
+\end{figure*}
+
+Figure~\ref{fig:twsa:ancy:tss} shows the Taylor diagram for the annual cycle. The Noah-MP configurations generally outperform the NLDAS models in most of the RFCs, which results in a superior ensemble mean performance, as shown in Table S5. Detailed examination of the TSS reveals that Noah-MP and NLDAS have similar correlation coefficients. Their difference is manifested in the modeled standard deviation (i.e., the amplitude of variation). In NE, MA, NW, and CN, Noah-MP underperforms compared with NLDAS, mainly due to underestimating the standard deviation. However, the interpretation of the underestimation is multifaceted. First, they are coastal RFCs, and the GRACE data at the coast could be contaminated by the leaked signal from the ocean, producing a low temporal variability \citep{cai2014JGRAa}. Second, there are strong human activities in CN, perturbating the water storage of the aquifers at the deeper levels. Noah-MP and the NLDAS models do not consider the groundwater variations at such depths, resulting in an underestimation. For the same reason, the underestimation is also pronounced in AB, which is home to the Ogallala Aquifer and has strong human activities. Third, Noah-MP does not include a lake module. The estimates do not include the variations in lake water storage.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig02.pdf}
+  \caption{Normalized Taylor diagrams showing the performance of the modeled annual TWSA cycle from the 48 Noah-MP ensemble members, which are denoted by the red dots, the three NLDAS models (Noah, VIC, and Mosaic) (blue dot, green star, and cyan square), the Noah-MP ensemble mean (purple diamond), and the NLDAS ensemble mean (dark golden diamond) in each RFC. The black star denotes the observations. The distance between a point of the model simulation to the observations denotes the nuRMSE. The radial lines denote the correlation coefficient, while the distance to the origin along the line denotes the normalized variability.}
+  \label{fig:twsa:ancy:tss}
+\end{figure*}
+
+Figure~\ref{fig:twsa:anom:tss} shows the Taylor diagram for the interannual anomaly. Compared with the annual cycle (Figure~\ref{fig:twsa:ancy:tss}), both the Noah-MP configurations and the NLDAS models degrade significantly. Noah-MP still shows better skill than NLDAS in most of the RFCs. However, its superiority is marginal. In three RFCs---namely NE, MA, and WG, Noah-MP underperforms NLDAS, and the underperformance corresponds to an underestimated standard deviation. Similar to the annual cycle, we are of the opinion that possible reasons could be an exclusion of lakes in Noah-MP and the coastal signal leakage in the GRACE estimates.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig03.pdf}
+  \caption{As in Figure~\ref{fig:twsa:ancy:tss}, but for the interannual TWSA anomaly.}
+  \label{fig:twsa:anom:tss}
+\end{figure*}
+
+\subsubsection{Soil Moisture}
+
+Figure~\ref{fig:sm:ts} presents the time series of the surface (0--0.1\,\unit{m}) and root-zone (0--1.0\,\unit{m}) soil moisture in NC, NW, AB, WG, and CB. These RFCs were selected as they have more than 10 valid sites, and the time series is averaged across the sites. Corresponding TSSs are provided in Table S6. The 48 Noah-MP configurations are consistent in estimating the surface soil moisture, and the spread is remarkably smaller than that among the three NLDAS models. The spread among the Noah-MP configurations increases significantly from the surface (Figure~\ref{fig:sm:ts}e) to the root zone (Figure~\ref{fig:sm:ts}k) for the soil moisture in AB. The ensemble spread in the root-zone soil moisture reflects the difference in modeling root-water uptake for plant transpiration and soil-bottom drainage as described in Section~\ref{sec:data:noahmp}. Further investigation (Figures S2--S5) shows that, in the deep soil layers (the third and fourth layer), Noah-MP has comparable or greater spread than NLDAS. In the RFCs and soil layers examined in Figure 4, Noah-MP outperforms the NLDAS models (Table S6), which is consistent with previous evaluations \citep{cai2014JGRAa}. After further comparing Noah-MP and Noah, it is interesting to note that Noah-MP and Noah perform similarly in AB (Figures~\ref{fig:sm:ts}e and \ref{fig:sm:ts}f) and WG (Figures~\ref{fig:sm:ts}g and \ref{fig:sm:ts}h) but are different in NC (Figures~\ref{fig:sm:ts}a and \ref{fig:sm:ts}b), NW (Figures~\ref{fig:sm:ts}c and \ref{fig:sm:ts}d), and CB (Figures~\ref{fig:sm:ts}i and \ref{fig:sm:ts}j). The similarity in AB and WG is reasonable since the two models have similar soil layer structures and parameterizations. The dissimilarity in NC, NW, and CB is most pronounced in winter. It could result from the different snow parameterizations in Noah-MP and Noah, which is investigated in Section~\ref{sec:results:swe}.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig04.pdf}
+  \caption{Monthly soil moisture at \qtyrange[range-phrase=--]{0}{0.1}{m} and \qtyrange[range-phrase=--]{0}{1}{m} from the Noah-MP ensemble, the NLDAS models, and the NASMD observations for the period 1996--2013. Only the RFCs with more than 10 observational sites are considered. Black dots denote the NASMD soil moisture observations. The shaded areas denote the range between the maxima and minima of the 48 Noah-MP estimates. The solid red line denotes the Noah-MP multi-physics ensemble mean. The three NLDAS models (Noah, Mosaic, VIC) and their ensemble mean are denoted by the blue, green, cyan, and dark golden lines, respectively. The 12 RFCs are sorted based on climatic aridity.}
+  \label{fig:sm:ts}
+\end{figure*}
+
+Figures~\ref{fig:sm:ancy:tss} and \ref{fig:sm:anom:tss} compare the TSS between the NLDAS and Noah-MP ensemble mean at each NAMSD site for the annual cycle and interannual anomaly. The comparison varies significantly with site and soil layer depth, revealing two major patterns. First, NDLAS outperforms Noah-MP in AB and CB. In these two RFCs, as individual NLDAS models do not show superior performance over Noah-MP (Figure~\ref{fig:sm:ts}), the high skill of the ensemble mean could be a result of a high ensemble skill gain \citep{fei2021WRR} related to the diversity among the NLDAS models \citep{guo2007QJRMS, xia2015JHa}. On the other hand, Noah-MP has a low ensemble spread. The good performance of individual Noah-MP configurations does not turn into a higher skill of the ensemble mean owing to a lack of diversity in soil structures and parameterizations. Second, in NC, OH, and MA, NLDAS underperforms Noah-MP, and the low performance of NLDAS is related to the anomaly in winter-time soil moisture (Figure S2). The anomaly suggests that the NLDAS models have difficulty in modeling snow and snow-soil moisture interactions (refer to Section~\ref{sec:results:swe} for more information). On the other hand, Noah-MP has a better snow module, leading to a high soil moisture estimation skill.
+
+To maximize the utilization of the NLDAS model diversity and Noah-MP physics improvements, we combine the Noah-MP ensemble mean and the three NLDAS models. The right-hand columns of Figures~\ref{fig:sm:ancy:tss} and \ref{fig:sm:anom:tss} show that the four estimates' arithmetic average outperforms the three-model NLDAS ensemble mean at almost every NASMD site, suggesting added value in the Noah-MP data.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig05.pdf}
+  \caption{TSSs of the NLDAS ensemble mean in simulating the annual cycle of soil moisture (first column) and its performance differences between the Noah-MP ensemble mean (second column), the mean value of the Noah-MP ensemble mean and three NLDAS models (third column) and the NLDAS ensemble mean. The four rows indicate the soil moisture at four different depth ranges (0--0.1\,m, 0.1--0.4\,m, 0.4--1.0\,m, and 1.0--2.0\,m). The evaluation period is 1996--2013.}
+  \label{fig:sm:ancy:tss}
+\end{figure*}
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig06.pdf}
+  \caption{As in Figure~\ref{fig:sm:ancy:tss}, but for the interannual anomaly.}
+  \label{fig:sm:anom:tss}
+\end{figure*}
+
+\subsubsection{Snow Water Equivalent}\label{sec:results:swe}
+
+Figure\ref{fig:swe:clim}a presents the spatial patterns of the 11-year average (2004-09 to 2015-08) SWE (\(W_{snow}\)) from SNODAS. Over CONUS, snow is mainly distributed in the northeast (NE, NC, OH, and MA) and on the mountains of the west (the Cascade Mountains, Rocky Mountains, Sierra Nevada in NW, AB, MB, WG, CN, and CB). Figure~\ref{fig:swe:clim}b (\ref{fig:swe:clim}7c) shows the geographical difference between the Noah-MP (NLDAS) ensemble mean and SNODAS. Both Noah-MP and NLDAS exhibit a considerable underestimation in most areas of CONUS. However, the underestimation of Noah-MP is smaller in areas where snow is thick (e.g., NE and the Cascade Mountains). Consequently, Noah-MP captures the spatial patterns better than NLDAS, with a spatial correlation of 0.67 versus 0.31.
+
+\begin{figure}[t]
+  \includegraphics[width=8.3cm]{fig/fig07.pdf}
+  \caption{Spatial distribution of the 11-year-averaged SNODAS SWE (a); spatial distribution of the multi-year-averaged relative biases between the SNODAS SWE and the NLDAS ensemble mean (b), the Noah-MP ensemble mean (c). The spatial correlation coefficients between the two ensemble means (b, c) and the SNODAS SWE (a) are also presented.}
+  \label{fig:swe:clim}
+\end{figure}
+
+Figure~\ref{fig:swe:ancy} compares the annual cycle estimated from SNODAS, NLDAS, and Noah-MP. The annual cycle in the 12 RFCs exhibits a similar pattern: it accumulates in winter, peaks in spring, and melts from late spring to summer. The snow season in the northeastern RFCs (i.e., NE, MA, OH, and NC) spans from October to May, whereas the snow season is longer in the mountainous RFCs of the west (i.e., NW, AB, MB, WG, CN, and CB), lasting to June. From the comparison between Noah-MP and NLDAS, we make three observations. First, the NLDAS models underestimate the SWE in all RFCs. Among the three NLDAS models, Noah performs the best in the northeast (e.g., NE and MA), whereas VIC shows some advantages in the mountains (e.g., NW, CN, and CB). In the northeast, possible reasons for the Noah superiority include the careful consideration of the surface energy balance over flat terrain, whereas in the mountains, the elevation bands of VIC can better capture the spatial heterogeneity. Second, Noah-MP is close to SNODAS in the northeastern RFCs (e.g., NE, MA, OH, and NC), which has flat terrain and thick snow. This could be a consequence of the multi-layer snow module \citep{niu2011JGRA} and consideration of the impacts of surface energy balance on snow accumulation/ablation. However, in RFCs such as LM, AB, MB, and WG, Noah-MP does not show clear superiority, and one possible reason is that the snow albedo parameterization is biased when the snow is shallow, as discussed in \citet{dang2019TC} and \citet{wang2020JHd}. Third, the spread of the Noah-MP ensemble is small. The selected parameterization configurations do not differ much in terms of modeling the SWE. The Noah-MP configurations should be averaged as a single value when combined with other estimates such as NLDAS. The above three observations suggest that a high spatial resolution (or elevation bands in coarse-resolution models), a multi-layer snow model, and improved shallow snow albedo parameterizations would be critical for accurate SWE estimations.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig08.pdf}
+  \caption{As in Figure~\ref{fig:twsa:ancy}, but for SWE. The evaluation period is September 2004 to August 2015.}
+  \label{fig:swe:ancy}
+\end{figure*}
+
+Figure~\ref{fig:swe:anom:tss} shows the TSS of the NLDAS and Noah-MP ensembles in estimating the annual cycle and interannual anomaly. Table S7 summarizes the skill scores for the 12 RFCs. The annual cycle and interannual anomaly exhibit similar spatial patterns. NLDAS performs well in the northern part of CONUS (e.g., NE, MA, NC, and NW), with TSSs higher than 0.7. The performance in the southern part of CONUS is low. However, snow occurs sparsely in these areas and may not be a significant part of the terrestrial water cycle. In comparison with NLDAS, Noah-MP shows superiority in areas with thick snow (e.g., in the northeast and northwest of CONUS), but underperforms in areas with shallow snow (e.g., in central CONUS). As discussed in the previous paragraph, the Noah-MP snow module is appropriate when snow is thick, but needs improvement when snow is shallow. We further averaged the 48 Noah-MP configurations and added their average to the three-model NLDAS ensemble. Figures~\ref{fig:swe:anom:tss}e and \ref{fig:swe:anom:tss}f show that the four-estimate ensemble mean outperforms the three-model NLDAS ensemble mean in nearly all areas of CONUS, again proving the added value of the data provided in this paper.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig09.pdf}
+  \caption{TSSs of the NLDAS ensemble mean in simulating the SWE and the performance differences between the Noah-MP ensemble mean (c, d), as well as the mean value of the Noah-MP ensemble mean and three NLDAS models (e, f) and the NLDAS ensemble mean. The first column is for the annual cycle, and the second column is for the interannual anomaly. The evaluation period is 2004--2015.}
+  \label{fig:swe:anom:tss}
+\end{figure*}
+
+\subsubsection{Evapotranspiration}\label{sec:results:et}
+
+Figure~\ref{fig:et:ancy} compares the annual cycle estimated from FLUXNET MTE, NLDAS, and Noah-MP in the 12 RFCs. We choose FLUXNET MTE as the reference here since its performance is superior when compared to AmeriFlux (Tables S2--S4). In all 12 RFCs, ET peaks during summer and is lowest during winter. Noah-MP successfully captures the timing of the peak in humid RFCs (i.e., NE, MA, OH, LM, SE, NC, and NW) but shows a one-month lead in a few semi-arid and arid RFCs (i.e., MB, WG, and CN). The average of the three NLDAS models better reproduces the timing of the peak, but the models differ from each other significantly. Among the Noah-MP and NLDAS ensembles, VIC and Mosaic are notably different. VIC exhibits a systematic underestimation, while Mosaic shows an overall overestimation. The 48 Noah-MP configurations and Noah perform closely during autumn and winter, whereas their differences are pronounced during spring and summer. During spring and summer, Noah is the closest to FLUXNET MTE in most RFCs except NE and MA, whereas Noah-MP constantly overestimates the ET in all RFCs.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig10.pdf}
+  \caption{As in Figure~\ref{fig:twsa:ancy}, but for ET. The evaluation period is 1982--2011.}
+  \label{fig:et:ancy}
+\end{figure*}
+
+The overestimation of Noah-MP was investigated by separately comparing the three components of ET (i.e., transpiration, canopy evaporation, and ground evaporation) with GLEAM (Figure S6). Figure~\ref{fig:et:decomp} shows the overestimation of total ET is closely linked to the overestimation of ground evaporation, which could be partially attributable to the overly high roughness length for heat and water, as described in Sections~\ref{sec:data:noahmp:chen97} and \ref{sec:data:noahmp:mo}. Besides, the lack of a litter layer \citep{decker2017JAMES} in Noah-MP could also play a part.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig11.pdf}
+  \caption{Differences between the Noah-MP ensemble mean and GLEAM in total ET (\(E\)), canopy evaporation (\(E_{can}\)), ground evaporation (\(E_{gnd}\)), and transpiration (\(E_{tran}\)). The units are \unit{mm.day^{-1}}.}
+  \label{fig:et:decomp}
+\end{figure*}
+
+Figure~\ref{fig:et:tss} 12 evaluates Noah-MP and NLDAS using the 25 AmeriFlux sites. The NLDAS ensemble mean outperforms the Noah-MP ensemble mean for the annual cycle, and this outperformance results from two causes. First, an NLDAS member, Noah, performs the closest to the observations, as shown in Figures \ref{fig:et:tss}b and \ref{fig:et:ancy}. Second, the three NLDAS models are remarkably different from each other. The diversity of the ensemble gives a higher skill gain by combining them, as shown by the difference between the ensemble mean skill (Figures \ref{fig:et:tss}a) and the median TSS (Figures \ref{fig:et:tss}b). On the other hand, the Noah-MP configurations are too similar to each other, and all have a positive bias (Figure~\ref{fig:et:ancy}). However, for the interannual anomaly, the Noah-MP ensemble mean slightly outperforms the NLDAS ensemble mean (Figure~\ref{fig:et:tss}c). Figure \ref{fig:et:tss}d shows that the Noah-MP configurations marginally outperform the NLDAS models. Among the NLDAS models, VIC performs the best, and Noah does not exhibit the same superiority shown in the annual cycle. The difference between the NLDAS ensemble mean performance (Figure \ref{fig:et:tss}c) and median performance (Figure \ref{fig:et:tss}d) is marginal, suggesting that the NLDAS ensemble skill gains are not notable for the interannual anomaly.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig12.pdf}
+  \caption{TSSs probability distributions of the annual ET cycle (a, b) and interannual ET anomaly (c, d). The orange and cyan bars denote the Noah-MP and NLDAS ensemble means. The magenta and dark blue boxes denote the Noah-MP and NLDAS ensembles. The upper, middle, and lower quantile lines of the magenta boxes show the 75th, 50th, and 25th percentile values of the Noah-MP ensemble. The upper, middle, and lower lines of the dark blue boxes show the three NLDAS models. The blue, green, and cyan dots denote Noah, VIC, and Mosaic, respectively. The evaluation period can be found in Table S1.}
+  \label{fig:et:tss}
+\end{figure*}
+
+Figure~\ref{fig:et:spread} examines the ensemble spread of Noah-MP and NLDAS. The ensemble spread is normalized by the temporal variability calculated using the FLUXNET MTE ET. NLDAS has a significant spread in the southeast and west in all seasons, while spring shows the largest value. As seen in Figure~\ref{fig:et:ancy}, the NLDAS ensemble spread mainly reflects the differences between VIC and Mosaic. The Noah-MP ensemble has a notably smaller spread than NLDAS. The Noah-MP ensemble spread is manifested in spring and summer in the southeastern (SE, LM, and WG) and western (CN, CB, and NW) RFCs.
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig13.pdf}
+  \caption{Spread of the multi-year averaged annual (first column) and seasonal (spring---MAM, summer---JJA, autumn---SON, winter---DJF) ET (second--fifth columns) from the NLDAS (first row) and Noah-MP (second row) ensembles. The ensemble spread is normalized by the temporal variability of the FLUXNET MTE ET calculated using equation~\eqref{eq:var:total}.}
+  \label{fig:et:spread}
+\end{figure*}
+
+We can decompose the Noah-MP ensemble spread and pinpoint the dominant process using Sobol' sensitivity analysis \citep{zheng2019WRR}. Figure~ref{fig:et:sens} delineates the Sobol' total sensitivity index of total ET to the four processes described in Section~\ref{sec:data:noahmp}. In spring and summer, for the regions where the Noah-MP configurations show significant spread (SE, LM, WG, CB, CN, and NW) (Figure~\ref{fig:et:spread}), ET is most sensitive to the parameterization of stomatal conductance (Figures~\ref{fig:et:sens}e and \ref{fig:et:sens}i) and then to the \beta{}-factor (Figures~\ref{fig:et:sens}f and \ref{fig:et:sens}j). However, for regions with positive biases (NC, OH, and LM, as shown in Figures~\ref{fig:et:decomp}b and \ref{fig:et:decomp}c), the Noah-MP estimation is more sensitive to the turbulence parameterizations (Figures~\ref{fig:et:sens}c and \ref{fig:et:sens}g). During autumn and winter, the parameterizations of stomatal conductance (Figures~\ref{fig:et:sens}m and \ref{fig:et:sens}q) and \beta{}-factor (Figures~\ref{fig:et:sens}n and \ref{fig:et:sens}r) still have significant impacts on the estimation of ET, and these impacts could be a result of the ``memory'' of TWS \citep{zheng2019WRR}. Besides these two processes, the runoff parameterization is dominant during autumn in the east (Figure~\ref{fig:et:sens}p), and the turbulence parameterization is dominant during winter (Figure~\ref{fig:et:sens}s).
+
+\begin{figure*}[t]
+  \includegraphics[width=12cm]{fig/fig14.pdf}
+  \caption{The Sobol' total sensitivity of the multi-year-averaged and seasonal (spring---MAM, summer---JJA, autumn---SON, winter---DJF) ET to the four parameterizations: stomatal conductance, soil moisture limitation to transpiration (\beta{}-factor), turbulence, and runoff. Higher values indicate higher sensitivities.}
+  \label{fig:et:sens}
+\end{figure*}
+
+\codedataavailability{
+The dataset is freely available for download from the Zenodo online repository at \url{https://doi.org/10.5281/zenodo.7109816} (Zheng et al., 2022). The dataset (along with datasets on which it is based) is subject to a Creative Commons BY (attribution) license agreement (\url{https://creativecommons.org/licenses}, last access: 2021-08-16).
+}\label{sec:availability}
+
+\conclusions{}\label{sec:conclusions}
+
+This study involved the construction of an ensemble containing 48 perturbed-physics configurations of Noah-MP with a spatial resolution of 1/8\degree{} to estimate the TWB over CONUS from 1980 to 2015. This Noah-MP multi-physics ensemble features an enrichment of the original four NLDAS-2 models and brings convenience for multi-model comparison. The dataset has already been used in the monitoring of groundwater storage change \citep{rateb2020WRR}, the analysis of LSM parameterization sensitivity \citep{zheng2019WRR}, the development of model evaluation method \citep{zheng2020JAMES}, and hydrological ensemble simulations \citep{fei2021WRR}. This paper details the Noah-MP parameterizations employed and evaluates the estimated TWSA, soil moisture, SWE, and ET in comparison with the NLDAS ensemble.
+
+The Noah-MP estimates are closer to the reference than NLDAS for TWS, SWE, and soil moisture. The multi-layer snow module of Noah-MP shows superiority not only for estimating SWE but also for winter-time soil moisture. The Noah-MP ensemble complements the NLDAS multi-model ensemble well; adding the Noah-MP estimates can consistently improve the NLDAS estimates of the above variables in most areas of CONUS. For ET, Noah-MP outperforms NLDAS for the interannual anomaly but performs poorly for the annual cycle. For the annual cycle, there is a systematic overestimation in spring and summer over OH, NC, and LM. On the basis of a Sobol' sensitivity analysis of the Noah-MP estimation, the biases could be mainly related to the parameterization of turbulence, the code of which is inconsistent with the original literature and overestimates the roughness length of heat and water vapor.
+
+The study shows that the Noah-MP perturbed-physics ensemble is useful not only in improving water budget estimations over CONUS, but also in better identifying model deficiencies. The Noah-MP ensemble has the following shortcomings to be improved: (1) human activities and lakes are essential for reproducing the observed TWS but are still missed in Noah-MP; (2) accurate SWE estimation requires a multi-layer snow module, a high spatial resolution, and better shallow snow albedo parameterizations, whereas Noah-MP has to be improved for the latter two; and (3) turbulence parameterizations in Noah-MP have to be scrutinized, especially considering some critical departures between the code implementation and literature.
+
+\authorcontribution{
+ZLY initiated and funded the study. HZ conducted the simulation and generated the data. WF analyzed the data and created the figures. WYW, PL, and JW contributed to the validation of the data. All authors contributed to creating the dataset and drafting the manuscript.
+}\label{sec:contribution}
 
 \competinginterests{The authors declare that they have no conflict of interest}
 
 \disclaimer{The data are provided as-is with no warranties.}
 
 \begin{acknowledgements}
-
-This work is supported by the National Science Foundation of China (grants
-42075165, 41375088, and 41605062).
-
+This work was financially supported by the National Natural Science Foundation of China (grants 42075165, 41375088, and 41605062).
 \end{acknowledgements}
-
 
 %% REFERENCES
 \bibliography{references.bib}
 \bibliographystyle{copernicus}
 
 \end{document}
+
+%%% Local Variables:
+%%% eval: (setq reftex-cite-format 'natbib)
+%%% eval: (font-latex-add-keywords '(("Author" "*[[{")) 'function)
+%%% eval: (font-latex-add-keywords '(("affil" "*[[{")) 'function)
+%%% eval: (font-latex-add-keywords '(("citet" "*[[{")) 'reference)
+%%% eval: (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
+%%% End:
