@@ -1,0 +1,27 @@
+The authors generated a 48-member perturbed-physics ensemble dataset configured from the widely-used Noah-MP LSM with a 0.125deg spatial resolution over CONUS. This new dataset includes major terrestrial water storage component terms as output, which can serve as an augmentation of the existing NLDAS-2 model ensemble. The authors also presented an evaluation of their model ensemble results. Overall, the manuscript is well written. Before it can be considered for publication, I have a few suggestions and comments for the authors to consider.
+
+Specific comments:
+
+Which Noah-MP model code version was used in this study? Noah-MP has gone through a lot of updates in the past few years and is currently in version 4.4. Does the Noah-MP model version used in this study include those recent updates, such as a new roughness sublayer canopy turbulence scheme (Abolafia-Rosenzweig et al., 2021: https://doi.org/10.1029/2021MS002665), a new plant hydraulics scheme (Li et al., 2021: https://doi.org/10.1029/2020MS002214), and new snowpack parameter enhancements (He et al., 2021: https://doi.org/10.1029/2021JD035284). If not, I would suggest the authors at least briefly discuss these relevant Noah-MP updates and clarify the model code version they used in this study.
+
+Line 25: Please also provide the temporal resolution for the dataset (e.g., hourly output?).
+
+Line 110: “Section 0 concludes this study.” What is Section 0? A typo?
+
+Is there a way to quantitatively present the ensemble uncertainty range in the abstract and conclusion sections (e.g., x% of mean)? This will be very informative.
+
+What criteria were used to select and include only the four Noah-MP processes (i.e., runoff, stomatal conductance, soil moisture factor, turbulence) in the ensemble? What about other related processes such as snowpack-related schemes? For example, previous studies (e.g., Chen et al., 2014: https://doi.org/10.1002/2014JD022167; He et al., 2019: https://doi.org/10.1029/2019JD030823) have suggested that snow albedo schemes could play an important role in affecting Noah-MP snowpack water processes.
+
+Line 160: Where did these parameter values come from? Based on previous observations? Similarly, some clarifications are needed for the parameter values used for other schemes in this study.
+
+Lines 224-225: I believe the q_sat and q_a are mixing ratios instead of specific humidity. There are some typos in the Noah-MP code comments regarding this. Please double check.
+
+Line 280: Although details can be referred back to these two previous studies, I would suggest providing a brief description of the necessary information here, e.g., how many years of spin-up.
+
+Line 397: Bilinear interpolation from 1-km to 0.125deg may not be a good idea. A better way is to aggregate/average all 1-km pixels within each 0.125deg pixel.
+
+Section 4.1: I would expect more detailed quantitative descriptions and discussions regarding the ensemble spread and differences and causes for their differences, because this large model ensemble is the key of this new dataset. The current description is too brief and qualitative.
+
+As the authors mentioned, the Noah-MP ensemble spread is relatively small for soil moisture (Fig.4) and SWE (Fig. 8), would this be caused by too similar physical formulations of the Noah-MP schemes or parameters tuned by previous studies or something else?
+
+I would suggest adding uncertainty bars for observational points in the evaluation figures (e.g., Figs. 1, 4, 8, 10).
