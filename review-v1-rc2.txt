@@ -2,26 +2,38 @@ The authors generated a 48-member perturbed-physics ensemble dataset configured 
 
 Specific comments:
 
-Which Noah-MP model code version was used in this study? Noah-MP has gone through a lot of updates in the past few years and is currently in version 4.4. Does the Noah-MP model version used in this study include those recent updates, such as a new roughness sublayer canopy turbulence scheme (Abolafia-Rosenzweig et al., 2021: https://doi.org/10.1029/2021MS002665), a new plant hydraulics scheme (Li et al., 2021: https://doi.org/10.1029/2020MS002214), and new snowpack parameter enhancements (He et al., 2021: https://doi.org/10.1029/2021JD035284). If not, I would suggest the authors at least briefly discuss these relevant Noah-MP updates and clarify the model code version they used in this study.
+RC: Which Noah-MP model code version was used in this study? Noah-MP has gone through a lot of updates in the past few years and is currently in version 4.4. Does the Noah-MP model version used in this study include those recent updates, such as a new roughness sublayer canopy turbulence scheme (Abolafia-Rosenzweig et al., 2021: https://doi.org/10.1029/2021MS002665), a new plant hydraulics scheme (Li et al., 2021: https://doi.org/10.1029/2020MS002214), and new snowpack parameter enhancements (He et al., 2021: https://doi.org/10.1029/2021JD035284). If not, I would suggest the authors at least briefly discuss these relevant Noah-MP updates and clarify the model code version they used in this study.
+AR: We used Noah-MP along with WRF 3.6. It is basically the same as the model described by Niu et al., 2011, JGRA with bug fixes. We did not include the above-mentioned updates. We made the limitations explicit in the revised Section 2.2 and discussed possible improvements in the Conclusion.
 
-Line 25: Please also provide the temporal resolution for the dataset (e.g., hourly output?).
+RC: Line 25: Please also provide the temporal resolution for the dataset (e.g., hourly output?).
+AR: The temporal resolution is monthly. We added it in the revision.
 
-Line 110: “Section 0 concludes this study.” What is Section 0? A typo?
+RC: Line 110: “Section 0 concludes this study.” What is Section 0? A typo?
+AR: It is a typo. Should be Section 6. Corrected in this revision.
 
-Is there a way to quantitatively present the ensemble uncertainty range in the abstract and conclusion sections (e.g., x% of mean)? This will be very informative.
+RC: Is there a way to quantitatively present the ensemble uncertainty range in the abstract and conclusion sections (e.g., x% of mean)? This will be very informative.
+AR: We added a column in Table 2, showing the percentage of the ensemble spread relative to the climatological mean. The ensemble spread is largest for the surface runoff (34%) and smallest for the snow water equivalent (2.5%). Section 4.1 is revised to reflect the changes. A paragraph is added in the Conclusion Section, briefing the uncertainty range.
 
-What criteria were used to select and include only the four Noah-MP processes (i.e., runoff, stomatal conductance, soil moisture factor, turbulence) in the ensemble? What about other related processes such as snowpack-related schemes? For example, previous studies (e.g., Chen et al., 2014: https://doi.org/10.1002/2014JD022167; He et al., 2019: https://doi.org/10.1029/2019JD030823) have suggested that snow albedo schemes could play an important role in affecting Noah-MP snowpack water processes.
+RC: What criteria were used to select and include only the four Noah-MP processes (i.e., runoff, stomatal conductance, soil moisture factor, turbulence) in the ensemble? What about other related processes such as snowpack-related schemes? For example, previous studies (e.g., Chen et al., 2014: https://doi.org/10.1002/2014JD022167; He et al., 2019: https://doi.org/10.1029/2019JD030823) have suggested that snow albedo schemes could play an important role in affecting Noah-MP snowpack water processes.
+AR: The processes are selected as they directly control runoff generation and evapotranspiration and have shown their importance in global simulations. Limited by computational resources, we have not perturbed the parameterization of the cryosphere hydrological processes such as snow albedo (Chen et al., 2014, doi:10.1002/2014JD022167; He et al., 2019, doi:10.1029/2019JD030823) and rain-snow partitioning (Wang et al., 2019, doi:10.1029/2019gl085722), which may limit the usage of the dataset in cryosphere hydrology. We revised Section 2.1 to clarify the criteria and added a paragraph at the end of the Conclusions to clarify the limitation.
 
-Line 160: Where did these parameter values come from? Based on previous observations? Similarly, some clarifications are needed for the parameter values used for other schemes in this study.
+RC: Line 160: Where did these parameter values come from? Based on previous observations? Similarly, some clarifications are needed for the parameter values used for other schemes in this study.
+AR: The parameters use the Noah-MP default values. We revised the manuscript to clarify this.
 
-Lines 224-225: I believe the q_sat and q_a are mixing ratios instead of specific humidity. There are some typos in the Noah-MP code comments regarding this. Please double check.
+RC: Lines 224-225: I believe the q_sat and q_a are mixing ratios instead of specific humidity. There are some typos in the Noah-MP code comments regarding this. Please double check.
+AR: Thanks for the comment. We have checked both the code and the literature. The code differs from the literature. In Jacquemin and Noilhan (1990, https://doi.org/10.1007/BF00123180) (which Chen et al. (1996) referred back), they are specific humidity. Whereas in Noah-MP, they are mistakenly implemented as mixing ratio. We have revised the sentence to illustrate the difference.
 
-Line 280: Although details can be referred back to these two previous studies, I would suggest providing a brief description of the necessary information here, e.g., how many years of spin-up.
+RC: Line 280: Although details can be referred back to these two previous studies, I would suggest providing a brief description of the necessary information here, e.g., how many years of spin-up.
+AR: We revised the sentence for clarification: "The initial states on 1 January 1980 were obtained by cycling the year 1979 one hundred times."
 
-Line 397: Bilinear interpolation from 1-km to 0.125deg may not be a good idea. A better way is to aggregate/average all 1-km pixels within each 0.125deg pixel.
+RC: Line 397: Bilinear interpolation from 1-km to 0.125deg may not be a good idea. A better way is to aggregate/average all 1-km pixels within each 0.125deg pixel.
+AR: Thanks. In the revision, we aggregated the 1-km SNODAS to each 0.125deg NLDAS grid and re-analyzed the results.
 
-Section 4.1: I would expect more detailed quantitative descriptions and discussions regarding the ensemble spread and differences and causes for their differences, because this large model ensemble is the key of this new dataset. The current description is too brief and qualitative.
+RC: Section 4.1: I would expect more detailed quantitative descriptions and discussions regarding the ensemble spread and differences and causes for their differences, because this large model ensemble is the key of this new dataset. The current description is too brief and qualitative.
+AR: We revised the Results section to clarify the organization of the descriptions. Section 4.1 aims to compare the ensemble spread among different variables and between the annual cycle and interannual anomaly. Sections 4.2 to 4.5 present both the skill and ensemble spread. The ensemble spread relative to the climatological mean and temporal variability is calculated and presented in Table 2. Discussions of the ensemble spread is added in Section 4.1.
 
-As the authors mentioned, the Noah-MP ensemble spread is relatively small for soil moisture (Fig.4) and SWE (Fig. 8), would this be caused by too similar physical formulations of the Noah-MP schemes or parameters tuned by previous studies or something else?
+RC: As the authors mentioned, the Noah-MP ensemble spread is relatively small for soil moisture (Fig.4) and SWE (Fig. 8), would this be caused by too similar physical formulations of the Noah-MP schemes or parameters tuned by previous studies or something else?
+AR: We discussed the small spread in soil moisture and SWE in the revised Sections 4.1, 4.3, and 4.4. Whether a spread is adequate depends on the bias. For SWE, the ensemble spread seems adequate in RFCs such as NE (Figure 8) since the bias is small. On the other hand, the spread is too small in RFCs such as NW, CN, and CB. The small ensemble spread in SWE is likely due to inadequate sampling of the feasible physics parameterizations such as snow albedo, rain-snow partitioning, subgrid heterogeneity, and roughness length. For soil moisture, the Noah-MP ensemble spread appears too small in AB and CB relative to the bias (Figure 4). Mosaic has a detailed consideration of subgrid variability and outperforms Noah-MP. The Noah-MP ensemble spread could be enlarged to consider the uncertainty associated with spatial heterogeneity. On the whole, it is likely the NLDAS models have too much spread, considering that VIC simulated soil moisture using a conceptual water tank.
 
-I would suggest adding uncertainty bars for observational points in the evaluation figures (e.g., Figs. 1, 4, 8, 10).
+RC: I would suggest adding uncertainty bars for observational points in the evaluation figures (e.g., Figs. 1, 4, 8, 10).
+AR: We added error bars in the figures. The error bars in Figures 1, 4, 8, and 10 are calculated as the standard deviation of the year-to-year differences.

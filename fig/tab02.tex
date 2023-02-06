@@ -1,23 +1,28 @@
-\begin{tabular}{lcccccccccccc}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccccccccc}
     \tophline
-    \multirow{2}{*}{Variables} & \multicolumn{3}{c}{Ensemble Spread} & \multicolumn{3}{c}{Temporal Variability} & \multicolumn{3}{c}{\(R\)} & \multicolumn{3}{c}{Rating}                                                                                                             \\
-                      & \(\sigma_{lss,ancy}\) & \(\sigma_{lss,anom}\) & \(\sigma_{lss,total}\) & \(\sigma_{ancy}\) & \(\sigma_{anom}\) & \(\sigma_{ancy}\) & \(R_{ancy}\) & \(R_{anom}\) & \(R_{total}\) & ancy & anom & total \\
+    Variables                           & \(\check{\sigma}_{ancy}\)  & \(\check{\sigma}_{anom}\) & \(\check{\sigma}_{total}\)
+                                        & \(\bar{\check{x}}\) & \(\frac{\check{\sigma}_{total}}{\bar{\check{x}}}\) (\%)
+                                        & \(\sigma_{ancy}\)          & \(\sigma_{anom}\)         & \(\sigma_{total}\)
+                                        & \(r\sim\frac{\check{\sigma}_{ancy}}{\sigma_{ancy}}\)
+                                        & \(r\sim\frac{\check{\sigma}_{anom}}{\sigma_{anom}}\)
+                                        & \(r\sim\frac{\check{\sigma}_{total}}{\sigma_{total}}\)  \\
     \middlehline
-    \(E\)             & \num{1.1938e-6}       & \num{2.6612e-7}       & \num{1.2223e-6}        & \num{1.1764e-5}   & \num{1.1842e-6}   & \num{1.1823e-5}   & \num{0.1015} & \num{0.2247} & \num{0.1034}  & A    & A    & A     \\
-    \(E_{can}\)       & \num{2.0698e-7}       & \num{4.1702e-8}       & \num{2.0699e-7}        & \num{1.1083e-6}   & \num{3.0769e-7}   & \num{1.1502e-6}   & \num{0.1868} & \num{0.1355} & \num{0.1800}  & A    & A    & A     \\
-    \(E_{gnd}\)       & \num{7.3255e-7}       & \num{1.4349e-7}       & \num{7.4295e-7}        & \num{3.6413e-6}   & \num{7.7774e-7}   & \num{3.7235e-6}   & \num{0.2012} & \num{0.1845} & \num{0.1995}  & A    & A    & A     \\
-    \(E_{tran}\)      & \num{1.3345e-6}       & \num{2.0629e-7}       & \num{1.3483e-6}        & \num{7.8742e-6}   & \num{6.6551e-7}   & \num{7.9023e-6}   & \num{0.1695} & \num{0.3100} & \num{0.1706}  & A    & A    & A     \\
-    \(R\)             & \num{1.2233e-6}       & \num{3.6872e-7}       & \num{1.2591e-6}        & \num{3.1335e-6}   & \num{3.6872e-7}   & \num{1.2591e-6}   & \num{0.3904} & \num{0.2061} & \num{0.3490}  & B    & A    & B     \\
-    \(R_{srf}\)       & \num{6.8201e-7}       & \num{2.2459e-7}       & \num{7.0071e-7}        & \num{6.9029e-7}   & \num{5.7802e-7}   & \num{9.0033e-7}   & \num{0.9880} & \num{0.3885} & \num{0.7783}  & B    & B    & B     \\
-    \(R_{sub}\)       & \num{1.0013e-6}       & \num{3.4277e-7}       & \num{1.0389e-6}        & \num{2.4692e-6}   & \num{1.3121e-6}   & \num{2.7962e-6}   & \num{0.4055} & \num{0.2612} & \num{0.3712}  & B    & A    & B     \\
-    \(W'\)            & \num{5.5732}          & \num{3.4333}          & \num{6.4796}           & \num{44.9508}     & \num{18.0598}     & \num{48.4430}     & \num{0.1240} & \num{0.1901} & \num{0.1338}  & A    & A    & A     \\
-    \(\Delta W\)      & \num{2.8444}          & \num{0.8990}          & \num{2.9549}           & \num{22.5839}     & \num{5.9302}      & \num{23.3270}     & \num{0.1259} & \num{0.1516} & \num{0.1267}  & A    & A    & A     \\
-    \(W'_{gw}\)       & \num{0.6713}          & \num{0.8549}          & \num{1.0856}           & \num{8.1760}      & \num{6.1079}      & \num{10.1988}     & \num{0.0821} & \num{0.1400} & \num{0.1064}  & A    & A    & A     \\
-    \(\Delta W_{gw}\) & \num{0.3742}          & \num{0.3005}          & \num{0.4812}           & \num{4.1177}      & \num{1.6318}      & \num{4.4243}      & \num{0.0909} & \num{0.1842} & \num{0.1088}  & A    & A    & A     \\
-    \(W_{snow}\)      & \num{0.1254}          & \num{0.1273}          & \num{0.1726}           & \num{7.5644}      & \num{3.8036}      & \num{8.4669}      & \num{0.0166} & \num{0.0335} & \num{0.0204}  & A    & A    & A     \\
-    \(w_{soil,1}\)    & \num{0.0066}          & \num{0.0009}          & \num{0.0067}           & \num{0.0242}      & \num{0.0102}      & \num{0.0262}      & \num{0.2726} & \num{0.0933} & \num{0.2537}  & A    & A    & A     \\
-    \(w_{soil,2}\)    & \num{0.0084}          & \num{0.0012}          & \num{0.0085}           & \num{0.0194}      & \num{0.0081}      & \num{0.0210}      & \num{0.4337} & \num{0.1522} & \num{0.4040}  & B    & A    & B     \\
-    \(w_{soil,3}\)    & \num{0.0119}          & \num{0.0018}          & \num{0.0121}           & \num{0.0227}      & \num{0.0088}      & \num{0.0244}      & \num{0.5251} & \num{0.2080} & \num{0.4958}  & B    & A    & B     \\
-    \(w_{soil,4}\)    & \num{0.0146}          & \num{0.0018}          & \num{0.0147}           & \num{0.0160}      & \num{0.0071}      & \num{0.0175}      & \num{0.9110} & \num{0.2594} & \num{0.8394}  & B    & A    & B     \\
+    \(E\) (\(\times 10^{-6}\))          & \num{1.19}   & \num{0.266}  & \num{1.22}  & \num{17.5}     & \num{7.0} & \num{11.8}  & \num{1.18}  & \num{11.8} & A\textasciitilde\num{0.102} & A\textasciitilde\num{0.225} & A\textasciitilde\num{0.103} \\
+    \(E_{can}\) (\(\times 10^{-6}\))    & \num{0.207}  & \num{0.0417} & \num{0.207} & \num{1.52}     & \num{14}  & \num{1.11}  & \num{0.308} & \num{1.15} & A\textasciitilde\num{0.187} & A\textasciitilde\num{0.136} & A\textasciitilde\num{0.180} \\
+    \(E_{gnd}\) (\(\times 10^{-6}\))    & \num{0.733}  & \num{0.143}  & \num{0.743} & \num{7.96}     & \num{9.3} & \num{3.64}  & \num{0.778} & \num{3.72} & A\textasciitilde\num{0.201} & A\textasciitilde\num{0.185} & A\textasciitilde\num{0.200} \\
+    \(E_{tran}\) (\(\times 10^{-6}\))   & \num{1.33}   & \num{0.206}  & \num{1.35}  & \num{7.99}     & \num{17}  & \num{7.87}  & \num{0.666} & \num{7.90} & A\textasciitilde\num{0.170} & A\textasciitilde\num{0.310} & A\textasciitilde\num{0.171} \\
+    \(R\) (\(\times 10^{-6}\))          & \num{1.22}   & \num{0.369}  & \num{1.26}  & \num{6.73}     & \num{19}  & \num{3.13}  & \num{0.369} & \num{1.26} & B\textasciitilde\num{0.390} & A\textasciitilde\num{0.206} & B\textasciitilde\num{0.349} \\
+    \(R_{srf}\) (\(\times 10^{-6}\))    & \num{0.682}  & \num{0.225}  & \num{0.701} & \num{2.09}     & \num{34}  & \num{0.690} & \num{0.578} & \num{0.900}& B\textasciitilde\num{0.988} & B\textasciitilde\num{0.389} & B\textasciitilde\num{0.778} \\
+    \(R_{sub}\) (\(\times 10^{-6}\))    & \num{1.00}   & \num{0.343}  & \num{1.04}  & \num{4.64}     & \num{22}  & \num{2.47}  & \num{1.31}  & \num{2.80} & B\textasciitilde\num{0.406} & A\textasciitilde\num{0.261} & B\textasciitilde\num{0.371} \\
+    \(W'\) (\(\times 10^{-6}\))         & \num{1.10}   & \num{0.347}  & \num{1.14}  & \num{-0.0331}  & /         & \num{8.71}  & \num{2.29}  & \num{9.00} & A\textasciitilde\num{0.126} & A\textasciitilde\num{0.152} & A\textasciitilde\num{0.127} \\
+    \(W'_{gw}\) (\(\times 10^{-6}\))    & \num{0.144}  & \num{0.116}  & \num{0.186} & \num{-0.00571} & /         & \num{1.59}  & \num{0.630} & \num{1.71} & A\textasciitilde\num{0.091} & A\textasciitilde\num{0.184} & A\textasciitilde\num{0.109} \\
+    \(\tilde{W}\)                       & \num{5.57}   & \num{3.43}   & \num{6.48}  & \num{0}        & /         & \num{45.0}  & \num{18.1}  & \num{48.4} & A\textasciitilde\num{0.124} & A\textasciitilde\num{0.190} & A\textasciitilde\num{0.134} \\
+    \(\tilde{W}_{gw}\)                  & \num{0.671}  & \num{0.855}  & \num{1.09}  & \num{0}        & /         & \num{8.18}  & \num{6.11}  & \num{10.2} & A\textasciitilde\num{0.082} & A\textasciitilde\num{0.140} & A\textasciitilde\num{0.106} \\
+    \(W_{snow}\)                        & \num{0.125}  & \num{0.127}  & \num{0.173} & \num{6.84}     & \num{2.5} & \num{7.56}  & \num{3.80}  & \num{8.47} & A\textasciitilde\num{0.017} & A\textasciitilde\num{0.033} & A\textasciitilde\num{0.020} \\
+    \(w_{soil,1}\) (\(\times 10^{-3}\)) & \num{6.66}   & \num{0.947}  & \num{6.65}  & \num{227}      & \num{2.9} & \num{24.2}  & \num{10.2}  & \num{26.2} & A\textasciitilde\num{0.273} & A\textasciitilde\num{0.093} & A\textasciitilde\num{0.254} \\
+    \(w_{soil,2}\) (\(\times 10^{-3}\)) & \num{8.40}   & \num{1.24}   & \num{8.48}  & \num{239}      & \num{3.5} & \num{19.4}  & \num{8.14}  & \num{21.0} & B\textasciitilde\num{0.434} & A\textasciitilde\num{0.152} & B\textasciitilde\num{0.404} \\
+    \(w_{soil,3}\) (\(\times 10^{-3}\)) & \num{11.9}   & \num{1.83}   & \num{12.1}  & \num{233}      & \num{5.2} & \num{22.7}  & \num{8.78}  & \num{24.4} & B\textasciitilde\num{0.525} & A\textasciitilde\num{0.208} & B\textasciitilde\num{0.496} \\
+    \(w_{soil,4}\) (\(\times 10^{-3}\)) & \num{14.6}   & \num{1.84}   & \num{14.7}  & \num{250}      & \num{5.9} & \num{16.0}  & \num{7.09}  & \num{17.5} & B\textasciitilde\num{0.911} & A\textasciitilde\num{0.259} & B\textasciitilde\num{0.839} \\
     \bottomhline
 \end{tabular}
