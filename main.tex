@@ -42,7 +42,7 @@ The dataset spans from 1980 to 2015 over the conterminous United States (CONUS) 
 
 \introduction\label{sec:intro}
 
-Estimates of the terrestrial water budgets (TWBs)---evapotranspiration, runoff, terrestrial water storage, and their constituents ---over continental domains are of high interest for a broad range of hydrological applications. Publicly available data have been applied to investigate the state of the terrestrial water cycle \citep{trenberth2013GRL,rodell2015JC, scanlon2018PNASU, yin2020HESS}; to understand the interactions among hydrological processes, vegetation, climate, and human activities \citep{trenberth2013JC,lafontaine2015JAWRA, ward2014PNASU, levia2020NG}; to examine the availability and variability of water resources and use \citep{wu2021JHa, hejazi2014HESS, scanlon2012PNASU, voss2013WRR, lv2019JGRA, le2011PNASU, rodell2009N}; and to assess the risk of extreme events such as droughts \citep{peters-lidard2021BAMS, prudhomme2014PNASU, dai2013NCC, su2021JHa} and floods \citep{emerton2017NC, lin2018JH}.
+Estimates of the terrestrial water budgets (TWBs)---evapotranspiration, runoff, terrestrial water storage, and their constituents---over continental domains are of high interest for a broad range of hydrological applications. Publicly available data have been applied to investigate the state of the terrestrial water cycle \citep{trenberth2013GRL, rodell2015JC, scanlon2018PNASU, yin2020HESS}; to understand the interactions among hydrological processes, vegetation, climate, and human activities \citep{trenberth2013JC, lafontaine2015JAWRA, ward2014PNASU, levia2020NG}; to examine the availability and variability of water resources and use \citep{wu2021JHa, hejazi2014HESS, scanlon2012PNASU, voss2013WRR, lv2019JGRA, le2011PNASU, rodell2009N}; and to assess the risk of extreme events such as droughts \citep{peters-lidard2021BAMS, prudhomme2014PNASU, dai2013NCC, su2021JHa} and floods \citep{emerton2017NC, lin2018JH}.
 
 As the applications have expanded, the availability of TWB estimates has increased rapidly \citep{peters-lidard2018MM, saxe2021HESS, zhang2018HESS}. Commonly used estimation methods include remote sensing, in-situ observations, and model simulations \citep{saxe2021HESS, mccabe2017HESS, pan2012JC, gao2010IJRS, trenberth2007JH}. Among these methods, land surface models (LSMs) are apt for continuously producing physically consistent TWBs over a large domain and long period, and their characteristics are particularly favorable for certain circumstances. For instance, LSMs can estimate various TWB components simultaneously; whereas, for some components, such as runoff \citep{lin2019WRRa, beck2017HESS}, root-zone soil moisture \citep{xia2015JHa, xia2015JH}, and transpiration \citep{lian2018NCC}, direct remote sensing is either unavailable or highly uncertain. Additionally, LSMs are valuable in remote or topographically complex regions because of the sparseness of in-situ observations \citep{kim2021TC}. Estimations based on remote sensing and in-situ observations are often impeded by scale mismatches and observation gaps, whereas these issues are rarely an impairment for LSM simulations. Besides, LSM simulations can complement remote sensing and in-situ observations well. Combinations of estimates from different techniques can improve the estimation accuracy \citep{zhang2018HESS, pan2012JC, zhao2018RSE}, while comparisons between model-simulated estimates and observations can reveal the impacts of human activities \citep{zaussinger2019HESS} and underground processes \citep{zheng2020JAMES}.
 
@@ -209,19 +209,19 @@ Table~\ref{tab:statistics} also shows the comparison between the annual cycle an
 \subsection{Terrestrial water storage anomaly}\label{sec:results:twsa}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig01.pdf}
+  \includegraphics[width=14cm]{fig/fig01.pdf}
   \caption{Annual cycle of TWSA from the model estimates and GRACE in the 12 RFCs for the period 2003--2015. The TWSA is calculated from the monthly TWS by subtracting the 13-year average (2003 to 2015). Black dots denote the GRACE observations. Error bars show the standard deviation of the year-to-year differences. The shaded areas denote the range between the maxima and minima of the 48 Noah-MP estimates. The solid red line denotes the Noah-MP multi-physics ensemble mean. The three NLDAS models (Noah, Mosaic, VIC) and their ensemble mean are denoted by the blue, green, cyan, and dark golden lines, respectively. The twelve RFCs are sorted based on climatic aridity, i.e., the most humid RFC in the top left and the driest RFC in the bottom right.}
   \label{fig:twsa:ancy}
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig02.pdf}
+  \includegraphics[width=14cm]{fig/fig02.pdf}
   \caption{Taylor diagram of TWSA's annual cycle for the 48 Noah-MP configurations (red dots) and three NLDAS models (blue dots for Noah, green stars for VIC, and cyan square for Mosaic) at the twelve RFCs. Black stars denote the observations. The ensemble mean of Noah-MP and NLDAS is presented by purple and dark golden diamonds, respectively. The distance between the model and observation presents the nuRMSE\@. The radial lines show the correlation coefficient, while the distance to the origin along the line denotes the normalized variability.}
   \label{fig:twsa:ancy:tss}
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig03.pdf}
+  \includegraphics[width=14cm]{fig/fig03.pdf}
   \caption{As in Figure~\ref{fig:twsa:ancy:tss}, but for the interannual anomaly of TWSA.}
   \label{fig:twsa:anom:tss}
 \end{figure*}
@@ -235,19 +235,19 @@ Figure~\ref{fig:twsa:anom:tss} shows the Taylor diagram for the interannual anom
 \subsection{Soil moisture} \label{sec:results:sm}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig04.pdf}
+  \includegraphics[width=14cm]{fig/fig04.pdf}
   \caption{Monthly surface (0--0.1\,m) and root-zone (0--1\,m) soil moisture (left column) and the annual cycle (right column) from the Noah-MP ensemble, the NLDAS models, and the NASMD observations for the period 1996--2013. Only the RFCs with more than ten observational sites are considered. Black dots denote the arithmetic average of the valid NASMD observations. Error bars in the right columns denote the standard deviation of the year-to-year differences. The shaded areas denote the range between the maxima and minima of the 48 Noah-MP estimates. The solid red line denotes the Noah-MP multi-physics ensemble mean. The three NLDAS models (Noah, Mosaic, VIC) and their ensemble mean are denoted by the blue, green, cyan, and dark golden lines, respectively. The five RFCs are sorted based on climatic aridity.}
   \label{fig:sm:ts}
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig05.pdf}
+  \includegraphics[width=17cm]{fig/fig05.pdf}
   \caption{The first column shows the TSS of the NLDAS ensemble mean in simulating the annual cycle of soil moisture at different depths (0--0.1\,m, 0.1--0.4\,m, 0.4--1\,m, 1--2\,m). The second column presents the difference in TSS between the Noah-MP ensemble mean and the NLDAS ensemble mean. The third column depicts the TSS difference between the arithmetic average of the Noah-MP ensemble mean and the NLDAS models to the NLDAS three-model mean. \(P\) is the percentage of sites at which a higher TSS appears relative to the NLDAS ensemble mean. \(P1\) (\(P2\)) is the percentage of sites at which a higher TSS appear given that the Noah-MP ensemble mean outperforms (underperforms) the NLDAS ensemble mean. The evaluation period is 1996--2013.}
   \label{fig:sm:ancy:tss}
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig06.pdf}
+  \includegraphics[width=17cm]{fig/fig06.pdf}
   \caption{As in Figure~\ref{fig:sm:ancy:tss}, but for interannual anomaly.}
   \label{fig:sm:anom:tss}
 \end{figure*}
@@ -265,19 +265,19 @@ To maximize the utilization of the NLDAS model diversity and Noah-MP physics imp
 \subsection{Snow water equivalent}\label{sec:results:swe}
 
 \begin{figure}[t]
-  \includegraphics[width=8.3cm]{fig/fig07.pdf}
+  \includegraphics[width=8cm]{fig/fig07.pdf}
   \caption{(a) Spatial distribution of the 11-year-averaged (September 2004 to August 2015) SWE from SNODAS\@. (b) Difference between the NLDAS ensemble mean and SNODAS\@. (c) Difference between the Noah-MP ensemble mean and SNODAS\@. The spatial correlation coefficients between the NLDAS/Noah-MP ensemble mean and SNODAS are also presented.}
   \label{fig:swe:clim}
 \end{figure}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig08.pdf}
+  \includegraphics[width=14cm]{fig/fig08.pdf}
   \caption{As in Figure~\ref{fig:twsa:ancy}, but for SWE between September 2004 and August 2015.}
   \label{fig:swe:ancy}
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig09.pdf}
+  \includegraphics[width=17cm]{fig/fig09.pdf}
   \caption{TSS of the ensemble means in simulating the annual cycle (left column) and interannual anomaly (right column) of SWE\@. (a) and (b) TSS of the NLDAS ensemble mean. (c) and (d) the difference in TSS between the Noah-MP ensemble mean and the NLDAS ensemble mean. (e) and (f) the difference between the arithmetic average of the Noah-MP ensemble mean and three NLDAS models to the NLDAS ensemble mean. The evaluation period is 2004--2015.}
   \label{fig:swe:tss}
 \end{figure*}
@@ -290,34 +290,35 @@ Figure~\ref{fig:swe:tss} shows the TSS of the NLDAS and Noah-MP ensembles in est
 
 We further averaged the 48 Noah-MP configurations and added their average to the three-model NLDAS ensemble. Figures~\ref{fig:swe:tss}e and \ref{fig:swe:tss}f show that the four-estimate ensemble mean outperforms the three-model NLDAS ensemble mean in nearly all areas of CONUS, again proving the added value of the data provided in this paper.
 
+
 \subsection{Evapotranspiration}\label{sec:results:et}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig10.pdf}
+  \includegraphics[width=14cm]{fig/fig10.pdf}
   \caption{As in Figure~\ref{fig:twsa:ancy}, but for ET in the period of 1982--2011.}
   \label{fig:et:ancy}
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig11.pdf}
+  \includegraphics[width=17cm]{fig/fig11.pdf}
   \caption{Differences between the Noah-MP ensemble mean and GLEAM in total ET (\(E\)), canopy evaporation (\(E_{can}\)), ground evaporation (\(E_{gnd}\)), and transpiration (\(E_{tran}\)). The units are \unit{mm.day^{-1}}.}
   \label{fig:et:decomp}
 \end{figure*}
 
 \begin{figure}[t]
-  \includegraphics[width=8.3cm]{fig/fig12.pdf}
+  \includegraphics[width=8cm]{fig/fig12.pdf}
   \caption{Probability distribution of ET's TSS for the annual cycle (a, b) and interannual anomaly (c, d). The left column compares the Noah-MP (orange) and NLDAS (cyan) ensemble means. The right column reveals the Noah-MP (magenta) and NLDAS (dark blue) ensembles. The upper, middle, and lower quantile lines of the magenta boxes show the 75th, 50th, and 25th percentile values of the Noah-MP ensemble. The upper, middle, and lower lines of the dark blue boxes show the three NLDAS models. The blue, green, and cyan dots denote Noah, VIC, and Mosaic, respectively. The evaluation period can be found in Table S1.}
   \label{fig:et:tss}
 \end{figure}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig13.pdf}
+  \includegraphics[width=17cm]{fig/fig13.pdf}
   \caption{Normalized ensemble spread of the multi-year averaged annual (first row) and seasonal (second--fifth rows) ET from NLDAS (first column) and Noah-MP (second column). The ensemble spread is normalized by the temporal variability of the FLUXNET MTE ET calculated using equation~\eqref{eq:var:total}.}
   \label{fig:et:spread}
 \end{figure*}
 
 \begin{figure*}[t]
-  \includegraphics[width=12cm]{fig/fig14.pdf}
+  \includegraphics[width=17cm]{fig/fig14.pdf}
   \caption{The Sobol' total sensitivity of the multi-year-averaged and seasonal (spring---MAM, summer---JJA, autumn---SON, winter---DJF) ET to the four parameterizations: stomatal conductance, soil moisture limitation to transpiration (\beta{}-factor), turbulence, and runoff. Higher values indicate higher sensitivities.}
   \label{fig:et:sens}
 \end{figure*}
