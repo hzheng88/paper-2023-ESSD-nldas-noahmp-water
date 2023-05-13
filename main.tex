@@ -65,7 +65,28 @@ Table~\ref{tab:variables} lists the dataset variables. The variables are availab
 \begin{table}[t]
   \caption{The dataset variables.}
   \label{tab:variables}
-  \input{fig/tab01.tex}
+  \begin{tabular}{lll}
+    \tophline
+    Symbol         & Units                   & Description \\
+    \middlehline
+    \multicolumn{3}{c}{surface water budget} \\
+    \(E\)          & \unit{kg.m^{-2}.s^{-1}} & total evapotranspiration \\
+    \(E_{can}\)    & \unit{kg.m^{-2}.s^{-1}} & evaporation of canopy interception \\
+    \(E_{gnd}\)    & \unit{kg.m^{-2}.s^{-1}} & direct evaporation from the ground \\
+    \(E_{tran}\)   & \unit{kg.m^{-2}.s^{-1}} & transpiration \\
+    \(R\)          & \unit{kg.m^{-2}.s^{-1}} & total runoff \\
+    \(R_{srf}\)    & \unit{kg.m^{-2}.s^{-1}} & surface runoff \\
+    \(R_{und}\)    & \unit{kg.m^{-2}.s^{-1}} & subsurface runoff \\
+    \(W\)          & \unit{kg.m^{-2}}        & terrestrial water storage \\
+    \(W_{snow}\)   & \unit{kg.m^{-2}}        & snow water equivalent \\
+    \(W_{gw}\)     & \unit{kg.m^{-2}}        & groundwater storage \\
+    \(w_{soil,i}\) & \unit{m^3.m^{-3}}       & volumetric soil water content \\
+    \(z_{snow}\)   & \unit{m}                & snow depth \\
+    [1pt]
+    \multicolumn{3}{c}{auxiliary variables} \\
+    \(X\)          & -                       & land-water mask \\
+    \bottomhline
+  \end{tabular}
 \end{table}
 
 Neglecting horizontal water exchange between adjacent grids, the water budget closure can be obtained among the precipitation (\(P\), \unit{kg.m^{-2}.s^{-1}}), ET (\(E\)), runoff (\(R\)), and terrestrial water storage change (\(W'=\frac{dW}{dt}\), \unit{kg.m^{-2}.s^{-1}}) \citep{zheng2020JAMES}:
@@ -199,7 +220,35 @@ In this section, we begin by intercomparing the ensemble spread of the dataset v
 \begin{table*}[t]
   \caption{The climatological mean, ensemble spread, and temporal variability of different dataset variables. \(\bar{\check{x}}\) denotes the climatological average of the ensemble mean. \(\check{\sigma}_{ancy}\), \(\check{\sigma}_{anom}\), and \(\check{\sigma}_{total}\) denote the spread of the 48 Noah-MP configurations in simulating the multi-year averaged annual cycle, interannual anomaly, and total 36-year monthly time series, respectively. \(\sigma_{ancy}\), \(\sigma_{anom}\), and \(\sigma_{total}\) denote the temporal variability of the annual cycle, interannual anomaly, and the total time series, respectively. The rating of the ratio \(\check{\sigma}/\sigma\) is defined in Section~\ref{sec:methods:variation}. The units of the variables are presented in Table~\ref{tab:variables}. \(\tilde{W}\) (\(\tilde{W}_{gw}\)) denotes the terrestrial water storage (groundwater) anomaly (\unit{kg.m^{-2}}), whereas \(W'\) (\(W'_{gw}\)) denotes the monthly terrestrial water storage (groundwater) change (\unit{kg.m^{-2}.s^{-1}}).}
   \label{tab:statistics}
-  \input{fig/tab02.tex}
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{lccccccccccc}
+    \tophline
+    Variables                           & \(\check{\sigma}_{ancy}\)                              & \(\check{\sigma}_{anom}\)                               & \(\check{\sigma}_{total}\)
+                                        & \(\bar{\check{x}}\)                                    & \(\frac{\check{\sigma}_{total}}{\bar{\check{x}}}\) (\%)
+                                        & \(\sigma_{ancy}\)                                      & \(\sigma_{anom}\)                                       & \(\sigma_{total}\)
+                                        & \(r\sim\frac{\check{\sigma}_{ancy}}{\sigma_{ancy}}\)
+                                        & \(r\sim\frac{\check{\sigma}_{anom}}{\sigma_{anom}}\)
+                                        & \(r\sim\frac{\check{\sigma}_{total}}{\sigma_{total}}\) \\
+    \middlehline
+    \(E\) (\(\times 10^{-6}\))          & \num{1.19}                                             & \num{0.266}                                             & \num{1.22}                 & \num{17.5}     & \num{7.0} & \num{11.8}  & \num{1.18}  & \num{11.8}  & A\textasciitilde\num{0.102} & A\textasciitilde\num{0.225} & A\textasciitilde\num{0.103} \\
+    \(E_{can}\) (\(\times 10^{-6}\))    & \num{0.207}                                            & \num{0.0417}                                            & \num{0.207}                & \num{1.52}     & \num{14}  & \num{1.11}  & \num{0.308} & \num{1.15}  & A\textasciitilde\num{0.187} & A\textasciitilde\num{0.136} & A\textasciitilde\num{0.180} \\
+    \(E_{gnd}\) (\(\times 10^{-6}\))    & \num{0.733}                                            & \num{0.143}                                             & \num{0.743}                & \num{7.96}     & \num{9.3} & \num{3.64}  & \num{0.778} & \num{3.72}  & A\textasciitilde\num{0.201} & A\textasciitilde\num{0.185} & A\textasciitilde\num{0.200} \\
+    \(E_{tran}\) (\(\times 10^{-6}\))   & \num{1.33}                                             & \num{0.206}                                             & \num{1.35}                 & \num{7.99}     & \num{17}  & \num{7.87}  & \num{0.666} & \num{7.90}  & A\textasciitilde\num{0.170} & A\textasciitilde\num{0.310} & A\textasciitilde\num{0.171} \\
+    \(R\) (\(\times 10^{-6}\))          & \num{1.22}                                             & \num{0.369}                                             & \num{1.26}                 & \num{6.73}     & \num{19}  & \num{3.13}  & \num{0.369} & \num{1.26}  & B\textasciitilde\num{0.390} & A\textasciitilde\num{0.206} & B\textasciitilde\num{0.349} \\
+    \(R_{srf}\) (\(\times 10^{-6}\))    & \num{0.682}                                            & \num{0.225}                                             & \num{0.701}                & \num{2.09}     & \num{34}  & \num{0.690} & \num{0.578} & \num{0.900} & B\textasciitilde\num{0.988} & B\textasciitilde\num{0.389} & B\textasciitilde\num{0.778} \\
+    \(R_{sub}\) (\(\times 10^{-6}\))    & \num{1.00}                                             & \num{0.343}                                             & \num{1.04}                 & \num{4.64}     & \num{22}  & \num{2.47}  & \num{1.31}  & \num{2.80}  & B\textasciitilde\num{0.406} & A\textasciitilde\num{0.261} & B\textasciitilde\num{0.371} \\
+    \(W'\) (\(\times 10^{-6}\))         & \num{1.10}                                             & \num{0.347}                                             & \num{1.14}                 & \num{-0.0331}  & /         & \num{8.71}  & \num{2.29}  & \num{9.00}  & A\textasciitilde\num{0.126} & A\textasciitilde\num{0.152} & A\textasciitilde\num{0.127} \\
+    \(W'_{gw}\) (\(\times 10^{-6}\))    & \num{0.144}                                            & \num{0.116}                                             & \num{0.186}                & \num{-0.00571} & /         & \num{1.59}  & \num{0.630} & \num{1.71}  & A\textasciitilde\num{0.091} & A\textasciitilde\num{0.184} & A\textasciitilde\num{0.109} \\
+    \(\tilde{W}\)                       & \num{5.57}                                             & \num{3.43}                                              & \num{6.48}                 & \num{0}        & /         & \num{45.0}  & \num{18.1}  & \num{48.4}  & A\textasciitilde\num{0.124} & A\textasciitilde\num{0.190} & A\textasciitilde\num{0.134} \\
+    \(\tilde{W}_{gw}\)                  & \num{0.671}                                            & \num{0.855}                                             & \num{1.09}                 & \num{0}        & /         & \num{8.18}  & \num{6.11}  & \num{10.2}  & A\textasciitilde\num{0.082} & A\textasciitilde\num{0.140} & A\textasciitilde\num{0.106} \\
+    \(W_{snow}\)                        & \num{0.125}                                            & \num{0.127}                                             & \num{0.173}                & \num{6.84}     & \num{2.5} & \num{7.56}  & \num{3.80}  & \num{8.47}  & A\textasciitilde\num{0.017} & A\textasciitilde\num{0.033} & A\textasciitilde\num{0.020} \\
+    \(w_{soil,1}\) (\(\times 10^{-3}\)) & \num{6.66}                                             & \num{0.947}                                             & \num{6.65}                 & \num{227}      & \num{2.9} & \num{24.2}  & \num{10.2}  & \num{26.2}  & A\textasciitilde\num{0.273} & A\textasciitilde\num{0.093} & A\textasciitilde\num{0.254} \\
+    \(w_{soil,2}\) (\(\times 10^{-3}\)) & \num{8.40}                                             & \num{1.24}                                              & \num{8.48}                 & \num{239}      & \num{3.5} & \num{19.4}  & \num{8.14}  & \num{21.0}  & B\textasciitilde\num{0.434} & A\textasciitilde\num{0.152} & B\textasciitilde\num{0.404} \\
+    \(w_{soil,3}\) (\(\times 10^{-3}\)) & \num{11.9}                                             & \num{1.83}                                              & \num{12.1}                 & \num{233}      & \num{5.2} & \num{22.7}  & \num{8.78}  & \num{24.4}  & B\textasciitilde\num{0.525} & A\textasciitilde\num{0.208} & B\textasciitilde\num{0.496} \\
+    \(w_{soil,4}\) (\(\times 10^{-3}\)) & \num{14.6}                                             & \num{1.84}                                              & \num{14.7}                 & \num{250}      & \num{5.9} & \num{16.0}  & \num{7.09}  & \num{17.5}  & B\textasciitilde\num{0.911} & A\textasciitilde\num{0.259} & B\textasciitilde\num{0.839} \\
+    \bottomhline
+  \end{tabular}
+
 \end{table*}
 
 We aggregated the dataset variables across CONUS\@. Table~\ref{tab:statistics} summarizes the ensemble spread and temporal variability of the ensemble mean for all the dataset variables. Among the variables, runoff (including surface and subsurface components) shows the largest spread, accounting for one-fifth to one-third of the climatological mean. The ensemble spread is comparable to or larger than the temporal variability. The magnitude is similar to that estimated in GSWP-2. The spread of ET and TWS is significantly smaller than those observed in GSWP-2. The high consistency among the Noah-MP configurations could be a sign of the limited sampling of available process parameterizations but also could be a result of continuous model improvements. ET might be the former case since the ensemble does not perturb several important processes such as roughness sublayer \citep{abolafia-rosenzweig2021JAMES} and plant hydraulics \citep{li2021JAMESa}. TWS is likely the latter case since the parameters of different groundwater schemes are calibrated using GRACE \citep{niu2007JGRa}. The spread of snow water equivalent depicts the smallest spread, which is 2.5\% of the climatological mean. The small spread reflects a limited sampling of the cryosphere processes as discussed in Section~\ref{sec:data:noahmp}. For soil moisture, the ensemble spread is marginal at the surface and increases significantly in the deep layers. The difference hints that the controlling processes vary with depth. The surface soil moisture is tightly controlled by the atmospheric forcings, whereas the spread of the sub-surface soil moisture hints at the complex interplay among various land surface processes (e.g., root water uptake and subsurface runoff) \citep{koster2015BAMS}.
@@ -289,7 +338,6 @@ Figure~\ref{fig:swe:ancy} compares the annual cycle estimated from SNODAS, NLDAS
 Figure~\ref{fig:swe:tss} shows the TSS of the NLDAS and Noah-MP ensembles in estimating the annual cycle and interannual anomaly of SWE\@. Table S7 summarizes the skill scores for the twelve RFCs. The annual cycle and interannual anomaly exhibit similar spatial patterns. NLDAS performs well in most parts of the CONUS, with TSSs higher than 0.75. In MB, TSS reaches a minimum of 0.60. In comparison with NLDAS, Noah-MP performs notably better in the east and west but marginally worse in parts of the central CONUS\@. The location of Noah-MP's underperformance coincides well with shallow snow and relatively flat terrain. The coincidence hints at the weakness of Noah-MP in simulating shallow snow and the advantage of VIC in representing subgrid snow variability as discussed previously.
 
 We further averaged the 48 Noah-MP configurations and added their average to the three-model NLDAS ensemble. Figures~\ref{fig:swe:tss}e and \ref{fig:swe:tss}f show that the four-estimate ensemble mean outperforms the three-model NLDAS ensemble mean in nearly all areas of CONUS, again proving the added value of the data provided in this paper.
-
 
 \subsection{Evapotranspiration}\label{sec:results:et}
 
